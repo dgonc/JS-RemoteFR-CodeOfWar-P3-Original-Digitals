@@ -22,6 +22,8 @@ router.post("/items", itemActions.add);
 // route to get a list of movies
 router.get("/movies", movieActions.browse);
 
+router.get("/movies/:id", movieActions.read);
+
 /* ************************************************************************* */
 
 module.exports = router;
