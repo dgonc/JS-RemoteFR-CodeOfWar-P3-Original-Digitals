@@ -1,14 +1,36 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom";
+import myAxios from "./services/myAxios";
 
 import App from "./App";
+import User from "./pages/User";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/users",
+        element: <User />,
+        loader: async () => {
+          const response = await myAxios.get("/api/users");
+          return response.data;
+        },
+        action: async ({request}) => {
+        const formData = await request.formData();
+        const user = {
+          email: formData.get("email"),
+          password: formData.get("password"),
+          firstname: formData.get("firstname"),
+          lastname: formData.get("lastname")
+        };
+        const response = await myAxios.post("/api/users", user);
+        return redirect(`/users/${response.data.insertId}`)
+      }
+    },
+    ],
   },
 ]);
 

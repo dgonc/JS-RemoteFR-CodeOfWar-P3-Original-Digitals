@@ -1,11 +1,19 @@
+import { Link, Outlet } from "react-router-dom";
 import "./App.css";
-import User from "./pages/User";
 
 function App() {
   return (
     <>
       <h1>Hello world !</h1>
-      <User />
+      <li>
+        <Link to="/">Accueil</Link>
+      </li>
+      <li>
+        <Link to="/users">Utilisateurs</Link>
+      </li>
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 }
