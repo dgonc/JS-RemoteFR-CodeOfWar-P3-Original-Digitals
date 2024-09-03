@@ -7,7 +7,8 @@ create table user (
 );
 
 INSERT INTO user (email, password, firstname, lastname)
-VALUES ("user1@mail.com", "motdepasse", "User", "John");
+VALUES ("user1@mail.com", "motdepasse", "John", "User"),
+("user2@mail.com", "mot2passe", "Jane", "Doe");
 
 create table admin (
   id int primary key auto_increment not null,
