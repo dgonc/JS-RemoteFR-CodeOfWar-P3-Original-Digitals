@@ -18,6 +18,12 @@ class UserRepository extends AbstractRepository {
 
         return rows;
     }
+
+    async create(user) {
+        const [result] = await this.database.query(`insert into ${this.table} (email, password, firstname, lastname) values (?, ?, ?, ?)`, [user.email, user.password, user.firstname, user.lastname]);
+
+        return result.insertId;
+    }
 }
 
 module.exports = UserRepository;

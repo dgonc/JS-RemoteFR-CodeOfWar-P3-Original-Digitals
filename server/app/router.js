@@ -25,8 +25,9 @@ router.get("/movies", movieActions.browse);
 
 // route to get a list of users
 router.get("/users", userActions.browse);
-
 router.get("/users/:id", userActions.read);
+router.post("/users", userActions.add);
+
 /* ************************************************************************* */
 
 module.exports = router;
