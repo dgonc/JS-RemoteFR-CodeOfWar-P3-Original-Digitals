@@ -5,8 +5,6 @@ import "./App.css";
 function App() {
   const data = useLoaderData();
 
-  console.info("Depuis App", data);
-
   return (
     <>
       <h1>Youflim</h1>
