@@ -1,15 +1,23 @@
-import { useEffect } from "react";
-
-import getMovies from "./services/request";
+import { useLoaderData } from "react-router-dom";
 
 import "./App.css";
 
 function App() {
-  useEffect(() => {
-    getMovies();
-  }, []);
+  const data = useLoaderData();
 
-  return <h1>Hello world !</h1>;
+  console.info("Depuis App", data);
+
+  return (
+    <>
+      <h1>Youflim</h1>
+      {data.map((movie) => (
+        <div key={movie.id}>
+          <h2>{movie.title}</h2>
+          <p>{movie.synopsis}</p>
+        </div>
+      ))}
+    </>
+  );
 }
 
 export default App;
