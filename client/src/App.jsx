@@ -1,19 +1,12 @@
-import { useLoaderData } from "react-router-dom";
+import MoviesList from "./components/MoviesList";
 
 import "./App.css";
 
 function App() {
-  const data = useLoaderData();
-
   return (
     <>
       <h1>Youflim</h1>
-      {data.map((movie) => (
-        <div key={movie.id}>
-          <h2>{movie.title}</h2>
-          <p>{movie.synopsis}</p>
-        </div>
-      ))}
+      <MoviesList />
     </>
   );
 }
