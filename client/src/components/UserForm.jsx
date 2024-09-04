@@ -6,19 +6,19 @@ function UserForm() {
             <section className="form-fields">
             <div className="form-group">
             <label htmlFor="email">Email</label>{" "}
-            <input type="text" id="email" name="email" />
+            <input type="text" id="email" name="email" placeholder="Enter your email" />
             </div>
             <div className="form-group">
             <label htmlFor="password">Password</label>{" "}
-            <input type="text" id="password" name="password" />
+            <input type="text" id="password" name="password" placeholder="Enter your password"/>
             </div>
             <div className="form-group">
             <label htmlFor="firstname">Firstname</label>{" "}
-            <input type="text" id="firstname" name="firstname" />
+            <input type="text" id="firstname" name="firstname" placeholder="Enter your firstname"/>
             </div>
             <div className="form-group">
             <label htmlFor="lastname">Lastname</label>{" "}
-            <input type="text" id="lastname" name="lastname" />
+            <input type="text" id="lastname" name="lastname" placeholder="Enter your lastname"/>
             </div>
             <button type="submit">Sign Up</button>
             <p className="sign-in-text">Already have an account ? Sign in</p>
