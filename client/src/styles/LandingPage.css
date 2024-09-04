@@ -16,16 +16,33 @@ header img {
   font-size: 1.5rem;
 }
 
+.pictures-movies {
+  display: flex;
+  margin: 2.2rem;
+}
+
+.pictures-movies img {
+  object-fit: cover;
+  border-radius: 1rem;
+  width: 10rem;
+}
+
+.column-1 {
+  margin-right: 0.2rem;
+}
+
+.column-1 img {
+  height: 9rem;
+}
+
+.column-2 img {
+  height: 6rem;
+}
+
 .attract-section {
   display: flex;
   flex-direction: column;
   text-align: center;
-}
-
-.attract-section img {
-  width: 16rem;
-
-  margin: 1rem auto;
 }
 
 .attract-section p {

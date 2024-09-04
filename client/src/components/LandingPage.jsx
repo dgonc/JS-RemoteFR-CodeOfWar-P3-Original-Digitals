@@ -12,10 +12,33 @@ function LandingPage() {
         </div>
       </header>
       <section className="attract-section">
-        <img
-          src="https://img-4.linternaute.com/uwngHQt8ik4-hjzRznv8FLvbBu8=/1500x/smart/a0fb5b2acf2b4d83844b9d90eaa4a0f3/ccmcms-linternaute/11240996.jpg"
-          alt="Affiche du film Avengers"
-        />
+        <section className="pictures-movies">
+          <div className="column-1">
+            <img
+              src="https://static.posters.cz/image/750/affiches-et-posters/dexter-shrinkwrapped-i14382.jpg"
+              alt="Affiche de la série Dexter"
+            />
+            <img
+              src="https://m.media-amazon.com/images/I/61cYlI-qVAL._AC_UF1000,1000_QL80_.jpg"
+              alt="Affiche de la série Peaky Blinders"
+            />
+          </div>
+
+          <div className="column-2">
+            <img
+              src="https://static.posters.cz/image/750/affiches-et-posters/the-boys-sunburst-i101099.jpg"
+              alt="Affiche de la série The Boys"
+            />
+            <img
+              src="https://addons-media.operacdn.com/media/CACHE/images/themes/85/172285/1.0-rev1/images/50b41d81-8185-4a3a-9227-7553dfb4d749/11abb37935c9f6f6929ae4491255c7a3.jpg"
+              alt="Affiche de la série Breaking Bad"
+            />
+            <img
+              src="https://i.ebayimg.com/00/s/OTAwWDE2MDA=/z/7AEAAOSwL21jk7c-/$_57.JPG?set_id=880000500F"
+              alt="Affiche de la série Wednesday"
+            />
+          </div>
+        </section>
         <p>Films et séries en ilimité.</p>
         <p>Retrouvez vos shows et franchises favorites.</p>
       </section>
