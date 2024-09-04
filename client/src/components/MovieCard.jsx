@@ -12,7 +12,7 @@ export default function MovieCard({ movie }) {
           className="poster"
         />
       </div>
-      <h2 className="card-title">{movie.title}</h2>
+      <h3 className="card-title">{movie.title}</h3>
     </div>
   );
 }
