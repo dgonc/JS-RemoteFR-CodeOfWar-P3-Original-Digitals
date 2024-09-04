@@ -5,12 +5,17 @@ import myAxios from "./services/myAxios";
 
 import App from "./App";
 import User from "./pages/User";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "/sign",
+        element: <SignUp />
+      },
       {
         path: "/users",
         element: <User />,

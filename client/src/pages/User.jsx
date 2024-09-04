@@ -1,11 +1,6 @@
-import UserForm from "../components/UserForm";
-
 function User() {
     return (
-        <>
-        <h2>Utilisateurs</h2>
-        <UserForm />
-        </>
+        <h2>Gestion de compte</h2>
     )
 }
 
