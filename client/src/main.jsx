@@ -8,7 +8,6 @@ import App from "./App";
 import LandingPage from "./components/LandingPage";
 
 const router = createBrowserRouter([
-
   {
     path: "/",
     element: <App />,
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/landing",
     element: <LandingPage />,
-  }
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
