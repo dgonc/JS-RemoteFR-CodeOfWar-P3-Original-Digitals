@@ -6,16 +6,21 @@ import "./styles/Signup.css";
 function App() {
   return (
     <>
+    <ul>
       <li>
         <Link to="/">Accueil</Link>
       </li>
       <li>
         <Link to="/users">Utilisateurs</Link>
       </li>
-      <main>
-        <Outlet />
-      </main>
-    </>
+      <li>
+        <Link to="/movies">Movie List</Link>
+      </li>
+    </ul>
+    <main>
+    <Outlet />
+  </main>
+  </>
   );
 }
 

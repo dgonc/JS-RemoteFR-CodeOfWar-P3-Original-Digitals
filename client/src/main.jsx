@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom";
 import myAxios from "./services/myAxios";
+import getMovies from "./services/request";
+import MoviesList from "./pages/MoviesList";
 
 import App from "./App";
 import User from "./pages/User";
@@ -36,6 +39,11 @@ const router = createBrowserRouter([
       }
     },
     ],
+  },
+  {
+    path: "/movies",
+    element: <MoviesList />,
+    loader: getMovies,
   },
 ]);
 

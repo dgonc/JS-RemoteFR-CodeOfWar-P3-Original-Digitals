@@ -22,11 +22,13 @@ router.post("/items", itemActions.add);
 
 // route to get a list of movies
 router.get("/movies", movieActions.browse);
+router.get("/movies/:id", movieActions.read);
 
 // route to get a list of users
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
 router.post("/users", userActions.add);
+
 
 /* ************************************************************************* */
 
