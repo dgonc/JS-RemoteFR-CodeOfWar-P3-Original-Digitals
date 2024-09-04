@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom";
-import myAxios from "./services/myAxios";
-import getMovies from "./services/request";
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
+import { getMovies, getUsers } from "./services/request";
 import MoviesList from "./pages/MoviesList";
 
 import App from "./App";
 import User from "./pages/User";
 import SignUp from "./pages/SignUp";
+import signUpUserAction from "./services/userService";
 
 const router = createBrowserRouter([
   {
@@ -17,33 +20,20 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/sign",
-        element: <SignUp />
+        element: <SignUp />,
+        action: signUpUserAction,
       },
       {
         path: "/users",
         element: <User />,
-        loader: async () => {
-          const response = await myAxios.get("/api/users");
-          return response.data;
-        },
-        action: async ({request}) => {
-        const formData = await request.formData();
-        const user = {
-          email: formData.get("email"),
-          password: formData.get("password"),
-          firstname: formData.get("firstname"),
-          lastname: formData.get("lastname")
-        };
-        const response = await myAxios.post("/api/users", user);
-        return redirect(`/users/${response.data.insertId}`)
-      }
-    },
+        loader: getUsers,
+      },
+      {
+        path: "/movies",
+        element: <MoviesList />,
+        loader: getMovies,
+      },
     ],
-  },
-  {
-    path: "/movies",
-    element: <MoviesList />,
-    loader: getMovies,
   },
 ]);
 
