@@ -1,11 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 import "./styles/Userform.css";
+import "./styles/Signup.css";
 
 function App() {
   return (
     <>
-      <h1>Hello world !</h1>
       <li>
         <Link to="/">Accueil</Link>
       </li>
