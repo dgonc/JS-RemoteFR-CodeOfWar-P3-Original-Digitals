@@ -1,13 +1,13 @@
-import MoviesList from "./components/MoviesList";
-
+import { Link } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
-    <>
-      <h1>Youflim</h1>
-      <MoviesList />
-    </>
+    <ul>
+      <li>
+        <Link to="/movies">Movie List</Link>
+      </li>
+    </ul>
   );
 }
 

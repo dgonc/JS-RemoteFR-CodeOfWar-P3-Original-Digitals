@@ -1,15 +1,18 @@
 import PropTypes from "prop-types";
-import ReactPlayer from "react-player";
+
+import "../styles/Moviecard.css";
 
 export default function MovieCard({ movie }) {
   return (
-    <div key={movie.id}>
-      <ReactPlayer controls url={movie.URL} />
-      <h2>{movie.title}</h2>
-      <div>
-        {movie.duration} mins, -{movie.classification} ans
+    <div key={movie.id} className="card">
+      <div className="poster-container">
+        <img
+          src="https://images.affiches-et-posters.com//albums/3/4537/medium/affiche-film-inception-2352.jpg"
+          alt={movie.title}
+          className="poster"
+        />
       </div>
-      <p>{movie.synopsis}</p>
+      <h2 className="card-title">{movie.title}</h2>
     </div>
   );
 }
