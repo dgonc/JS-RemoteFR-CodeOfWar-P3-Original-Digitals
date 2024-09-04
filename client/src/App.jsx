@@ -1,22 +1,15 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar";
+
 import "./App.css";
+import "./styles/Navbar.css"
 import "./styles/Userform.css";
 import "./styles/Signup.css";
 
 function App() {
   return (
     <>
-    <ul>
-      <li>
-        <Link to="/">Accueil</Link>
-      </li>
-      <li>
-        <Link to="/users">Utilisateurs</Link>
-      </li>
-      <li>
-        <Link to="/movies">Movie List</Link>
-      </li>
-    </ul>
+    <NavBar />
     <main>
     <Outlet />
   </main>
