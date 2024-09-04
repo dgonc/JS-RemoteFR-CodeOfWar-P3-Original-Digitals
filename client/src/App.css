@@ -1,7 +1,23 @@
+@font-face {
+  font-family: "Nunito";
+  src:
+    url("./font/Nunito-Regular.woff2") format("woff2"),
+    url("./font/Nunito-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   text-decoration: none;
   list-style: none;
+  font-family: "Nunito", sans-serif;
+  --background-white: #ffffff;
+  --primary-grey: #212735;
+  --secondary-grey: #d9d9d9;
+  --secondary-grey-light: #eeeeee;
+  --button-dark: #3e435f;
+  background-color: #586583;
 }
