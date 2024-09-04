@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 
-import MovieCard from "./MovieCard";
+import MovieCard from "../components/MovieCard";
 import "../styles/Movielist.css";
 
 export default function MoviesList() {
