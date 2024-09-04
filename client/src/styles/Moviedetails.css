@@ -1,14 +1,63 @@
 .dialog-details {
-  width: 500px;
-  height: 500px;
-  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  color: white;
+  border: none;
+  margin: auto;
 }
 .dialog-details > .section-infos {
-  width: 50%;
-  border: solid 1px red;
+  margin-left: 1rem;
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #ffd6ff;
+  font-size: 1.3rem;
+}
+
+.dialog-details h2 {
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: #c8b6ff;
+  margin-bottom: 10px;
+}
+
+.dialog-details > .section-infos > p {
+  margin: 1rem 0;
+}
+
+.dialog-button {
+  position: absolute;
+  top: 0px;
+  right: 6px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.actor-list {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
-.dialog-details > .section-infos > p {
-  font-weight: 1rem;
+
+.actor-list img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #e7c6ff;
+  margin-bottom: 1rem;
+}
+
+.synopsis-movie {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 1rem 0 0 1rem;
 }

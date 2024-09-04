@@ -16,18 +16,45 @@ export default function MovieDetails({ modalRef, movie }) {
 
   return (
     <dialog className="dialog-details" ref={modalRef}>
-      <ReactPlayer url={movie.URL} width={200} />
+      <ReactPlayer
+        url={movie.URL}
+        width="100%"
+        className="ReactPlayer"
+        margin-bottom="20px"
+        border-radius="10px"
+      />
       <h2>{movie.title}</h2>
       <section className="section-infos">
         <p>
-          {hours} H {mins} mins
+          Durée : {hours} H {mins} mins
         </p>
-        <p>{releaseDate}</p>
-        <p>-{movie.classification}</p>
+        <p> Sortie : {releaseDate}</p>
+        <p> Classification : - {movie.classification}</p>
       </section>
-      <p className="synopsis-movie">{movie.synopsis}</p>
-
-      <button type="button" onClick={closeModal}>
+      <h3> Acteurs</h3>
+      <section className="actor-list">
+        <img
+          src="https://images.pexels.com/photos/2227958/pexels-photo-2227958.jpeg?auto=compress&cs=tinysrgb&w=400"
+          alt="Actor 1"
+        />
+        <img
+          src="https://images.pexels.com/photos/7266014/pexels-photo-7266014.jpeg?auto=compress&cs=tinysrgb&w=400"
+          alt="Actor 2"
+        />
+        <img
+          src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=400"
+          alt="Actor 3"
+        />
+        <img
+          src="https://images.pexels.com/photos/1764447/pexels-photo-1764447.jpeg?auto=compress&cs=tinysrgb&w=400"
+          alt="Actor 4"
+        />
+      </section>
+      <section>
+        <h3> Synopsis</h3>
+        <p className="synopsis-movie">{movie.synopsis}</p>
+      </section>
+      <button type="button" onClick={closeModal} className="dialog-button">
         close
       </button>
     </dialog>
