@@ -1,0 +1,21 @@
+.sign-up-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.sign-up-text {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--third-purple);
+}
+
+.go-back-button {
+  position: fixed;
+  left: 0;
+  margin: 1rem 0 0 1rem;
+  padding: 0.5rem;
+  border: white 1px solid;
+  border-radius: 8px;
+}
