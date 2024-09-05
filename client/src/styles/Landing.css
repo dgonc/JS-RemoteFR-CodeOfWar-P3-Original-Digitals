@@ -1,42 +1,8 @@
-body {
-  background-color: #222b40;
-}
-
 header {
   display: flex;
-  padding-top: 0.8rem;
-  padding-left: 0.4rem;
-}
-
-header img {
-  width: 6rem;
-}
-
-.search-icon {
-  font-size: 1.5rem;
-}
-
-.pictures-movies {
-  display: flex;
-  margin: 2.2rem;
-}
-
-.pictures-movies img {
-  object-fit: cover;
-  border-radius: 1rem;
-  width: 10rem;
-}
-
-.column-1 {
-  margin-right: 0.2rem;
-}
-
-.column-1 img {
-  height: 9rem;
-}
-
-.column-2 img {
-  height: 6rem;
+  justify-content: center;
+  height: 150px;
+  margin: 1rem;
 }
 
 .attract-section {
@@ -46,8 +12,6 @@ header img {
 }
 
 .attract-section p {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1rem;
   width: 16rem;
   margin: auto;
   margin-bottom: 1rem;
@@ -70,4 +34,18 @@ header img {
   height: 4rem;
   background-color: #3e435f;
   color: #f2f2f4;
+  border: none;
+}
+
+.buttons a {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  height: 4rem;
+  background-color: #3e435f;
+  color: #f2f2f4;
+  border: none;
+  display: flex;
+  align-items: center;
 }

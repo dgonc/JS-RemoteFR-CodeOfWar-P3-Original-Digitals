@@ -5,6 +5,7 @@ import "./App.css";
 import "./styles/Navbar.css"
 import "./styles/Userform.css";
 import "./styles/Signup.css";
+import "./styles/Landing.css"
 
 function App() {
   return (

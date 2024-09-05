@@ -1,15 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { getMovies, getUsers } from "./services/request";
 import MoviesList from "./pages/MoviesList";
 
 import App from "./App";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./pages/LandingPage";
 import User from "./pages/User";
 import SignUp from "./pages/SignUp";
 import signUpUserAction from "./services/userService";
@@ -34,11 +31,11 @@ const router = createBrowserRouter([
         element: <MoviesList />,
         loader: getMovies,
       },
+      {
+        path: "/landing",
+        element: <LandingPage />,
+      },
     ],
-  },
-  {
-    path: "/landing",
-    element: <LandingPage />,
   },
 ]);
 
