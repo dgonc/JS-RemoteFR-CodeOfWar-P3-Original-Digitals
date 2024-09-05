@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import { getMovies, getUsers } from "./services/request";
 import MoviesList from "./pages/MoviesList";
 
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      {
+        index: true,
+        element: <Navigate to="/landing" />,
+      },
       {
         path: "/sign",
         element: <SignUp />,
