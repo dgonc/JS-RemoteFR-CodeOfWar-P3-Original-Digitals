@@ -1,5 +1,6 @@
 .dialog-details {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.795);
+  backdrop-filter: blur(8px);
   border-radius: 20px;
   padding: 20px;
   width: 100%;
