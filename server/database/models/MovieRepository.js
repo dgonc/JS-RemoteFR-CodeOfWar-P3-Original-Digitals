@@ -19,14 +19,6 @@ class MovieRepository extends AbstractRepository {
 
     return rows[0];
   }
-
-  async searchByTitle(title) {
-    const [rows] = await this.database.query(
-      `select * from ${this.table} where title like concat('%', ?, '%')`,
-      [title]
-    );
-    return rows;
-  }
 }
 
 module.exports = MovieRepository;

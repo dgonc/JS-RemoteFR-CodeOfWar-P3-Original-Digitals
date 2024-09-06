@@ -23,17 +23,4 @@ const read = async (req, res, next) => {
   }
 };
 
-const readByTitle = async (req, res, next) => {
-  try {
-    const movie = await tables.movie.searchByTitle(req.params.title);
-    if (movie == null) {
-      res.sendStatus(404);
-    } else {
-      res.json(movie);
-    }
-  } catch (err) {
-    next(err);
-  }
-};
-
-module.exports = { browse, read, readByTitle };
+module.exports = { browse, read };
