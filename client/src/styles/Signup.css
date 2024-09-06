@@ -1,21 +1,21 @@
 .sign-up-header {
   display: flex;
   justify-content: center;
-  align-items: center;
   position: relative;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .sign-up-text {
-  text-align: center;
-  margin-top: 1rem;
   color: var(--third-purple);
 }
 
 .go-back-button {
   position: fixed;
   left: 0;
-  margin: 1rem 0 0 1rem;
-  padding: 0.5rem;
+  margin-left: 1rem;
+  padding: 1rem 1rem;
   border: white 1px solid;
-  border-radius: 8px;
+  border-radius: 4px;
+  background-color: var(--third-purple);
 }

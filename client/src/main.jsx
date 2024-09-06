@@ -1,23 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { getMovies, getUsers } from "./services/request";
 import MoviesList from "./pages/MoviesList";
 
 import App from "./App";
+import LandingPage from "./pages/LandingPage";
 import User from "./pages/User";
 import SignUp from "./pages/SignUp";
 import signUpUserAction from "./services/userService";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
     children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "/sign",
         element: <SignUp />,
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
         path: "/movies",
         element: <MoviesList />,
         loader: getMovies,
+      },
+      {
+        path: "/landing",
+        element: <LandingPage />,
       },
     ],
   },
