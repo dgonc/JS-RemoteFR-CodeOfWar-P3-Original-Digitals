@@ -1,12 +1,12 @@
 create table user (
   id int unsigned primary key auto_increment not null,
   email varchar(255) not null unique,
-  password varchar(255) not null,
+  hashed_password varchar(255) not null,
   firstname VARCHAR(255) NOT NULL,
   lastname VARCHAR(255) NOT NULL
 );
 
-INSERT INTO user (email, password, firstname, lastname)
+INSERT INTO user (email, hashed_password, firstname, lastname)
 VALUES ("user1@mail.com", "motdepasse", "John", "User"),
 ("user2@mail.com", "mot2passe", "Jane", "Doe");
 

@@ -11,6 +11,8 @@ const itemActions = require("./controllers/itemActions");
 const movieActions = require("./controllers/movieActions");
 const userActions = require("./controllers/userActions");
 
+const { hashPassword } = require("./services/auth");
+
 // Route to get a list of items
 router.get("/items", itemActions.browse);
 
@@ -27,7 +29,7 @@ router.get("/movies/:id", movieActions.read);
 // route to get a list of users
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
-router.post("/sign", userActions.add);
+router.post("/sign", hashPassword, userActions.add);
 
 
 /* ************************************************************************* */
