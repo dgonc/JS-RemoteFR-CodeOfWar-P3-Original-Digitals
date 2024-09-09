@@ -29,7 +29,6 @@ router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
 router.post("/sign", userActions.add);
 
-
 /* ************************************************************************* */
 
 module.exports = router;

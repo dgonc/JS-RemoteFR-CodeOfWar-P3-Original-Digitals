@@ -12,10 +12,10 @@ export function getMovies() {
 
 export function getUsers() {
   return axios
-  .get(`${import.meta.env.VITE_API_URL}/api/users`)
-  .then((response) => response.data)
-  .catch((error) => {
-    console.error(error);
-    return [];
-  });
+    .get(`${import.meta.env.VITE_API_URL}/api/users`)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error(error);
+      return [];
+    });
 }

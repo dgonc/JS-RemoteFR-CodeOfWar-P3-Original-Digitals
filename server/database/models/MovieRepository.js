@@ -12,7 +12,6 @@ class MovieRepository extends AbstractRepository {
   }
 
   async read(id) {
-
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,
       [id]
