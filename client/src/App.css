@@ -38,5 +38,5 @@ body {
     var(--primary-grey) 100%
   );
   background-attachment: scroll;
-  /* overflow: scroll; */
+  overflow: scroll;
 }

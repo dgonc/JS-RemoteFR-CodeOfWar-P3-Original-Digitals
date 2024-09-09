@@ -24,7 +24,6 @@ function NavBar() {
   };
 
   const handlePosition = () => {
-    // console.info(window.scrollY);
     setScrollPosition(window.scrollY);
   };
 
