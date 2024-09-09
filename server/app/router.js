@@ -13,6 +13,7 @@ const userActions = require("./controllers/userActions");
 const authActions = require("./controllers/authActions");
 
 const { hashPassword } = require("./services/auth");
+const { verifyFields } = require("./services/middleware");
 
 // Route to get a list of items
 router.get("/items", itemActions.browse);
@@ -30,7 +31,7 @@ router.get("/movies/:id", movieActions.read);
 // route to get a list of users
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
-router.post("/sign", hashPassword, userActions.add);
+router.post("/sign", verifyFields, hashPassword, userActions.add);
 router.post("/login", authActions.login);
 
 /* ************************************************************************* */
