@@ -7,7 +7,7 @@ create table user (
 );
 
 INSERT INTO user (email, password, firstname, lastname)
-VALUES ("user@mail.com", "motdepasse", "John", "User");
+VALUES ("user@mail.com", "$argon2id$v=19$m=19456,t=2,p=1$SkHM/t19uSNr7Gh69SLEdw$ZEPjVV3Uq6XFj+z+2DE5w0ejIwNpZqhwlci9HRAIccY", "John", "User");
 
 create table admin (
   id int primary key auto_increment not null,

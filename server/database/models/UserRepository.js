@@ -15,8 +15,12 @@ class UserRepository extends AbstractRepository {
 
     async readAll() {
         const [rows] = await this.database.query(`select * from ${this.table}`);
-
         return rows;
+    }
+
+    async readByEmailWithPassword(email) {
+        const [rows] = await this.database.query(`select * from ${this.table} where email = ?`, [email])
+        return rows[0];
     }
 
     async create(user) {

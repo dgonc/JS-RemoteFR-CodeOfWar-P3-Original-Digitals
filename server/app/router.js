@@ -10,6 +10,7 @@ const router = express.Router();
 const itemActions = require("./controllers/itemActions");
 const movieActions = require("./controllers/movieActions");
 const userActions = require("./controllers/userActions");
+const authActions = require("./controllers/authActions");
 
 const { hashPassword } = require("./services/auth");
 
@@ -30,7 +31,7 @@ router.get("/movies/:id", movieActions.read);
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
 router.post("/sign", hashPassword, userActions.add);
-
+router.post("/login", authActions.login);
 
 /* ************************************************************************* */
 
