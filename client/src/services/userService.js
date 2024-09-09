@@ -10,5 +10,9 @@ export default async function signUpUserAction({ request }) {
     lastname: formData.get("lastname"),
   };
   const response = await myAxios.post("api/sign", user);
-  return redirect(`/users/${response.data.insertId}`);
+
+  if (response.status === 201) {
+    return redirect("/");
+  }
+  return console.info(response);
 }
