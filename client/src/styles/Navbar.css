@@ -2,6 +2,23 @@
   height: 60px;
   background: none;
 }
+.navbar-landing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.navbar-landing > img {
+  width: 128px;
+}
+
+.navbar-landing > a {
+  padding: 1rem;
+  background-color: var(--third-purple);
+  border-radius: 8px;
+  color: var(--primary-grey);
+}
 
 .menu-burger-button {
   border: none;
