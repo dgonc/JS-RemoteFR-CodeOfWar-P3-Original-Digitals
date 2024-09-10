@@ -16,7 +16,13 @@ export default function MovieDetails({ modalRef, movie }) {
 
   return (
     <dialog className="dialog-details" ref={modalRef}>
-      <ReactPlayer url={movie.URL} width="100%" className="ReactPlayer" />
+      <ReactPlayer
+        controls
+        light
+        url={movie.URL}
+        width="100%"
+        className="ReactPlayer"
+      />
       <h2>{movie.title}</h2>
       <section className="section-infos">
         <p>
@@ -56,6 +62,18 @@ export default function MovieDetails({ modalRef, movie }) {
 }
 
 MovieDetails.propTypes = {
-  movie: PropTypes.element.isRequired,
-  modalRef: PropTypes.element.isRequired,
+  modalRef: PropTypes.shape({
+    current: PropTypes.shape({
+      showModal: PropTypes.func,
+      close: PropTypes.func,
+    }),
+  }).isRequired,
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    URL: PropTypes.string.isRequired,
+    duration: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    classification: PropTypes.number.isRequired,
+    synopsis: PropTypes.string.isRequired,
+  }).isRequired,
 };
