@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import searchImg from "../assets/images/search.png";
 import burger from "../assets/images/burger.png";
@@ -17,8 +17,6 @@ function NavBar() {
     setSearchOpen(!searchOpen);
   };
 
-  const navigate = useNavigate();
-
   const handleSearch = (event) => {
     setSearch(event.target.value);
   };
@@ -31,12 +29,6 @@ function NavBar() {
     window.addEventListener("scroll", handlePosition);
   }, []);
 
-  useEffect(() => {
-    if (search.length > 0) {
-      navigate(`/movies/search/${search}`);
-    }
-  }, [search, navigate]);
-
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
       {searchOpen ? (
@@ -46,9 +38,13 @@ function NavBar() {
             <option value="category">Category</option>
           </select>
           <input className="search-input" type="text" onChange={handleSearch} />
-          <button className="search-close" type="button" onClick={toggleSearch}>
-            Close
-          </button>
+          <Link
+            className="search-action"
+            to={`/movies/search/${search}`}
+            onClick={() => toggleSearch() && setSearch("")}
+          >
+            Search
+          </Link>
         </div>
       ) : (
         <>

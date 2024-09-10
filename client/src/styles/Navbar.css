@@ -40,11 +40,14 @@
   border-radius: 0 8px 8px 0;
 }
 
-.search-close {
+.search-action {
+  background-color: #f0f0f0;
   margin-left: 1rem;
-  border: none;
+  font-size: 13.3333px;
+  color: black;
   padding: 0.5rem;
   border-radius: 8px;
+  border-right: 1px black solid;
 }
 
 .menu-burger-button {
