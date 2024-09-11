@@ -9,7 +9,7 @@ import App from "./App";
 import LandingPage from "./pages/LandingPage";
 import User from "./pages/User";
 import SignUp from "./pages/SignUp";
-import signUpUserAction from "./services/userService";
+import { signUpUserAction, loginUserAction } from "./services/userService";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 
@@ -27,9 +27,9 @@ const router = createBrowserRouter([
         action: signUpUserAction,
       },
       {
-        path: "/signin",
+        path: "/login",
         element: <SignIn />,
-
+        action: loginUserAction,
       },
       {
         path: "/users",

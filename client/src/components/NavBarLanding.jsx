@@ -5,7 +5,7 @@ function NavBarLanding() {
   return (
     <nav className="navbar-landing">
       <img src={Logo} alt="Youflim" />
-      <Link to="/signin">Sign In</Link>
+      <Link to="/login">Sign In</Link>
     </nav>
   );
 }

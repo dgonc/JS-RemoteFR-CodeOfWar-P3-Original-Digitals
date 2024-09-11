@@ -12,7 +12,6 @@ import "./styles/Signin.css";
 function App() {
   const IsConnected = false;
   const location = useLocation();
-  console.info(location)
   return (
     <>
       {IsConnected || location.pathname === "/signin" ? <NavBar /> : <NavBarLanding />}
