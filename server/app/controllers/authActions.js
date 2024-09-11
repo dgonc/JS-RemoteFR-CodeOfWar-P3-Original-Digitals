@@ -7,8 +7,11 @@ const verifyEmailPassword = async (req, res, next) => {
     if (user == null) {
       res.sendStatus(401);
     }
+
     const verified = await argon2.verify(user.password, req.body.password);
+
     req.user = user;
+
     if (verified) {
       delete user.password;
       res.json(user);
@@ -28,6 +31,7 @@ const login = async (req, res, next) => {
       id: req.user.id,
       email: req.user.email,
     });
+    console.info(res);
   } catch (error) {
     next(error);
   }

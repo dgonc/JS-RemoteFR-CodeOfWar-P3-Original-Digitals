@@ -32,16 +32,14 @@ const createToken = async (req, res, next) => {
   }
 };
 
-const verifyToken = async (req, res, next) => {
+/* const verifyToken = async (req, res, next) => {
   try {
     const { auth } = req.cookies;
-    console.info(auth)
     const result = await jwt.verify(auth, process.env.APP_SECRET);
-    console.info(result)
     next();
   } catch (error) {
     next(error);
   }
-};
+}; */
 
-module.exports = { hashPassword, createToken, verifyToken };
+module.exports = { hashPassword, createToken };
