@@ -32,7 +32,7 @@ router.get("/movies/:id", movieActions.read);
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
 router.post("/sign", verifyFields, hashPassword, userActions.add);
-router.post("/login", authActions.login, createToken);
+router.post("/login", authActions.verifyEmailPassword, createToken, authActions.login);
 
 /* ************************************************************************* */
 
