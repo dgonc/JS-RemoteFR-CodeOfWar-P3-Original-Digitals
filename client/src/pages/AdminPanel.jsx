@@ -21,7 +21,7 @@ export default function AdminPanel() {
     <div className="admin-panel">
       <AdminNavBar setActiveSection={setActiveSection} />
 
-      <div>{section()}</div>
+      <div className="panel-selection">{section()}</div>
     </div>
   );
 }

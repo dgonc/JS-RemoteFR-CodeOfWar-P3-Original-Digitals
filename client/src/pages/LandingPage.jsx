@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+
+import AdminPanel from "./AdminPanel";
+
 import Logo from "../assets/images/YouFilm-01.png";
 import Banner from "../assets/images/films-banner.png";
 
@@ -19,6 +22,7 @@ function LandingPage() {
         <Link to="/sign">Débuter l'expérience !</Link>
         <button type="button">Pas sûr ? Testez notre partie gratuite.</button>
       </section>
+      <AdminPanel />
     </div>
   );
 }
