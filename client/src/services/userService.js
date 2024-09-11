@@ -40,9 +40,3 @@ export async function loginUserAction({ request }) {
   }
   return null;
 }
-
-
-export async function checkAuth() {
-  // requete sur un chemin dédié pour vérifier l'authentification, avec middleware verifytoken et route /checkauth
-  return null
-}
