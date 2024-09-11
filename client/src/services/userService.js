@@ -2,30 +2,47 @@ import { redirect } from "react-router-dom";
 import myAxios from "./myAxios";
 
 export async function signUpUserAction({ request }) {
-  const formData = await request.formData();
-  const user = {
-    email: formData.get("email"),
-    password: formData.get("password"),
-    firstname: formData.get("firstname"),
-    lastname: formData.get("lastname"),
-  };
-  const response = await myAxios.post("api/sign", user);
+  try {
+    const formData = await request.formData();
+    const user = {
+      email: formData.get("email"),
+      password: formData.get("password"),
+      firstname: formData.get("firstname"),
+      lastname: formData.get("lastname"),
+    };
 
-  if (response.status === 201) {
-    return redirect("/");
+    const response = await myAxios.post("api/sign", user);
+
+    if (response.status === 201) {
+      return redirect("/");
+    }
+  } catch (error) {
+    console.error("Error during sign up:", error);
   }
-  return console.info(response);
+  return null;
 }
 
 export async function loginUserAction({ request }) {
-  const formData = await request.formData();
-  const user = {
-    email: formData.get("email"),
-    password: formData.get("password"),
-  };
-  const response = await myAxios.post("api/login", user);
-  if (response.status === 200) {
-    return redirect("/");
+  try {
+    const formData = await request.formData();
+    const user = {
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
+
+    const response = await myAxios.post("api/login", user);
+
+    if (response.status === 200) {
+      return redirect("/");
+    }
+  } catch (error) {
+    console.error("Error during login:", error);
   }
-  return console.info(response);
+  return null;
+}
+
+
+export async function checkAuth() {
+  // requete sur un chemin dédié pour vérifier l'authentification, avec middleware verifytoken et route /checkauth
+  return null
 }

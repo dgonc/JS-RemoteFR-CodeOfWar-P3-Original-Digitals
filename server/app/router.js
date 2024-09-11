@@ -16,18 +16,15 @@ const middleware = require("./services/middleware");
 
 // Route to get a list of items
 router.get("/items", itemActions.browse);
-
-// Route to get a specific item by ID
 router.get("/items/:id", itemActions.read);
-
-// Route to add a new item
 router.post("/items", itemActions.add);
 
 // route to get a list of movies
 router.get("/movies", movieActions.browse);
 router.get("/movies/:id", movieActions.read);
 
-// route to get a list of users
+// routes for user related actions
+router.get("/checkauth", auth.verifyToken, auth.isConnected);
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
 router.post("/sign", middleware.verifyFields, auth.hashPassword, userActions.add);

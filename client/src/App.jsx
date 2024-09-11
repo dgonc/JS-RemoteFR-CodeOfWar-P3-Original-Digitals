@@ -11,15 +11,14 @@ import "./styles/Landing.css";
 import "./styles/Signin.css";
 
 function App() {
-  const [auth, setAuth] = useState();
+  const [isConnected, setIsConnected] = useState(false);
   
-  const IsConnected = false;
   const location = useLocation();
   return (
     <>
-      {IsConnected || location.pathname === "/signin" ? <NavBar /> : <NavBarLanding />}
+      {isConnected || location.pathname === "/signin" ? <NavBar /> : <NavBarLanding />}
       <main>
-        <Outlet context={{ auth, setAuth}}/>
+        <Outlet context={{ isConnected, setIsConnected}}/>
       </main>
     </>
   );

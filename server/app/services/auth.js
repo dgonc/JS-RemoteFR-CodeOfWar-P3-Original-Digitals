@@ -32,14 +32,22 @@ const createToken = async (req, res, next) => {
   }
 };
 
-/* const verifyToken = async (req, res, next) => {
+const verifyToken = async (req, res, next) => {
   try {
     const { auth } = req.cookies;
-    const result = await jwt.verify(auth, process.env.APP_SECRET);
+    await jwt.verify(auth, process.env.APP_SECRET);
     next();
   } catch (error) {
     next(error);
   }
-}; */
+};
 
-module.exports = { hashPassword, createToken };
+const isConnected = async (req, res, next) => {
+  try {
+    res.sendStatus(200)
+  } catch (error) {
+    next(error)
+  }
+}
+
+module.exports = { hashPassword, createToken, verifyToken, isConnected };

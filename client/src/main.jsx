@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { getMovies, getUsers } from "./services/request";
+import { getAuth, getMovies, getUsers } from "./services/request";
 import MoviesList from "./pages/MoviesList";
 
 import App from "./App";
@@ -20,6 +20,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: getAuth,
+        errorElement: <LandingPage />
       },
       {
         path: "/sign",
