@@ -7,17 +7,15 @@ const login = async (req, res, next) => {
     if (user == null) {
       res.sendStatus(401);
     }
-
     const verified = await argon2.verify(user.password, req.body.password);
-    
+    req.user = user;
     if (verified) {
-        delete user.password;
-        res.sendStatus(200);
-        res.json(user);
+      delete user.password;
+      res.json(user);
+      next();
     } else {
-        res.sendStatus(401)
+      res.sendStatus(401);
     }
-    
   } catch (err) {
     next(err);
   }

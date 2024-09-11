@@ -24,7 +24,7 @@ export async function loginUserAction({ request }) {
     password: formData.get("password"),
   };
   const response = await myAxios.post("api/login", user);
-  if (response.status === 401) {
+  if (response.status === 200) {
     return redirect("/");
   }
   return console.info(response);
