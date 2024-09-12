@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: "/movies/add",
+        path: "/admin",
         element: <AdminPanel />,
         action: adminUploadAction,
       },

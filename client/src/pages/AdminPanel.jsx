@@ -1,7 +1,9 @@
 import { useState } from "react";
+
 import ContentManagement from "../components/ContentManagement";
 import AdminNavBar from "../components/AdminNavBar";
 import UserManagement from "../components/UserManagement";
+import "../styles/Adminpanel.css";
 
 export default function AdminPanel() {
   const [activeSection, setActiveSection] = useState("ContentManagement");

@@ -2,10 +2,11 @@ import PropTypes from "prop-types";
 
 export default function AdminNavBar({ setActiveSection }) {
   return (
-    <nav>
+    <aside className="admin-nav">
       <ul>
         <li>
           <button
+            className="admin-nav-button"
             type="button"
             onClick={() => setActiveSection("ContentManagement")}
           >
@@ -14,6 +15,7 @@ export default function AdminNavBar({ setActiveSection }) {
         </li>
         <li>
           <button
+            className="admin-nav-button"
             type="button"
             onClick={() => setActiveSection("UserManagement")}
           >
@@ -21,7 +23,7 @@ export default function AdminNavBar({ setActiveSection }) {
           </button>
         </li>
       </ul>
-    </nav>
+    </aside>
   );
 }
 
