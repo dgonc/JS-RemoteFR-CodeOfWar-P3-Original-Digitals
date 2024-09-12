@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import NavBarLanding from "./components/NavBarLanding";
 
 import "./App.css";
 import "./styles/Navbar.css";
@@ -11,14 +9,11 @@ import "./styles/Landing.css";
 import "./styles/Signin.css";
 
 function App() {
-  const [isConnected, setIsConnected] = useState(false);
-  
-  const location = useLocation();
   return (
     <>
-      {isConnected || location.pathname === "/signin" ? <NavBar /> : <NavBarLanding />}
+      <NavBar />
       <main>
-        <Outlet context={{ isConnected, setIsConnected}}/>
+        <Outlet />
       </main>
     </>
   );

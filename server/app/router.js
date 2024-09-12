@@ -22,6 +22,7 @@ router.post("/items", itemActions.add);
 // route to get a list of movies
 router.get("/movies", movieActions.browse);
 router.get("/movies/:id", movieActions.read);
+router.get("/movies/search/:title", movieActions.readByTitle);
 
 // routes for user related actions
 router.get("/checkauth", auth.verifyToken, auth.isConnected);
