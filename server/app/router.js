@@ -10,6 +10,10 @@ const router = express.Router();
 const itemActions = require("./controllers/itemActions");
 const movieActions = require("./controllers/movieActions");
 const userActions = require("./controllers/userActions");
+const authActions = require("./controllers/authActions");
+
+const { hashPassword } = require("./services/auth");
+const { verifyFields } = require("./services/middleware");
 
 // Route to get a list of items
 router.get("/items", itemActions.browse);
@@ -28,7 +32,8 @@ router.get("/movies/search/:title", movieActions.readByTitle);
 // route to get a list of users
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
-router.post("/sign", userActions.add);
+router.post("/sign", verifyFields, hashPassword, userActions.add);
+router.post("/login", authActions.login);
 
 /* ************************************************************************* */
 
