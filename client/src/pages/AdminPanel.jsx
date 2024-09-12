@@ -14,7 +14,7 @@ export default function AdminPanel() {
         return <UserManagement />;
 
       default:
-        return <ContentManagement />;
+        return <AdminNavBar />;
     }
   };
   return (

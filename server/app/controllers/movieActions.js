@@ -37,13 +37,11 @@ const readByTitle = async (req, res, next) => {
 };
 
 const add = async (req, res, next) => {
+  const movie = req.body;
   try {
-    console.info("coucou");
-    console.info(req.body);
-    const movie = req.body;
     const result = await tables.movie.uploadMovie(movie);
 
-    res.json(result);
+    res.status(201).json(result);
   } catch (err) {
     res.status(500).json({ error: err.message });
     next(err);

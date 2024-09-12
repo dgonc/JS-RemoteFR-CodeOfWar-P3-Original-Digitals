@@ -30,7 +30,7 @@ class MovieRepository extends AbstractRepository {
 
   async uploadMovie(movie) {
     const [rows] = await this.database.query(
-      `insert into ${this.table} (title, duration, synopsis, date, classification, picture, URL, admin_id) values ( ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (title, duration, synopsis, date, classification, picture, URL, admin_id) values ( ?, ?, ?, ?, ?, ?, ?, 1)`,
       [
         movie.title,
         movie.duration,
@@ -39,7 +39,6 @@ class MovieRepository extends AbstractRepository {
         movie.classification,
         movie.picture,
         movie.URL,
-        movie.admin_id,
       ]
     );
     return rows;
