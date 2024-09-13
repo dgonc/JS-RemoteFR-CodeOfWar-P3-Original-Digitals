@@ -1,14 +1,13 @@
 create table user (
   id int unsigned primary key auto_increment not null,
-  email varchar(255) not null unique,
-  password varchar(255) not null,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
   firstname VARCHAR(255) NOT NULL,
   lastname VARCHAR(255) NOT NULL
 );
 
 INSERT INTO user (email, password, firstname, lastname)
-VALUES ("user1@mail.com", "motdepasse", "John", "User"),
-("user2@mail.com", "mot2passe", "Jane", "Doe");
+VALUES ("user@mail.com", "$argon2id$v=19$m=19456,t=2,p=1$SkHM/t19uSNr7Gh69SLEdw$ZEPjVV3Uq6XFj+z+2DE5w0ejIwNpZqhwlci9HRAIccY", "John", "User");
 
 create table admin (
   id int primary key auto_increment not null,
