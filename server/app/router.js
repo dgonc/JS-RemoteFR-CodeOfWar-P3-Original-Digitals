@@ -11,17 +11,12 @@ const itemActions = require("./controllers/itemActions");
 const movieActions = require("./controllers/movieActions");
 const userActions = require("./controllers/userActions");
 const authActions = require("./controllers/authActions");
-
-const { hashPassword } = require("./services/auth");
-const { verifyFields } = require("./services/middleware");
+const auth = require("./services/auth");
+const middleware = require("./services/middleware");
 
 // Route to get a list of items
 router.get("/items", itemActions.browse);
-
-// Route to get a specific item by ID
 router.get("/items/:id", itemActions.read);
-
-// Route to add a new item
 router.post("/items", itemActions.add);
 
 // route to get a list of movies
@@ -30,11 +25,12 @@ router.get("/movies/:id", movieActions.read);
 router.get("/movies/search/:title", movieActions.readByTitle);
 router.post("/movies/add", movieActions.add);
 
-// route to get a list of users
+// routes for user related actions
+router.get("/checkauth", auth.verifyToken, auth.isConnected);
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
-router.post("/sign", verifyFields, hashPassword, userActions.add);
-router.post("/login", authActions.login);
+router.post("/sign", middleware.verifyFields, auth.hashPassword, userActions.add);
+router.post("/login", authActions.verifyEmailPassword, auth.createToken, authActions.login);
 
 /* ************************************************************************* */
 
