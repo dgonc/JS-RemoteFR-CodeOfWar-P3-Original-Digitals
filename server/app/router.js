@@ -23,6 +23,7 @@ router.post("/items", itemActions.add);
 router.get("/movies", movieActions.browse);
 router.get("/movies/:id", movieActions.read);
 router.get("/movies/search/:title", movieActions.readByTitle);
+router.post("/movies/add", movieActions.add);
 
 // routes for user related actions
 router.get("/checkauth", auth.verifyToken, auth.isConnected);
