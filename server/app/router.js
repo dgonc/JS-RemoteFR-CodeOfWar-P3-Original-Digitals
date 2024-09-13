@@ -13,6 +13,7 @@ const userActions = require("./controllers/userActions");
 const authActions = require("./controllers/authActions");
 const auth = require("./services/auth");
 const middleware = require("./services/middleware");
+const authAdminActions = require("./controllers/authAdminActions");
 
 // Route to get a list of items
 router.get("/items", itemActions.browse);
@@ -31,6 +32,9 @@ router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
 router.post("/sign", middleware.verifyFields, auth.hashPassword, userActions.add);
 router.post("/login", authActions.verifyEmailPassword, auth.createToken, authActions.login);
+
+// routes for admin related actions
+router.get("/admins", authAdminActions.loginAdmin);
 
 /* ************************************************************************* */
 
