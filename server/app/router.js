@@ -35,6 +35,7 @@ router.post("/login", authActions.verifyEmailPassword, auth.createToken, authAct
 
 // routes for admin related actions
 router.get("/admins", authAdminActions.loginAdmin);
+router.post("/admins/sign", authAdminActions.add);
 
 /* ************************************************************************* */
 
