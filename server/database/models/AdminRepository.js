@@ -8,10 +8,10 @@ class AdminRepository extends AbstractRepository {
     async create(admin) {
         const [result] = await this.database.query(
             `insert into ${this.table} (email, password, firstname, lastname) values (?, ?, ?, ?)`,
-            [admin.email, admin.password, admin.firstname, admin.lastname]
+            [admin.email, admin.hashedPassword, admin.firstname, admin.lastname]
         );
 
-        return result.insertId;
+        return result.values;
     }
 
     async readAll() {
