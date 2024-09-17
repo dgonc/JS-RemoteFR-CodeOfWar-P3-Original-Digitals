@@ -6,13 +6,15 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userId, setUserId] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await getAuth();
+        const user = await getAuth();
         setIsAuthenticated(true);
+        setUserId(user.data.id);
       } catch (err) {
         setIsAuthenticated(false);
       }
@@ -22,8 +24,8 @@ export function AuthProvider({ children }) {
   }, []);
 
   const value = useMemo(
-    () => ({ isAuthenticated, setIsAuthenticated }),
-    [isAuthenticated, setIsAuthenticated]
+    () => ({ isAuthenticated, setIsAuthenticated, userId }),
+    [isAuthenticated, setIsAuthenticated, userId]
   );
 
   return (

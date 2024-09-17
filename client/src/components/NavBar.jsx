@@ -6,7 +6,7 @@ import burger from "../assets/images/burger.png";
 import AuthContext from "../contexts/AuthContext";
 
 function NavBar() {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, userId } = useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -72,7 +72,7 @@ function NavBar() {
               <div className="separation-line" />
               {isAuthenticated ? (
                 <>
-                  <Link to="/user/1" onClick={toggleMenu}>
+                  <Link to={`/user/${userId}`} onClick={toggleMenu}>
                     Mon compte
                   </Link>
                   <div className="separation-line" />

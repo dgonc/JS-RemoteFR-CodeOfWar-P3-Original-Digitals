@@ -24,10 +24,12 @@ function User() {
   };
 
   return (
-    <div>
+    <div className="user-account">
       <h2>Gestion de compte</h2>
+      <div className="user-account-panel">
       <UserNavBar setActiveSection={setActiveSection} />
       <div>{section()}</div>
+      </div>
     </div>
   );
 }

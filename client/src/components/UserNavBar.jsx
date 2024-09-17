@@ -2,16 +2,16 @@ import PropTypes from "prop-types";
 
 export default function UserNavBar({ setActiveSection }) {
   return (
-    <aside>
+    <aside className="user-nav">
       <ul>
         <li>
-          <button type="button" onClick={() => setActiveSection("AccountManagement")}>Profile</button>
+          <button className="user-nav-button" type="button" onClick={() => setActiveSection("AccountManagement")}>Profile</button>
         </li>
         <li>
-          <button type="button" onClick={() => setActiveSection("PasswordManagement")}>Password</button>
+          <button className="user-nav-button" type="button" onClick={() => setActiveSection("PasswordManagement")}>Password</button>
         </li>
         <li>
-          <button type="button" onClick={() => setActiveSection("PreferenceManagement")}>Preferences</button>
+          <button className="user-nav-button" type="button" onClick={() => setActiveSection("PreferenceManagement")}>Preferences</button>
         </li>
       </ul>
       <button type="button">Logout</button>
