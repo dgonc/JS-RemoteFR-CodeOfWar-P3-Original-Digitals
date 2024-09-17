@@ -52,12 +52,35 @@ export function getAuth() {
   });
 } */
 
-  export async function getCategories() {
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/categories`);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
+export async function getCategories() {
+  try {
+    const response = await axios.get(
+      `${import.meta.env.VITE_API_URL}/api/categories`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return [];
   }
+}
+
+export const getMoviesWithCategories = async () => {
+  const [categories, movies] = await Promise.all([
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/categories`)
+      .then((categoriesRes) => categoriesRes.data)
+      .catch((error) => {
+        console.error(error);
+        return [];
+      }),
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/movies/categories`)
+      .then((moviesRes) => moviesRes.data)
+      .catch((error) => {
+        console.error(error);
+        return [];
+      }),
+  ]);
+
+  return { categories, movies };
+};

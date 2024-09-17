@@ -3,10 +3,11 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
-  getAuth,
+  // getAuth,
   getMovies,
   getUsers,
   getMoviesByTitle,
+  getMoviesWithCategories,
 } from "./services/request";
 import MoviesList from "./pages/MoviesList";
 
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: getAuth,
+        loader: getMoviesWithCategories,
         errorElement: <LandingPage />,
       },
       {

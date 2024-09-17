@@ -11,6 +11,27 @@ class MovieRepository extends AbstractRepository {
     return rows;
   }
 
+  async readAllWithCategories() {
+    const [rows] = await this.database.query(`SELECT
+    category.id AS category_id,
+    category.type,
+    movie.id AS movie_id,
+    movie.title,
+    movie.URL,
+    movie.classification,
+    movie.date,
+    movie.duration,
+    movie.picture,
+    movie.synopsis
+FROM
+    movie
+    JOIN movie_category ON movie.id = movie_category.movie_id
+    JOIN category ON movie_category.category_id = category.id
+`);
+
+    return rows;
+  }
+
   async read(id) {
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,

@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import MovieCard from "./MovieCard";
 
 function MovieByCategory({ movies }) {
   return (
     <>
       {movies.map((movie) => (
         <div key={movie.id}>
-          <h3>{movie.title}</h3>
+          <MovieCard movie={movie} />
         </div>
       ))}
     </>
@@ -13,12 +14,12 @@ function MovieByCategory({ movies }) {
 }
 
 MovieByCategory.propTypes = {
-    movies: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-  };
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default MovieByCategory;

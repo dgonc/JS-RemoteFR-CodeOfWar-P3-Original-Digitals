@@ -1,56 +1,19 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import MovieByCategory from "../components/MovieByCategory";
+import { useLoaderData } from "react-router-dom";
+import MovieCard from "../components/MovieCard";
 
 function Home() {
-  const [categories, setCategories] = useState([]);
-  const [moviesByCategory, setMoviesByCategory] = useState({});
-
-  useEffect(() => {
-    async function getCategories() {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/categories`
-        );
-        setCategories(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getCategories();
-  }, []);
-
-  useEffect(() => {
-    async function getMoviesByCategory(categoryId) {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/categories/${categoryId}`
-        );
-        setMoviesByCategory((prev) => ({
-          ...prev,
-          [categoryId]: response.data,
-        }));
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    categories.forEach((category) => {
-      getMoviesByCategory(category.id);
-    });
-  }, [categories]);
+  const { categories, movies } = useLoaderData();
 
   return (
     <>
-      <h1>Welcome to the homepage !</h1>
       {categories.map((category) => (
         <section key={category.id}>
           <h2>{category.type}</h2>
-          {moviesByCategory[category.id] ? (
-            <MovieByCategory movies={moviesByCategory[category.id]} />
-          ) : (
-            <p>Loading...</p>
-          )}
+          {movies
+            .filter((movie) => category.id === movie.category_id)
+            .map((movie) => (
+              <MovieCard key={movie.movie_id} movie={movie} />
+            ))}
         </section>
       ))}
     </>
