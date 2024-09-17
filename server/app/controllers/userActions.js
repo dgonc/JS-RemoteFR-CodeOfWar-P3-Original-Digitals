@@ -39,6 +39,7 @@ const edit = async (req, res, next) => {
 
   try {
     await tables.user.update(user);
+    res.sendStatus(204);
   } catch (err) {
     next(err);
   }
