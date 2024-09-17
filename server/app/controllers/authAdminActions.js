@@ -1,7 +1,7 @@
 const argon2 = require("argon2");
 const tables = require("../../database/tables");
 
-const loginAdmin = async (req, res, next) => {
+const browseAdmin = async (req, res, next) => {
   try {
     const admins = await tables.admin.readAll();
     res.json(admins);
@@ -43,4 +43,16 @@ const verifyEmailPasswordAdmin = async (req, res, next) => {
   }
 };
 
-module.exports = { loginAdmin, add, verifyEmailPasswordAdmin };
+const loginAdmin = async (req, res, next) => {
+  try {
+    res.cookie("auth", req.token).json({
+      message: "Login successfull",
+      id: req.admin.id,
+      email: req.admin.email,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { browseAdmin, add, verifyEmailPasswordAdmin, loginAdmin };

@@ -44,7 +44,7 @@ router.post(
 );
 
 // routes for admin related actions
-router.get("/admins", authAdminActions.loginAdmin);
+router.get("/admins", authAdminActions.browseAdmin);
 router.post(
   "/admins/sign",
   middleware.verifyFields,
@@ -54,7 +54,8 @@ router.post(
 router.post(
   "/admins/login",
   authAdminActions.verifyEmailPasswordAdmin,
-  auth.createTokenAdmin
+  auth.createTokenAdmin,
+  authAdminActions.loginAdmin
 );
 /* ************************************************************************* */
 
