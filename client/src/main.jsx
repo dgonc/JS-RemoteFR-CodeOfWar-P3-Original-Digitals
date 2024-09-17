@@ -9,7 +9,7 @@ import {
   getUserById,
 } from "./services/request";
 import adminUploadAction from "./services/adminService";
-import { signUpUserAction, loginUserAction } from "./services/userService";
+import { signUpUserAction, loginUserAction, editUserAction } from "./services/userService";
 import { AuthProvider } from "./contexts/AuthContext";
 
 import App from "./App";
@@ -44,6 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/user/:id",
         element: <User />,
+        action: editUserAction,
         loader: getUserById,
       },
       {

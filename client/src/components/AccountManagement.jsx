@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Form } from "react-router-dom";
 
 export default function AccountManagement({ user }) {
   return (
@@ -6,6 +7,23 @@ export default function AccountManagement({ user }) {
       <p>{user.email}</p>
       <p>{user.firstname}</p>
       <p>{user.lastname}</p>
+      <Form method="put">
+        <label htmlFor="firstname">Firstname</label>{" "}
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          defaultValue={user.firstname}
+        />
+        <label htmlFor="lastname">Lastname</label>{" "}
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          defaultValue={user.lastname}
+        />
+        <button type="submit">Modify</button>
+      </Form>
     </section>
   );
 }

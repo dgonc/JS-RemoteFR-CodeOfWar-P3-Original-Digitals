@@ -40,3 +40,21 @@ export async function loginUserAction({ request }) {
   }
   return null;
 }
+
+export async function editUserAction({ request, params }) {
+  try {
+    const formData = await request.formData();
+    const user = {
+      firstname: formData.get("firstname"),
+      lastname: formData.get("lastname"),
+    };
+    const response = await myAxios.put(`/api/user/${params.id}`, user);
+
+    if (response.status === 204) {
+      return redirect(`/user/${params.id}`);
+    }
+  } catch (error) {
+    console.error("Error during update", error);
+  }
+  return null;
+}
