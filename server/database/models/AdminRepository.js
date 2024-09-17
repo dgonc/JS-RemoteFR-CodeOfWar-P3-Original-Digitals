@@ -11,7 +11,7 @@ class AdminRepository extends AbstractRepository {
       [admin.email, admin.hashedPassword, admin.firstname, admin.lastname]
     );
 
-    return result.values;
+    return result.insertId;
   }
 
   async readAll() {

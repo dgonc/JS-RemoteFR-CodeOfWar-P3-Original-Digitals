@@ -24,7 +24,6 @@ const add = async (req, res, next) => {
 const verifyEmailPasswordAdmin = async (req, res, next) => {
   try {
     const admin = await tables.admin.readByEmailWithPassword(req.body.email);
-    console.info(admin);
     if (admin == null) {
       res.sendStatus(401);
     }
