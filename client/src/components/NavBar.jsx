@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import searchImg from "../assets/images/search.png";
 import burger from "../assets/images/burger.png";
+import AuthContext from "../contexts/AuthContext";
 
 function NavBar() {
+  const { isAuthenticated } = useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -68,13 +70,31 @@ function NavBar() {
                 Accueil
               </Link>
               <div className="separation-line" />
-              <Link to="/users" onClick={toggleMenu}>
-                Utilisateurs
-              </Link>
-              <div className="separation-line" />
-              <Link to="/movies" onClick={toggleMenu}>
-                Movie List
-              </Link>
+              {isAuthenticated ? (
+                <>
+                  <Link to="/user/1" onClick={toggleMenu}>
+                    Mon compte
+                  </Link>
+                  <div className="separation-line" />
+                  <Link to="/movies" onClick={toggleMenu}>
+                    Movie List
+                  </Link>
+                  <div className="separation-line" />
+                  <Link to="/logout" onClick={toggleMenu}>
+                    Se déconnecter
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" onClick={toggleMenu}>
+                    Se connecter
+                  </Link>
+                  <div className="separation-line" />
+                  <Link to="/sign" onClick={toggleMenu}>
+                    S'inscrire
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </>

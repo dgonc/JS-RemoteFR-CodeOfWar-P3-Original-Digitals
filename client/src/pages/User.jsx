@@ -1,16 +1,18 @@
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import AccountManagement from "../components/AccountManagement";
 import UserNavBar from "../components/UserNavBar";
 import PasswordManagement from "../components/PasswordManagement";
 import PreferenceManagement from "../components/PreferenceManagement";
 
 function User() {
+  const user = useLoaderData();
   const [activeSection, setActiveSection] = useState("AccountManagement");
 
   const section = () => {
     switch (activeSection) {
       case "AccountManagement":
-        return <AccountManagement />;
+        return <AccountManagement user={user} />;
       case "PasswordManagement":
         return <PasswordManagement />;
       case "PreferenceManagement":
