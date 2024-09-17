@@ -11,6 +11,7 @@ const itemActions = require("./controllers/itemActions");
 const movieActions = require("./controllers/movieActions");
 const userActions = require("./controllers/userActions");
 const authActions = require("./controllers/authActions");
+const categoryActions = require("./controllers/categoryActions");
 const auth = require("./services/auth");
 const middleware = require("./services/middleware");
 
@@ -24,6 +25,9 @@ router.get("/movies", movieActions.browse);
 router.get("/movies/:id", movieActions.read);
 router.get("/movies/search/:title", movieActions.readByTitle);
 router.post("/movies/add", movieActions.add);
+
+// route to get a list of categories
+router.get("/categories", categoryActions.browse);
 
 // routes for user related actions
 router.get("/checkauth", auth.verifyToken, auth.isConnected);
