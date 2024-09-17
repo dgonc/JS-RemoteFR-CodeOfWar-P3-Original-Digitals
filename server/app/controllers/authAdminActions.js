@@ -1,24 +1,46 @@
+const argon2 = require("argon2");
 const tables = require("../../database/tables");
 
 const loginAdmin = async (req, res, next) => {
-    try {
-        const admins = await tables.admin.readAll();
-        res.json(admins);
-    } catch (error) {
-        next(error);
-    }
+  try {
+    const admins = await tables.admin.readAll();
+    res.json(admins);
+  } catch (error) {
+    next(error);
+  }
 };
 
 const add = async (req, res, next) => {
+  const admin = req.body;
 
-    const admin = req.body;
-
-    try {
-        const admins = await tables.admin.create(admin);
-        res.status(201).json({ admins });
-    } catch (error) {
-        next(error);
-    }
+  try {
+    const admins = await tables.admin.create(admin);
+    res.status(201).json({ admins });
+  } catch (error) {
+    next(error);
+  }
 };
 
-module.exports = { loginAdmin, add };
+const verifyEmailPasswordAdmin = async (req, res, next) => {
+  try {
+    const admin = await tables.admin.readByEmailWithPassword(req.body.email);
+    console.info(admin);
+    if (admin == null) {
+      res.sendStatus(401);
+    }
+
+    const verified = await argon2.verify(admin.password, req.body.password);
+
+    if (verified) {
+      delete admin.password;
+      req.admin = admin;
+      next();
+    } else {
+      res.sendStatus(401);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { loginAdmin, add, verifyEmailPasswordAdmin };

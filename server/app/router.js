@@ -30,13 +30,32 @@ router.post("/movies/add", movieActions.add);
 router.get("/checkauth", auth.verifyToken, auth.isConnected);
 router.get("/users", userActions.browse);
 router.get("/users/:id", userActions.read);
-router.post("/sign", middleware.verifyFields, auth.hashPassword, userActions.add);
-router.post("/login", authActions.verifyEmailPassword, auth.createToken, authActions.login);
+router.post(
+  "/sign",
+  middleware.verifyFields,
+  auth.hashPassword,
+  userActions.add
+);
+router.post(
+  "/login",
+  authActions.verifyEmailPassword,
+  auth.createToken,
+  authActions.login
+);
 
 // routes for admin related actions
 router.get("/admins", authAdminActions.loginAdmin);
-router.post("/admins/sign", middleware.verifyFields, auth.hashPassword, authAdminActions.add);
-
+router.post(
+  "/admins/sign",
+  middleware.verifyFields,
+  auth.hashPassword,
+  authAdminActions.add
+);
+router.post(
+  "/admins/login",
+  authAdminActions.verifyEmailPasswordAdmin,
+  auth.createTokenAdmin
+);
 /* ************************************************************************* */
 
 module.exports = router;
