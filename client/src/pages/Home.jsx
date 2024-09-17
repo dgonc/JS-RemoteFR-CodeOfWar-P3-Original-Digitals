@@ -12,7 +12,7 @@ function Home() {
           {movies
             .filter((movie) => category.id === movie.category_id)
             .map((movie) => (
-              <MovieCard key={movie.movie_id} movie={movie} />
+              <MovieCard key={movie.id} movie={movie} />
             ))}
         </section>
       ))}

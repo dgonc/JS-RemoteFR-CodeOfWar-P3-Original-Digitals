@@ -13,7 +13,7 @@ export default function MovieCard({ movie }) {
   };
 
   return (
-    <div key={movie.movie_id} className="card">
+    <div key={movie.id} className="card">
       <div className="poster-container">
         <img
           src="https://images.affiches-et-posters.com//albums/3/4537/medium/affiche-film-inception-2352.jpg"
@@ -31,8 +31,7 @@ export default function MovieCard({ movie }) {
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    movie_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-      .isRequired,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     title: PropTypes.string.isRequired,
     posterUrl: PropTypes.string,
   }).isRequired,

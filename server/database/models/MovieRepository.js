@@ -15,7 +15,7 @@ class MovieRepository extends AbstractRepository {
     const [rows] = await this.database.query(`SELECT
     category.id AS category_id,
     category.type,
-    movie.id AS movie_id,
+    movie.id,
     movie.title,
     movie.URL,
     movie.classification,
