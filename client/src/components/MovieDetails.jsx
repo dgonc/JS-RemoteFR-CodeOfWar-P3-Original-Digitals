@@ -31,7 +31,7 @@ export default function MovieDetails({ modalRef, movie }) {
         <p> Sortie : {releaseDate}</p>
         <p> Classification : - {movie.classification}</p>
       </section>
-      <h3> Acteurs</h3>
+      <h3 className="detail-title"> Acteurs</h3>
       <section className="actor-list">
         <img
           src="https://images.pexels.com/photos/2227958/pexels-photo-2227958.jpeg?auto=compress&cs=tinysrgb&w=400"
@@ -51,7 +51,7 @@ export default function MovieDetails({ modalRef, movie }) {
         />
       </section>
       <section>
-        <h3> Synopsis</h3>
+        <h3 className="detail-title"> Synopsis</h3>
         <p className="synopsis-movie">{movie.synopsis}</p>
       </section>
       <button type="button" onClick={closeModal} className="dialog-button">

@@ -1,0 +1,88 @@
+.user-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.user-account-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-account-window {
+  background-color: var(--button-dark);
+  border-radius: 8px;
+  padding: 1rem 1rem;
+  margin: 0 1rem;
+  width: 100%;
+}
+
+.user-nav {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.user-nav-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-nav-button {
+  background: none;
+  color: var(--third-purple);
+  font-size: 1rem;
+  position: relative;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.user-nav-button.active-button {
+  background-color: var(--button-dark);
+  color: var(--background-white);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.user-nav-button.active-button::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-color: var(--button-dark);
+}
+
+.user-information-field {
+  background-color: var(--secondary-grey);
+}
+
+.edit-user-button {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: white 1px solid;
+  border-radius: 4px;
+  background-color: var(--third-purple);
+  font-size: 1rem;
+  margin: 0 auto;
+}
+
+.edit-user-button:hover {
+  background-color: var(--background-white);
+}
+
+.logout-button {
+  padding: 0.3rem 1rem;
+  border: white 1px solid;
+  border-radius: 4px;
+  background-color: var(--secondary-grey);
+}

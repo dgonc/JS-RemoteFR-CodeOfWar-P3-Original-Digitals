@@ -25,11 +25,17 @@ function User() {
 
   return (
     <div className="user-account">
-      <h2>Gestion de compte</h2>
+      <h2>Welcome, {user.firstname}</h2>
       <div className="user-account-panel">
-      <UserNavBar setActiveSection={setActiveSection} />
-      <div>{section()}</div>
+        <UserNavBar
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+        />
+        <div className="user-account-window">{section()}</div>
       </div>
+      <button className="logout-button" type="button">
+        Logout
+      </button>
     </div>
   );
 }
