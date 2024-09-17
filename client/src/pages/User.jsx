@@ -1,5 +1,33 @@
+import { useState } from "react";
+import AccountManagement from "../components/AccountManagement";
+import UserNavBar from "../components/UserNavBar";
+import PasswordManagement from "../components/PasswordManagement";
+import PreferenceManagement from "../components/PreferenceManagement";
+
 function User() {
-  return <h2>Gestion de compte</h2>;
+  const [activeSection, setActiveSection] = useState("AccountManagement");
+
+  const section = () => {
+    switch (activeSection) {
+      case "AccountManagement":
+        return <AccountManagement />;
+      case "PasswordManagement":
+        return <PasswordManagement />;
+      case "PreferenceManagement":
+        return <PreferenceManagement />;
+
+      default:
+        return <UserNavBar />;
+    }
+  };
+
+  return (
+    <div>
+      <h2>Gestion de compte</h2>
+      <UserNavBar setActiveSection={setActiveSection} />
+      <div>{section()}</div>
+    </div>
+  );
 }
 
 export default User;
