@@ -28,6 +28,7 @@ router.post("/movies/add", movieActions.add);
 
 // route to get a list of categories
 router.get("/categories", categoryActions.browse);
+router.get("/categories/:id", categoryActions.read);
 
 // routes for user related actions
 router.get("/checkauth", auth.verifyToken, auth.isConnected);
