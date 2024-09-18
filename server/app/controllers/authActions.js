@@ -1,17 +1,17 @@
 const argon2 = require("argon2");
 const tables = require("../../database/tables");
 
-const checkIfAdmin = async (req, res, next) => {
+const verifyEmail = async (req, res, next) => {
   try {
     const admin = await tables.admin.readByEmailWithPassword(req.body.email);
     if (admin) {
       req.role = "admin";
-      const verified = await argon2.verify(admin.password, req.body.password);
-      if (verified) {
-        delete admin.password;
-        req.user = admin;
-        next();
-      } else {
+      req.user = admin;
+    } else {
+      const user = await tables.user.readByEmailWithPassword(req.body.email);
+      req.role = "user";
+      req.user = user;
+      if (user === null) {
         res.sendStatus(401);
       }
     }
@@ -21,25 +21,17 @@ const checkIfAdmin = async (req, res, next) => {
   }
 };
 
-const verifyEmailPassword = async (req, res, next) => {
+const verifyPassword = async (req, res, next) => {
   try {
-    if (req.role === "admin") {
+    const { user } = req;
+    const verified = await argon2.verify(user.password, req.body.password);
+
+    if (verified) {
+      delete user.password;
+      req.user = user;
       next();
     } else {
-      const user = await tables.user.readByEmailWithPassword(req.body.email);
-      if (user === null) {
-        res.sendStatus(401);
-      }
-      const verified = await argon2.verify(user.password, req.body.password);
-
-      if (verified) {
-        delete user.password;
-        req.user = user;
-        req.role = "user";
-        next();
-      } else {
-        res.sendStatus(401);
-      }
+      res.sendStatus(401);
     }
   } catch (error) {
     next(error);
@@ -59,4 +51,38 @@ const login = async (req, res, next) => {
   }
 };
 
-module.exports = { verifyEmailPassword, login, checkIfAdmin };
+/* const verifyCredentials = async (tableName, email, password) => {
+  const user = await tables[tableName].readByEmailWithPassword(email);
+  if (user == null) {
+    return null;
+  }
+  const verified = await argon2.verify(user.password, password);
+  if (verified) {
+    delete user.password;
+    return user;
+  }
+  return null;
+};
+
+const auth = async (req, res, next) => {
+  try {
+    let user = await verifyCredentials(
+      "admin",
+      req.body.email,
+      req.body.password
+    );
+    if (user === null) {
+      user = await verifyCredentials("user", req.body.email, req.body.password);
+    }
+    if (user !== null) {
+      req.user = user;
+      next();
+    } else {
+      res.sendStatus(401);
+    }
+  } catch (err) {
+    next(err);
+  }
+}; */
+
+module.exports = { verifyEmail, verifyPassword, login };

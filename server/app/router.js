@@ -39,8 +39,8 @@ router.post(
 );
 router.post(
   "/login",
-  authActions.checkIfAdmin,
-  authActions.verifyEmailPassword,
+  authActions.verifyEmail,
+  authActions.verifyPassword,
   auth.createToken,
   authActions.login
 );
