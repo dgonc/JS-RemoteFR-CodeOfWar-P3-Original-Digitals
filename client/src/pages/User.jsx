@@ -1,11 +1,13 @@
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useLoaderData, Link } from "react-router-dom";
 import AccountManagement from "../components/AccountManagement";
 import UserNavBar from "../components/UserNavBar";
 import PasswordManagement from "../components/PasswordManagement";
 import PreferenceManagement from "../components/PreferenceManagement";
+import AuthContext from "../contexts/AuthContext";
 
 function User() {
+  const { setIsAuthenticated } = useContext(AuthContext);
   const user = useLoaderData();
   const [activeSection, setActiveSection] = useState("AccountManagement");
 
@@ -33,9 +35,13 @@ function User() {
         />
         <div className="user-account-window">{section()}</div>
       </div>
-      <button className="logout-button" type="button">
+      <Link
+        to="/logout"
+        onClick={setIsAuthenticated(false)}
+        className="logout-button"
+      >
         Logout
-      </button>
+      </Link>
     </div>
   );
 }

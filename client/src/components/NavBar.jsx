@@ -6,7 +6,8 @@ import burger from "../assets/images/burger.png";
 import AuthContext from "../contexts/AuthContext";
 
 function NavBar() {
-  const { isAuthenticated, userId } = useContext(AuthContext);
+  const { isAuthenticated, setIsAuthenticated, userId } =
+    useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -67,31 +68,37 @@ function NavBar() {
             />
             <div className="links-list">
               <Link to="/" onClick={toggleMenu}>
-                Accueil
+                Home
               </Link>
               <div className="separation-line" />
               {isAuthenticated ? (
                 <>
                   <Link to={`/user/${userId}`} onClick={toggleMenu}>
-                    Mon compte
+                    My account
                   </Link>
                   <div className="separation-line" />
                   <Link to="/movies" onClick={toggleMenu}>
                     Movie List
                   </Link>
                   <div className="separation-line" />
-                  <Link to="/logout" onClick={toggleMenu}>
-                    Se déconnecter
+                  <Link
+                    to="/logout"
+                    onClick={() => {
+                      toggleMenu();
+                      setIsAuthenticated(false);
+                    }}
+                  >
+                    Logout
                   </Link>
                 </>
               ) : (
                 <>
                   <Link to="/login" onClick={toggleMenu}>
-                    Se connecter
+                    Login
                   </Link>
                   <div className="separation-line" />
                   <Link to="/sign" onClick={toggleMenu}>
-                    S'inscrire
+                    Sign in
                   </Link>
                 </>
               )}

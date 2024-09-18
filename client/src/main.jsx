@@ -24,6 +24,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import AdminPanel from "./pages/AdminPanel";
 import MoviesList from "./pages/MoviesList";
+import Logout from "./pages/Logout";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         path: "/login",
         element: <SignIn />,
         action: loginUserAction,
+      },
+      {
+        path: "/logout",
+        element: <Logout />,
       },
       {
         path: "/user/:id",
