@@ -9,17 +9,23 @@ function Home() {
 
   return (
     <>
-    <h1 className="home-title">Welcome to Youflim</h1>
-    { isAuthenticated ? categories.map((category) => (
-        <section key={category.id}>
-          <h2>{category.type}</h2>
-          {movies
-            .filter((movie) => category.id === movie.category_id)
-            .map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))}
-        </section>
-      )) : <Link to="/login" className="go-back-button">Login</Link> }
+      <h1 className="home-title">Welcome to Youflim</h1>
+      {isAuthenticated ? (
+        categories.map((category) => (
+          <section key={category.id}>
+            <h2>{category.type}</h2>
+            {movies
+              .filter((movie) => category.id === movie.category_id)
+              .map((movie) => (
+                <MovieCard key={movie.id} movie={movie} />
+              ))}
+          </section>
+        ))
+      ) : (
+        <Link to="/login" className="go-back-button">
+          Login
+        </Link>
+      )}
     </>
   );
 }
