@@ -42,16 +42,6 @@ export function getAuth() {
     });
 }
 
-/* export function getCategories() {
-  return axios
-  .get(`${import.meta.env.VITE_API_URL}/api/categories`)
-  .then((response) => response.data)
-  .catch((error) => {
-    console.error(error);
-    return [];
-  });
-} */
-
 export async function getCategories() {
   try {
     const response = await axios.get(
