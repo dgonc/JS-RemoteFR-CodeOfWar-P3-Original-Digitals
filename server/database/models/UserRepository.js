@@ -28,6 +28,15 @@ class UserRepository extends AbstractRepository {
 
         return result.insertId;
     }
+
+    async update(user) {
+        const [result] = await this.database.query(
+            `update ${this.table} set firstname = ?, lastname = ? where id = ?`,
+            [user.firstname, user.lastname, user.id]
+        );
+        return result.affectedRows;
+
+    }
 }
 
 module.exports = UserRepository;

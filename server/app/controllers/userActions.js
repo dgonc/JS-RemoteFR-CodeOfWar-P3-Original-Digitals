@@ -34,4 +34,15 @@ const add = async (req, res, next) => {
   }
 };
 
-module.exports = { browse, read, add };
+const edit = async (req, res, next) => {
+  const user = { ...req.body, id: req.params.id };
+
+  try {
+    await tables.user.update(user);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { browse, read, add, edit };

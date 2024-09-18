@@ -44,3 +44,61 @@ INSERT INTO movie (title, duration, synopsis, date, classification, picture, URL
 ('The Shawshank Redemption', 142, 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', '1994-09-22', 13,'','https://www.youtube.com/embed/wux4Vwy3_x8', 1),
 ('Fight Club', 139, 'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into much more.', '1999-10-15', 18,'','https://www.youtube.com/embed/c_Sf-XY3t-I', 1),
 ('The Lion King', 88, 'Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.', '1994-06-24', 8,'','https://www.youtube.com/embed/-KfIYw-D4Iw', 1);
+
+
+create table category (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(100) NOT NULL
+);
+
+INSERT INTO
+    category (type)
+VALUES ("Action"),
+    ("Aventure"),
+    ("Animation"),
+    ("Comedie Musicale"),
+    ("Drame"),
+    ("Mystère"),
+    ("Policier"),
+    ("Science-Fiction"),
+    ("Super-Héro"),
+    ("Thriller");
+
+create table movie_category (
+    movie_id INT NOT NULL,
+    category_id INT NOT NULL,
+    PRIMARY KEY (movie_id, category_id),
+    FOREIGN KEY (movie_id) REFERENCES movie (id),
+    FOREIGN KEY (category_id) REFERENCES category (id)
+);
+
+INSERT INTO
+    movie_category (movie_id, category_id)
+VALUES (1, 1),
+    (1, 6),
+    (1, 8),
+    (1, 10),
+    (2, 1),
+    (2, 7),
+    (2, 9),
+    (2, 10),
+    (3, 2),
+    (3, 5),
+    (3, 8),
+    (4, 5),
+    (4, 10),
+    (5, 5),
+    (5, 7),
+    (6, 5),
+    (6, 7),
+    (6, 10),
+    (7, 1),
+    (7, 8),
+    (8, 5),
+    (8, 7),
+    (9, 5),
+    (9, 10),
+    (10, 2),
+    (10, 3),
+    (10, 4),
+    (10, 5);

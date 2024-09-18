@@ -11,15 +11,21 @@ const router = express.Router();
 const movieActions = require("./controllers/movieActions");
 const userActions = require("./controllers/userActions");
 const authActions = require("./controllers/authActions");
+const categoryActions = require("./controllers/categoryActions");
 const auth = require("./services/auth");
 const middleware = require("./services/middleware");
 const authAdminActions = require("./controllers/authAdminActions");
 
 // route to get a list of movies
 router.get("/movies", movieActions.browse);
+router.get("/movies/categories", movieActions.readByCategories);
 router.get("/movies/:id", movieActions.read);
 router.get("/movies/search/:title", movieActions.readByTitle);
 router.post("/movies/add", movieActions.add);
+
+// route to get a list of categories
+router.get("/categories", categoryActions.browse);
+router.get("/categories/:id", categoryActions.read);
 
 // routes for user related actions
 router.get("/checkauth", auth.verifyToken, auth.isConnected);

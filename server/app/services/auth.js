@@ -35,7 +35,8 @@ const createToken = async (req, res, next) => {
 const verifyToken = async (req, res, next) => {
   try {
     const { auth } = req.cookies;
-    await jwt.verify(auth, process.env.APP_SECRET);
+    const decoded = await jwt.verify(auth, process.env.APP_SECRET);
+    req.user = decoded;
     next();
   } catch (error) {
     next(error);
@@ -44,7 +45,22 @@ const verifyToken = async (req, res, next) => {
 
 const isConnected = async (req, res, next) => {
   try {
-    res.sendStatus(200);
+    if (req.user) {
+      res.status(200).json({
+        status: "success",
+        data: {
+          id: req.user.id,
+          email: req.user.email,
+          firstname: req.user.firstname,
+          lastname: req.user.lastname,
+        },
+      });
+    } else {
+      res.status(401).json({
+        status: "error",
+        message: "Unauthorized",
+      });
+    }
   } catch (error) {
     next(error);
   }

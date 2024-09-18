@@ -7,6 +7,7 @@ import "./styles/Userform.css";
 import "./styles/Signup.css";
 import "./styles/Landing.css";
 import "./styles/Signin.css";
+import "./styles/Userpanel.css"
 
 function App() {
   return (
