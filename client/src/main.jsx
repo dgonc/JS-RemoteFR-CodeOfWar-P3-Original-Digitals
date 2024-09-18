@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
-  // getAuth,
   getMovies,
   getUsers,
   getMoviesByTitle,
@@ -33,7 +32,6 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: getMoviesWithCategories,
-        errorElement: <LandingPage />,
       },
       {
         path: "/sign",
