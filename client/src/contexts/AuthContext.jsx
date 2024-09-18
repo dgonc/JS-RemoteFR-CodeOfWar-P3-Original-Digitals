@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
+import Cookies from "js-cookie";
 import { getAuth } from "../services/request";
 
 const AuthContext = createContext();
@@ -11,11 +12,16 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const checkAuth = async () => {
-      try {
-        const user = await getAuth();
-        setIsAuthenticated(true);
-        setUserId(user.data.id);
-      } catch (err) {
+      const token = Cookies.get("auth");
+      if (token) {
+        try {
+          const user = await getAuth();
+          setIsAuthenticated(true);
+          setUserId(user.data.id);
+        } catch (err) {
+          setIsAuthenticated(false);
+        }
+      } else {
         setIsAuthenticated(false);
       }
       setLoading(false);

@@ -52,6 +52,15 @@ export function getAuth() {
     });
 }
 
+export function getLogout() {
+  return axios
+    .get(`${import.meta.env.VITE_API_URL}/api/logout`, {
+      withCredentials: true,
+    })
+    .then((response) => response)
+    .catch((error) => console.error(error));
+}
+
 export async function getCategories() {
   try {
     const response = await axios.get(

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import {
+  getLogout,
   getMovies,
   getMoviesByTitle,
   getMoviesWithCategories,
@@ -11,7 +12,6 @@ import {
 import adminUploadAction from "./services/adminService";
 import {
   signUpUserAction,
-  loginUserAction,
   editUserAction,
 } from "./services/userService";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -21,10 +21,10 @@ import LandingPage from "./pages/LandingPage";
 import User from "./pages/User";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
-import SignIn from "./pages/SignIn";
 import AdminPanel from "./pages/AdminPanel";
 import MoviesList from "./pages/MoviesList";
 import Logout from "./pages/Logout";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -42,12 +42,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <SignIn />,
-        action: loginUserAction,
+        element: <Login />,
       },
       {
         path: "/logout",
         element: <Logout />,
+        loader: getLogout,
       },
       {
         path: "/user/:id",

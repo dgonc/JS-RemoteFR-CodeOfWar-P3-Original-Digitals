@@ -14,7 +14,7 @@ export async function signUpUserAction({ request }) {
     const response = await myAxios.post("api/sign", user);
 
     if (response.status === 201) {
-      return redirect("/");
+      return redirect("/login");
     }
   } catch (error) {
     console.error("Error during sign up:", error);
@@ -22,22 +22,23 @@ export async function signUpUserAction({ request }) {
   return null;
 }
 
-export async function loginUserAction({ request }) {
+export async function loginUserAction(user) {
+  const sleep = (ms) =>
+    new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
   try {
-    const formData = await request.formData();
-    const user = {
-      email: formData.get("email"),
-      password: formData.get("password"),
-    };
-
     const response = await myAxios.post("api/login", user);
 
     if (response.status === 200) {
-      return redirect("/");
+      await sleep(1000);
+      return response.data;
     }
   } catch (error) {
     console.error("Error during login:", error);
+    throw error;
   }
+
   return null;
 }
 

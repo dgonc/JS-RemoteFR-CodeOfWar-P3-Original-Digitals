@@ -48,6 +48,7 @@ router.post(
   auth.createToken,
   authActions.login
 );
+router.get("/logout", auth.deleteToken);
 
 /* ************************************************************************* */
 
