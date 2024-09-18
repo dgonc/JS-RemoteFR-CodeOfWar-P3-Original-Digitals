@@ -1,4 +1,3 @@
-const argon2 = require("argon2");
 const tables = require("../../database/tables");
 
 const browseAdmin = async (req, res, next) => {
@@ -21,37 +20,4 @@ const add = async (req, res, next) => {
   }
 };
 
-const verifyEmailPasswordAdmin = async (req, res, next) => {
-  try {
-    const admin = await tables.admin.readByEmailWithPassword(req.body.email);
-    if (admin == null) {
-      res.sendStatus(401);
-    }
-
-    const verified = await argon2.verify(admin.password, req.body.password);
-
-    if (verified) {
-      delete admin.password;
-      req.admin = admin;
-      next();
-    } else {
-      res.sendStatus(401);
-    }
-  } catch (error) {
-    next(error);
-  }
-};
-
-const loginAdmin = async (req, res, next) => {
-  try {
-    res.cookie("auth", req.token).json({
-      message: "Login successfull",
-      id: req.admin.id,
-      email: req.admin.email,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
-module.exports = { browseAdmin, add, verifyEmailPasswordAdmin, loginAdmin };
+module.exports = { browseAdmin, add };

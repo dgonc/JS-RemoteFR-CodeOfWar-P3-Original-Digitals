@@ -32,19 +32,6 @@ const createToken = async (req, res, next) => {
   }
 };
 
-const createTokenAdmin = async (req, res, next) => {
-  try {
-    const payload = req.admin;
-    const token = await jwt.sign(payload, process.env.APP_SECRET, {
-      expiresIn: "1d",
-    });
-    req.token = token;
-    next();
-  } catch (error) {
-    next(error);
-  }
-};
-
 const verifyToken = async (req, res, next) => {
   try {
     const { auth } = req.cookies;
@@ -68,5 +55,4 @@ module.exports = {
   createToken,
   verifyToken,
   isConnected,
-  createTokenAdmin,
 };

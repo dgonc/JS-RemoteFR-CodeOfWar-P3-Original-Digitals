@@ -33,6 +33,7 @@ router.post(
 );
 router.post(
   "/login",
+  authActions.checkIfAdmin,
   authActions.verifyEmailPassword,
   auth.createToken,
   authActions.login
@@ -46,12 +47,6 @@ router.post(
   middleware.verifyFields,
   auth.hashPassword,
   authAdminActions.add
-);
-router.post(
-  "/admins/login",
-  authAdminActions.verifyEmailPasswordAdmin,
-  auth.createTokenAdmin,
-  authAdminActions.loginAdmin
 );
 /* ************************************************************************* */
 
