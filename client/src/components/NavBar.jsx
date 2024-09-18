@@ -46,7 +46,7 @@ function NavBar() {
           <input className="search-input" type="text" onChange={handleSearch} />
           <Link
             className="search-action"
-            to={`/movies/search/${search}`}
+            to={search.length === 0 ? "/movies" : `/movies/search/${search}`}
             onClick={() => setSearch("")}
           >
             Search
