@@ -29,7 +29,11 @@ function NavBar() {
 
   useEffect(() => {
     window.addEventListener("scroll", handlePosition);
-  }, []);
+    const main = document.querySelector("main");
+    main.addEventListener("click", () =>
+      searchOpen ? setSearchOpen(false) : ""
+    );
+  }, [searchOpen]);
 
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
@@ -43,7 +47,7 @@ function NavBar() {
           <Link
             className="search-action"
             to={`/movies/search/${search}`}
-            onClick={() => toggleSearch() && setSearch("")}
+            onClick={() => setSearch("")}
           >
             Search
           </Link>
