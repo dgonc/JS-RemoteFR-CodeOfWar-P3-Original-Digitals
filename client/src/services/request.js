@@ -30,6 +30,16 @@ export function getUsers() {
     });
 }
 
+export function getUserById({ params }) {
+  return axios
+    .get(`${import.meta.env.VITE_API_URL}/api/user/${params.id}`)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error(error);
+      return [];
+    });
+}
+
 export function getAuth() {
   return axios
     .get(`${import.meta.env.VITE_API_URL}/api/checkauth`, {

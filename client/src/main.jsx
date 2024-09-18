@@ -1,28 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import {
   getAuth,
   getMovies,
-  getUsers,
   getMoviesByTitle,
+  getUserById,
 } from "./services/request";
-import MoviesList from "./pages/MoviesList";
+import adminUploadAction from "./services/adminService";
+import { signUpUserAction, loginUserAction, editUserAction } from "./services/userService";
+import { AuthProvider } from "./contexts/AuthContext";
 
 import App from "./App";
 import LandingPage from "./pages/LandingPage";
 import User from "./pages/User";
 import SignUp from "./pages/SignUp";
-
-import adminUploadAction from "./services/adminService";
-
-import { signUpUserAction, loginUserAction } from "./services/userService";
-
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
-
 import AdminPanel from "./pages/AdminPanel";
+import MoviesList from "./pages/MoviesList";
 
 const router = createBrowserRouter([
   {
@@ -45,9 +42,10 @@ const router = createBrowserRouter([
         action: loginUserAction,
       },
       {
-        path: "/users",
+        path: "/user/:id",
         element: <User />,
-        loader: getUsers,
+        action: editUserAction,
+        loader: getUserById,
       },
       {
         path: "/movies",
@@ -76,6 +74,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

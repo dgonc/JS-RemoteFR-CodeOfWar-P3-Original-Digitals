@@ -28,7 +28,8 @@ router.post("/movies/add", movieActions.add);
 // routes for user related actions
 router.get("/checkauth", auth.verifyToken, auth.isConnected);
 router.get("/users", userActions.browse);
-router.get("/users/:id", userActions.read);
+router.get("/user/:id", userActions.read);
+router.put("/user/:id", userActions.edit);
 router.post("/sign", middleware.verifyFields, auth.hashPassword, userActions.add);
 router.post("/login", authActions.verifyEmailPassword, auth.createToken, authActions.login);
 
