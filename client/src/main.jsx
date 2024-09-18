@@ -3,13 +3,17 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import {
-  getAuth,
   getMovies,
   getMoviesByTitle,
+  getMoviesWithCategories,
   getUserById,
 } from "./services/request";
 import adminUploadAction from "./services/adminService";
-import { signUpUserAction, loginUserAction, editUserAction } from "./services/userService";
+import {
+  signUpUserAction,
+  loginUserAction,
+  editUserAction,
+} from "./services/userService";
 import { AuthProvider } from "./contexts/AuthContext";
 
 import App from "./App";
@@ -28,8 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: getAuth,
-        errorElement: <LandingPage />,
+        loader: getMoviesWithCategories,
       },
       {
         path: "/sign",

@@ -36,6 +36,16 @@ const readByTitle = async (req, res, next) => {
   }
 };
 
+const readByCategories = async (req, res, next) => {
+  try {
+    const movies = await tables.movie.readAllWithCategories();
+
+    res.json(movies);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const add = async (req, res, next) => {
   const movie = req.body;
   try {
@@ -48,4 +58,4 @@ const add = async (req, res, next) => {
   }
 };
 
-module.exports = { browse, read, readByTitle, add };
+module.exports = { browse, read, readByTitle, readByCategories, add };

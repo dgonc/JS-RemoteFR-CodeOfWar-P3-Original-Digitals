@@ -1,4 +1,5 @@
 // Import the repository modules responsible for handling data operations on the tables
+const CategoryRepository = require("./models/categoryRespository");
 const ItemRepository = require("./models/ItemRepository");
 const MovieRepository = require("./models/MovieRepository");
 const UserRepository = require("./models/UserRepository");
@@ -14,6 +15,7 @@ const tables = {};
 tables.item = new ItemRepository();
 tables.movie = new MovieRepository();
 tables.user = new UserRepository();
+tables.category = new CategoryRepository();
 
 /* ************************************************************************* */
 
