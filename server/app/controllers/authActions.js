@@ -51,38 +51,4 @@ const login = async (req, res, next) => {
   }
 };
 
-/* const verifyCredentials = async (tableName, email, password) => {
-  const user = await tables[tableName].readByEmailWithPassword(email);
-  if (user == null) {
-    return null;
-  }
-  const verified = await argon2.verify(user.password, password);
-  if (verified) {
-    delete user.password;
-    return user;
-  }
-  return null;
-};
-
-const auth = async (req, res, next) => {
-  try {
-    let user = await verifyCredentials(
-      "admin",
-      req.body.email,
-      req.body.password
-    );
-    if (user === null) {
-      user = await verifyCredentials("user", req.body.email, req.body.password);
-    }
-    if (user !== null) {
-      req.user = user;
-      next();
-    } else {
-      res.sendStatus(401);
-    }
-  } catch (err) {
-    next(err);
-  }
-}; */
-
 module.exports = { verifyEmail, verifyPassword, login };
