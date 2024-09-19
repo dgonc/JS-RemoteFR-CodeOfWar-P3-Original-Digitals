@@ -37,7 +37,10 @@ function User() {
       </div>
       <Link
         to="/logout"
-        onClick={() => setIsAuthenticated(false)}
+        onClick={() => {
+          setIsAuthenticated(false);
+          localStorage.clear();
+        }}
         className="logout-button"
       >
         Logout

@@ -1,15 +1,9 @@
-import { useContext } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData,  } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
-import AuthContext from "../contexts/AuthContext";
 
 function Home() {
-  const navigate = useNavigate();
-  const { isAuthenticated } = useContext(AuthContext);
   const { categories, movies } = useLoaderData();
-  if (!isAuthenticated) {
-    return navigate("/landing");
-  }
+ 
   return (
     <>
       <h1 className="home-title">Welcome to Youflim</h1>

@@ -6,8 +6,7 @@ import burger from "../assets/images/burger.png";
 import AuthContext from "../contexts/AuthContext";
 
 function NavBar() {
-  const { isAuthenticated, setIsAuthenticated, userId } =
-    useContext(AuthContext);
+  const { isAuthenticated, setIsAuthenticated, user } = useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -77,7 +76,7 @@ function NavBar() {
               <div className="separation-line" />
               {isAuthenticated ? (
                 <>
-                  <Link to={`/user/${userId}`} onClick={toggleMenu}>
+                  <Link to={`/user/${user.id}`} onClick={toggleMenu}>
                     My account
                   </Link>
                   <div className="separation-line" />
@@ -90,6 +89,7 @@ function NavBar() {
                     onClick={() => {
                       toggleMenu();
                       setIsAuthenticated(false);
+                      localStorage.clear();
                     }}
                   >
                     Logout

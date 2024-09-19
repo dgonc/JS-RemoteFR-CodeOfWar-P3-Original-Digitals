@@ -1,0 +1,10 @@
+.logout-text {
+  text-align: center;
+  color: var(--secondary-grey-light);
+  margin: 1rem;
+}
+
+.logout-timer {
+  text-align: center;
+  color: var(--secondary-grey-light);
+}

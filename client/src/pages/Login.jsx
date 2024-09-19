@@ -8,7 +8,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const { setIsAuthenticated } = useContext(AuthContext);
+  const { setIsAuthenticated, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -21,6 +21,10 @@ function Login() {
       const response = await loginUserAction(user);
       if (response) {
         setIsAuthenticated(true);
+        setUser({
+          id: response.id,
+          email: response.email,
+        });
         navigate("/");
       }
     } catch (err) {

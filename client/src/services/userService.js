@@ -23,15 +23,9 @@ export async function signUpUserAction({ request }) {
 }
 
 export async function loginUserAction(user) {
-  const sleep = (ms) =>
-    new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
   try {
     const response = await myAxios.post("api/login", user);
-
     if (response.status === 200) {
-      await sleep(1000);
       return response.data;
     }
   } catch (error) {
