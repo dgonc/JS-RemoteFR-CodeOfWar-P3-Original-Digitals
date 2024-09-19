@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import {
   getAuth,
-  getLogout,
   getMovies,
   getMoviesByTitle,
   getMoviesWithCategories,
@@ -21,7 +20,6 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
 import MoviesList from "./pages/MoviesList";
-import Logout from "./pages/Logout";
 import Login from "./pages/Login";
 
 const router = createBrowserRouter([
@@ -46,11 +44,6 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
-      },
-      {
-        path: "/logout",
-        element: <Logout />,
-        loader: getLogout,
       },
       {
         path: "/user/:id",

@@ -5,9 +5,10 @@ import UserNavBar from "../components/UserNavBar";
 import PasswordManagement from "../components/PasswordManagement";
 import PreferenceManagement from "../components/PreferenceManagement";
 import AuthContext from "../contexts/AuthContext";
+import { getLogout } from "../services/request";
 
 function User() {
-  const { setIsAuthenticated } = useContext(AuthContext);
+  const { setIsAuthenticated, setUser } = useContext(AuthContext);
   const user = useLoaderData();
   const [activeSection, setActiveSection] = useState("AccountManagement");
 
@@ -36,10 +37,12 @@ function User() {
         <div className="user-account-window">{section()}</div>
       </div>
       <Link
-        to="/logout"
+        to="/landing"
         onClick={() => {
           setIsAuthenticated(false);
+          setUser({ id: null, email: null });
           localStorage.clear();
+          getLogout();
         }}
         className="logout-button"
       >

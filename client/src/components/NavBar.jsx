@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import searchImg from "../assets/images/search.png";
 import burger from "../assets/images/burger.png";
 import AuthContext from "../contexts/AuthContext";
+import { getLogout } from "../services/request";
 
 function NavBar() {
-  const { isAuthenticated, setIsAuthenticated, user } = useContext(AuthContext);
+  const { isAuthenticated, setIsAuthenticated, user, setUser } =
+    useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -85,11 +87,12 @@ function NavBar() {
                   </Link>
                   <div className="separation-line" />
                   <Link
-                    to="/logout"
+                    to="/landing"
                     onClick={() => {
                       toggleMenu();
                       setIsAuthenticated(false);
-                      localStorage.clear();
+                      setUser({ id: null, email: null });
+                      getLogout();
                     }}
                   >
                     Logout

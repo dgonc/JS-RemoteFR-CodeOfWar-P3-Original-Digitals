@@ -56,7 +56,9 @@ export function getLogout() {
     .get(`${import.meta.env.VITE_API_URL}/api/logout`, {
       withCredentials: true,
     })
-    .then((response) => response)
+    .then(() => {
+      localStorage.clear();
+    })
     .catch((error) => console.error(error));
 }
 
