@@ -8,7 +8,7 @@ import {
   getMoviesWithCategories,
   getUserById,
 } from "./services/request";
-import adminUploadAction from "./services/adminService";
+import { adminUploadAction, adminEdit } from "./services/adminService";
 import {
   signUpUserAction,
   loginUserAction,
@@ -67,7 +67,9 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <AdminPanel />,
-        action: adminUploadAction,
+        action: adminEdit,
+        adminUploadAction,
+        loader: getMovies,
       },
     ],
   },

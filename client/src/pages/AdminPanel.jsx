@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import ContentManagement from "../components/ContentManagement";
 import AdminNavBar from "../components/AdminNavBar";
-import UserManagement from "../components/UserManagement";
+import MovieEdit from "../components/MovieEdit";
+
 import "../styles/Adminpanel.css";
 
 export default function AdminPanel() {
@@ -12,8 +13,8 @@ export default function AdminPanel() {
     switch (activeSection) {
       case "ContentManagement":
         return <ContentManagement />;
-      case "UserManagement":
-        return <UserManagement />;
+      case "MovieEdit":
+        return <MovieEdit />;
 
       default:
         return <AdminNavBar />;

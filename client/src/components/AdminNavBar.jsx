@@ -17,9 +17,9 @@ export default function AdminNavBar({ setActiveSection }) {
           <button
             className="admin-nav-button"
             type="button"
-            onClick={() => setActiveSection("UserManagement")}
+            onClick={() => setActiveSection("MovieEdit")}
           >
-            Usermanagement
+            Movie Edit
           </button>
         </li>
       </ul>
