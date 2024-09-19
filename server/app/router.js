@@ -7,18 +7,14 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const itemActions = require("./controllers/itemActions");
+
 const movieActions = require("./controllers/movieActions");
 const userActions = require("./controllers/userActions");
 const authActions = require("./controllers/authActions");
 const categoryActions = require("./controllers/categoryActions");
 const auth = require("./services/auth");
 const middleware = require("./services/middleware");
-
-// Route to get a list of items
-router.get("/items", itemActions.browse);
-router.get("/items/:id", itemActions.read);
-router.post("/items", itemActions.add);
+const authAdminActions = require("./controllers/authAdminActions");
 
 // route to get a list of movies
 router.get("/movies", movieActions.browse);
@@ -44,12 +40,22 @@ router.post(
 );
 router.post(
   "/login",
-  authActions.verifyEmailPassword,
+  authActions.verifyEmail,
+  authActions.verifyPassword,
   auth.createToken,
   authActions.login
 );
 router.get("/logout", auth.deleteToken);
 
+// routes for admin related actions
+router.get("/admins/checkauth", auth.verifyToken, auth.isConnected);
+router.get("/admins", authAdminActions.browseAdmin);
+router.post(
+  "/admins/sign",
+  middleware.verifyFields,
+  auth.hashPassword,
+  authAdminActions.add
+);
 /* ************************************************************************* */
 
 module.exports = router;

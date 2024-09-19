@@ -1,13 +1,29 @@
 const argon2 = require("argon2");
 const tables = require("../../database/tables");
 
-const verifyEmailPassword = async (req, res, next) => {
+const verifyEmail = async (req, res, next) => {
   try {
-    const user = await tables.user.readByEmailWithPassword(req.body.email);
-    if (user == null) {
-      res.sendStatus(401);
+    const admin = await tables.admin.readByEmailWithPassword(req.body.email);
+    if (admin) {
+      req.role = "admin";
+      req.user = admin;
+    } else {
+      const user = await tables.user.readByEmailWithPassword(req.body.email);
+      req.role = "user";
+      req.user = user;
+      if (user === null) {
+        res.sendStatus(401);
+      }
     }
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
 
+const verifyPassword = async (req, res, next) => {
+  try {
+    const { user } = req;
     const verified = await argon2.verify(user.password, req.body.password);
 
     if (verified) {
@@ -17,21 +33,22 @@ const verifyEmailPassword = async (req, res, next) => {
     } else {
       res.sendStatus(401);
     }
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
 const login = async (req, res, next) => {
   try {
     res.cookie("auth", req.token).json({
-      message: "Login successfull",
+      message: "login successfull",
       id: req.user.id,
       email: req.user.email,
+      role: req.role,
     });
   } catch (error) {
     next(error);
   }
 };
 
-module.exports = { verifyEmailPassword, login };
+module.exports = { verifyEmail, verifyPassword, login };
