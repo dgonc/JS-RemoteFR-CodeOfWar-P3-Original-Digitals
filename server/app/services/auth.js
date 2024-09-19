@@ -66,4 +66,9 @@ const isConnected = async (req, res, next) => {
   }
 };
 
-module.exports = { hashPassword, createToken, verifyToken, isConnected };
+module.exports = {
+  hashPassword,
+  createToken,
+  verifyToken,
+  isConnected,
+};
