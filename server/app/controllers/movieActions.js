@@ -58,4 +58,15 @@ const add = async (req, res, next) => {
   }
 };
 
-module.exports = { browse, read, readByTitle, readByCategories, add };
+const edit = async (req, res, next) => {
+  const movie = { ...req.body, id: req.params.id };
+
+  try {
+    const result = await tables.movie.update(movie);
+    res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { browse, read, readByTitle, readByCategories, add, edit };

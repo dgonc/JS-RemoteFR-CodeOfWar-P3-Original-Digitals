@@ -22,6 +22,7 @@ router.get("/movies/categories", movieActions.readByCategories);
 router.get("/movies/:id", movieActions.read);
 router.get("/movies/search/:title", movieActions.readByTitle);
 router.post("/movies/add", movieActions.add);
+router.put("/movies/:id", movieActions.edit);
 
 // route to get a list of categories
 router.get("/categories", categoryActions.browse);
@@ -54,6 +55,7 @@ router.post(
   auth.hashPassword,
   authAdminActions.add
 );
+
 /* ************************************************************************* */
 
 module.exports = router;

@@ -64,6 +64,23 @@ FROM
     );
     return rows;
   }
+
+  async update(movie) {
+    const [result] = await this.database.query(
+      `update ${this.table} set title = ?, duration = ?, synopsis = ?, date = ?, classification = ?, picture = ?, URL = ? where id = ?`,
+      [
+        movie.title,
+        movie.duration,
+        movie.synopsis,
+        movie.date,
+        movie.classification,
+        movie.picture,
+        movie.URL,
+        movie.id,
+      ]
+    );
+    return result.affectedRows;
+  }
 }
 
 module.exports = MovieRepository;
