@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import searchImg from "../assets/images/search.png";
 import burger from "../assets/images/burger.png";
 import AuthContext from "../contexts/AuthContext";
-import { getLogout } from "../services/request";
+import LogoutButton from "./LogoutButton";
 
 function NavBar() {
-  const { isAuthenticated, setIsAuthenticated, user, setUser } =
+  const { isAuthenticated, user } =
     useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
@@ -86,17 +86,7 @@ function NavBar() {
                     Movie List
                   </Link>
                   <div className="separation-line" />
-                  <Link
-                    to="/landing"
-                    onClick={() => {
-                      toggleMenu();
-                      setIsAuthenticated(false);
-                      setUser({ id: null, email: null });
-                      getLogout();
-                    }}
-                  >
-                    Logout
-                  </Link>
+                  <LogoutButton variant="navbar"/>
                 </>
               ) : (
                 <>
