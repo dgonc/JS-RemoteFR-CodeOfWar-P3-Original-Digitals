@@ -8,6 +8,7 @@ import "./styles/Signup.css";
 import "./styles/Landing.css";
 import "./styles/Signin.css";
 import "./styles/Userpanel.css";
+import "./styles/Custommodal.css";
 
 function App() {
   return (
