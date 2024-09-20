@@ -1,4 +1,5 @@
 import myAxios from "./myAxios";
+import formatDate from "./utils";
 
 export async function adminUploadAction({ request }) {
   const formData = await request.formData();
@@ -25,18 +26,20 @@ export async function adminUploadAction({ request }) {
 
 export async function adminEdit({ request }) {
   const formData = await request.formData();
+
   const movie = {
+    id: parseInt(formData.get("id"), 10),
     title: formData.get("title"),
-    duration: formData.get("duration"),
+    duration: parseInt(formData.get("duration"), 10),
     synopsis: formData.get("synopsis"),
-    date: formData.get("date"),
-    classification: formData.get("classification"),
+    date: formatDate(formData.get("date")),
+    classification: parseInt(formData.get("classification"), 10),
     picture: formData.get("picture"),
-    URL: formData.get("movie"),
+    URL: formData.get("URL"),
   };
 
   try {
-    await myAxios.put("/movies/:id", movie);
+    await myAxios.put(`/api/movies/${movie.id}`, movie);
     return {
       sucess: true,
       message: "Les informations ont été modifié avec succès",

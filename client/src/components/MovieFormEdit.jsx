@@ -1,19 +1,45 @@
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import { Form, useActionData } from "react-router-dom";
 
-export default function MovieFormEdit({ movies }) {
+export default function MovieFormEdit({ movies, handleFormUpdate }) {
   const actionData = useActionData();
+  const [formValues, setFormValues] = useState(movies);
+
+  useEffect(() => {
+    setFormValues(movies);
+  }, [movies]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const updatedMovie = {
+      ...formValues,
+      [name]: value,
+    };
+    setFormValues(updatedMovie);
+    handleFormUpdate(updatedMovie);
+  };
 
   return (
     <Form method="put">
       <section className="form-upload">
+        <div className="form-group-upload">
+          <label htmlFor="id">ID</label>
+          <input
+            type="number"
+            id="id"
+            name="id"
+            value={parseInt(formValues.id, 10)}
+          />
+        </div>
         <div className="form-group-upload">
           <label htmlFor="title">Title</label>
           <input
             type="text"
             id="title"
             name="title"
-            defaultValue={movies.title}
+            value={formValues.title}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group-upload">
@@ -22,7 +48,8 @@ export default function MovieFormEdit({ movies }) {
             type="number"
             id="duration"
             name="duration"
-            defaultValue={movies.duration}
+            value={parseInt(formValues.duration, 10)}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group-upload">
@@ -31,12 +58,19 @@ export default function MovieFormEdit({ movies }) {
             type="text"
             id="synopsis"
             name="synopsis"
-            defaultValue={movies.synopsis}
+            value={formValues.synopsis}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group-upload">
           <label htmlFor="date">Release date</label>
-          <input type="date" id="date" name="date" defaultValue={movies.date} />
+          <input
+            type="date"
+            id="date"
+            name="date"
+            value={formValues.date}
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group-upload">
           <label htmlFor="classification">Classification</label>
@@ -44,7 +78,8 @@ export default function MovieFormEdit({ movies }) {
             type="number"
             id="classification"
             name="classification"
-            defaultValue={movies.classification}
+            value={parseInt(formValues.classification, 10)}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group-upload">
@@ -53,12 +88,19 @@ export default function MovieFormEdit({ movies }) {
             type="url"
             id="picture"
             name="picture"
-            defaultValue={movies.picture}
+            value={formValues.picture}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group-upload">
           <label htmlFor="URL">Movie URL</label>
-          <input type="url" id="movie" name="movie" defaultValue={movies.URL} />
+          <input
+            type="URL"
+            id="URL"
+            name="URL"
+            value={formValues.URL}
+            onChange={handleChange}
+          />
         </div>
         <button className="button-upload" type="submit">
           Envoyer
@@ -77,11 +119,12 @@ export default function MovieFormEdit({ movies }) {
 MovieFormEdit.propTypes = {
   movies: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    duration: PropTypes.number.isRequired,
+    duration: PropTypes.string.isRequired,
     synopsis: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    classification: PropTypes.number.isRequired,
+    classification: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
     URL: PropTypes.string.isRequired,
   }).isRequired,
+  handleFormUpdate: PropTypes.func.isRequired,
 };
