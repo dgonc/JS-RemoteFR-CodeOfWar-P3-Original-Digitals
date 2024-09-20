@@ -43,6 +43,15 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
+const deleteToken = async (req, res, next) => {
+  try {
+    res.clearCookie("auth");
+    res.status(200).send({ message: "Disconnected" });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const isConnected = async (req, res, next) => {
   try {
     if (req.user) {
@@ -70,5 +79,6 @@ module.exports = {
   hashPassword,
   createToken,
   verifyToken,
+  deleteToken,
   isConnected,
 };

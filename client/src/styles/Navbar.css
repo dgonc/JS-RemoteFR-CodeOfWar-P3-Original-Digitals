@@ -6,6 +6,7 @@
   top: 0;
   transition: 0.5s;
   border-radius: 0 0 8px 8px;
+  z-index: 4;
 }
 
 .scrolled {
@@ -101,6 +102,15 @@
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.795);
   backdrop-filter: blur(8px);
+}
+
+.navbar-logout-button {
+  border: none;
+  background: none;
+  padding: 0.5rem 1rem 1rem 1rem;
+  color: var(--background-white);
+  font-size: 1.5rem;
+  text-align: left;
 }
 
 .menu-dropdown a {

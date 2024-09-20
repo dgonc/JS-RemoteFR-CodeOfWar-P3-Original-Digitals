@@ -4,6 +4,7 @@ import AccountManagement from "../components/AccountManagement";
 import UserNavBar from "../components/UserNavBar";
 import PasswordManagement from "../components/PasswordManagement";
 import PreferenceManagement from "../components/PreferenceManagement";
+import LogoutButton from "../components/LogoutButton";
 
 function User() {
   const user = useLoaderData();
@@ -33,9 +34,7 @@ function User() {
         />
         <div className="user-account-window">{section()}</div>
       </div>
-      <button className="logout-button" type="button">
-        Logout
-      </button>
+      <LogoutButton variant="panel" />
     </div>
   );
 }
