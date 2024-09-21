@@ -3,6 +3,7 @@
   height: 200px;
   margin-bottom: 0.5rem;
   border-radius: 8px;
+  box-shadow: 2px 2px 4px 0 var(--secondary-blue-light);
 }
 
 .card {
