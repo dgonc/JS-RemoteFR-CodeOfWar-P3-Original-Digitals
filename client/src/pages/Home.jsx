@@ -3,6 +3,7 @@ import MovieCard from "../components/MovieCard";
 
 function Home() {
   const { categories, movies } = useLoaderData();
+  console.info(categories, movies)
  
   return (
     <>
