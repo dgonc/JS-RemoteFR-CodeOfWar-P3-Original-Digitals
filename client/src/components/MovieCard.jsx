@@ -16,7 +16,7 @@ export default function MovieCard({ movie }) {
     <div key={movie.id} className="card">
       <div className="poster-container">
         <img
-          src="https://images.affiches-et-posters.com//albums/3/4537/medium/affiche-film-inception-2352.jpg"
+          src={movie.picture}
           alt={movie.title}
           className="poster"
           onClick={openModal}
@@ -33,6 +33,7 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     title: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
     posterUrl: PropTypes.string,
   }).isRequired,
 };

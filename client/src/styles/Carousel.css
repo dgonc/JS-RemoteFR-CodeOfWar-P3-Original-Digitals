@@ -1,0 +1,15 @@
+.movie-carrousel {
+  margin-bottom: 2rem;
+}
+
+.carrousel {
+  background-color: var(--secondary-blue);
+  margin: 1rem;
+  padding: 0.25rem;
+  border-radius: 8px;
+  color: var(--secondary-grey-light);
+}
+
+.carrousel-category-title {
+  margin: 0.5rem 0 0 1rem;
+}
