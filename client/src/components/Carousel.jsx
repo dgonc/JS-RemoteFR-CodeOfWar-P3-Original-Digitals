@@ -7,8 +7,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Carousel({ movies, category }) {
-  console.info(movies);
-  console.info(category);
   const settings = {
     className: "center",
     centerMode: false,
