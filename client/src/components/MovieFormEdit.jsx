@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Form, useActionData } from "react-router-dom";
 
 export default function MovieFormEdit({ movies, handleFormUpdate }) {
-  const actionData = useActionData();
+  const validateAction = useActionData();
   const [formValues, setFormValues] = useState(movies);
 
   useEffect(() => {
@@ -21,8 +21,8 @@ export default function MovieFormEdit({ movies, handleFormUpdate }) {
   };
 
   return (
-    <Form method="put">
-      <section className="form-upload">
+    <Form method="post">
+      <section className="form-upload-edit">
         <div className="form-group-upload">
           <label htmlFor="id">ID</label>
           <input
@@ -102,14 +102,19 @@ export default function MovieFormEdit({ movies, handleFormUpdate }) {
             onChange={handleChange}
           />
         </div>
-        <button className="button-upload" type="submit">
+        <button
+          className="button-upload"
+          type="submit"
+          name="intent"
+          value="put"
+        >
           Envoyer
         </button>
-        {actionData?.success && (
-          <p style={{ color: "green" }}>{actionData.message}</p>
+        {validateAction?.success === true && (
+          <p style={{ color: "green" }}>{validateAction.message}</p>
         )}
-        {actionData?.success === false && (
-          <p style={{ color: "red" }}>{actionData.message}</p>
+        {validateAction?.success === false && (
+          <p style={{ color: "red" }}>{validateAction.message}</p>
         )}
       </section>
     </Form>

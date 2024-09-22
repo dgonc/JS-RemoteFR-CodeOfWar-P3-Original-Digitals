@@ -8,7 +8,7 @@ import {
   getMoviesWithCategories,
   getUserById,
 } from "./services/request";
-import { adminUploadAction, adminEdit } from "./services/adminService";
+
 import {
   signUpUserAction,
   loginUserAction,
@@ -24,6 +24,8 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import AdminPanel from "./pages/AdminPanel";
 import MoviesList from "./pages/MoviesList";
+
+import { multiFormAction } from "./services/adminService";
 
 const router = createBrowserRouter([
   {
@@ -67,8 +69,7 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <AdminPanel />,
-        action: adminEdit,
-        adminUploadAction,
+        action: multiFormAction,
         loader: getMovies,
       },
     ],

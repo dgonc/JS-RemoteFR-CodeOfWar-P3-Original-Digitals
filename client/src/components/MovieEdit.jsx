@@ -17,6 +17,7 @@ export default function MovieEdit() {
   const handleSearchButton = async () => {
     if (search.length > 0) {
       const results = await getMoviesByTitle({ params: { title: search } });
+
       setMovies(results);
     } else {
       setMovies([]);
@@ -49,11 +50,11 @@ export default function MovieEdit() {
           Search
         </button>
       </section>
-
-      <MovieSelection movies={movies} selectMovie={handleSelectMovie} />
-
+      <div className="container-result">
+        <MovieSelection movies={movies} selectMovie={handleSelectMovie} />
+      </div>
       {selectMovie && (
-        <section className="form-section">
+        <section className="form-section-edit">
           <MovieFormEdit
             movies={selectMovie}
             handleFormUpdate={handleFormUpdate}
