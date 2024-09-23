@@ -23,7 +23,7 @@ router.get("/movies/:id", movieActions.read);
 router.get("/movies/search/:title", movieActions.readByTitle);
 router.post("/movies/add", movieActions.add);
 router.put("/movies/:id", movieActions.edit);
-
+router.delete("/movies/:id", movieActions.destroy);
 // route to get a list of categories
 router.get("/categories", categoryActions.browse);
 router.get("/categories/:id", categoryActions.read);

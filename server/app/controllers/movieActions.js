@@ -69,4 +69,24 @@ const edit = async (req, res, next) => {
   }
 };
 
-module.exports = { browse, read, readByTitle, readByCategories, add, edit };
+const destroy = async (req, res, next) => {
+  try {
+    const movieId = req.params.id;
+
+    await tables.movie_category.deleteById(movieId);
+    await tables.movie.delete(movieId);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = {
+  browse,
+  read,
+  readByTitle,
+  readByCategories,
+  add,
+  edit,
+  destroy,
+};
