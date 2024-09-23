@@ -3,8 +3,6 @@ import myAxios from "./myAxios";
 import formatDate from "./utils";
 
 export async function adminUploadAction({ formData }) {
-  console.info("FormData received in adminUploadAction:", formData);
-
   const movie = {
     title: formData.get("title"),
     duration: formData.get("duration"),
@@ -14,7 +12,6 @@ export async function adminUploadAction({ formData }) {
     picture: formData.get("picture"),
     URL: formData.get("movie"),
   };
-
   try {
     await myAxios.post("/api/movies/add", movie);
     return { success: true, message: "Le film a été ajouté avec succès." };
@@ -27,8 +24,6 @@ export async function adminUploadAction({ formData }) {
 }
 
 export async function adminEdit({ formData }) {
-  console.info("FormData received in adminEdit:", formData);
-
   const movie = {
     id: parseInt(formData.get("id"), 10),
     title: formData.get("title"),
@@ -39,7 +34,6 @@ export async function adminEdit({ formData }) {
     picture: formData.get("picture"),
     URL: formData.get("URL"),
   };
-
   try {
     await myAxios.put(`/api/movies/${movie.id}`, movie);
     return {
@@ -55,23 +49,13 @@ export async function adminEdit({ formData }) {
 }
 
 export async function multiFormAction({ request }) {
-  console.info("multiFormAction called");
-
-  // Lire formData une seule fois
   const formData = await request.formData();
   const intent = formData.get("intent");
-
-  console.info("Intent:", intent);
-
   if (intent === "post") {
-    console.info("Calling adminUploadAction");
-    return adminUploadAction({ formData }); // Passer formData directement
+    return adminUploadAction({ formData });
   }
-
   if (intent === "put") {
-    console.info("Calling adminEdit");
-    return adminEdit({ formData }); // Passer formData directement
+    return adminEdit({ formData });
   }
-
   throw json({ message: "Invalid intent" }, { status: 400 });
 }
