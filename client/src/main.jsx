@@ -31,10 +31,9 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: async () => {
           await getAuth();
-          const movies = getMoviesWithCategories();
-          return movies;
+          return getMoviesWithCategories();
         },
-        errorElement: <LandingPage />
+        errorElement: <LandingPage />,
       },
       {
         path: "/sign",
