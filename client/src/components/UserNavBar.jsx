@@ -37,6 +37,6 @@ export default function UserNavBar({ activeSection, setActiveSection }) {
 }
 
 UserNavBar.propTypes = {
-  activeSection: PropTypes.bool.isRequired,
+  activeSection: PropTypes.string.isRequired,
   setActiveSection: PropTypes.func.isRequired,
 };

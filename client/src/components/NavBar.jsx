@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import searchImg from "../assets/images/search.png";
 import burger from "../assets/images/burger.png";
 import AuthContext from "../contexts/AuthContext";
+import LogoutButton from "./LogoutButton";
 
 function NavBar() {
-  const { isAuthenticated, userId } = useContext(AuthContext);
+  const { isAuthenticated, user } =
+    useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -71,31 +73,29 @@ function NavBar() {
             />
             <div className="links-list">
               <Link to="/" onClick={toggleMenu}>
-                Accueil
+                Home
               </Link>
               <div className="separation-line" />
               {isAuthenticated ? (
                 <>
-                  <Link to={`/user/${userId}`} onClick={toggleMenu}>
-                    Mon compte
+                  <Link to={`/user/${user.id}`} onClick={toggleMenu}>
+                    My account
                   </Link>
                   <div className="separation-line" />
                   <Link to="/movies" onClick={toggleMenu}>
                     Movie List
                   </Link>
                   <div className="separation-line" />
-                  <Link to="/logout" onClick={toggleMenu}>
-                    Se déconnecter
-                  </Link>
+                  <LogoutButton variant="navbar"/>
                 </>
               ) : (
                 <>
                   <Link to="/login" onClick={toggleMenu}>
-                    Se connecter
+                    Login
                   </Link>
                   <div className="separation-line" />
                   <Link to="/sign" onClick={toggleMenu}>
-                    S'inscrire
+                    Sign in
                   </Link>
                 </>
               )}

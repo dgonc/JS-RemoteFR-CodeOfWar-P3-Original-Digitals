@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import MovieCard from "../components/MovieCard";
+import Carousel from "../components/Carousel";
 
 function Home() {
   const { categories, movies } = useLoaderData();
@@ -7,13 +7,8 @@ function Home() {
   return (
     <>
       {categories.map((category) => (
-        <section key={category.id}>
-          <h2>{category.type}</h2>
-          {movies
-            .filter((movie) => category.id === movie.category_id)
-            .map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))}
+        <section key={category.id} className="carrousel-container">
+          <Carousel movies={movies} category={category} />
         </section>
       ))}
     </>

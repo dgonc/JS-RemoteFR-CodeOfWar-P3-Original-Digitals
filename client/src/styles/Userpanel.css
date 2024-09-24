@@ -85,4 +85,26 @@
   border: white 1px solid;
   border-radius: 4px;
   background-color: var(--secondary-grey);
+  color: var(--button-dark);
+}
+
+.preferences-window {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-text {
+  text-align: center;
+  color: var(--background-white);
+  margin: 1rem;
+  font-size: 0.8rem;
+}
+
+.delete-button {
+  background-color: #c74646;
+  color: var(--background-white);
+  margin: 0 auto;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
 }
