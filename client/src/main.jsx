@@ -9,9 +9,9 @@ import {
   getMoviesWithCategories,
   getUserById,
 } from "./services/request";
-import adminUploadAction from "./services/adminService";
 import { signUpUserAction, editUserAction } from "./services/userService";
 import { AuthProvider } from "./contexts/AuthContext";
+import { multiFormAction } from "./services/adminService";
 
 import App from "./App";
 import LandingPage from "./pages/LandingPage";
@@ -67,7 +67,8 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <AdminPanel />,
-        action: adminUploadAction,
+        action: multiFormAction,
+        loader: getMovies,
       },
     ],
   },
