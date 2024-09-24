@@ -163,7 +163,7 @@ VALUES (
         '1999-08-06',
         12,
         'https://upload.wikimedia.org/wikipedia/en/a/a4/The_Sixth_Sense_poster.png',
-        'https://www.youtube.com/embed/2S0D9cXmsXk',
+        'https://www.youtube.com/embed/3-ZP95NF_Wk?si=8nDkBDnvYspB3W_i',
         1
     ),
     (
@@ -333,7 +333,7 @@ VALUES (
         '2022-08-05',
         16,
         'https://www.sonypictures.fr/sites/france2/files/2022-12/BT-affiche-450x600.jpg',
-        'https://www.youtube.com/embed/z7gG1_Xf1Kk',
+        'https://www.youtube.com/embed/0IOsk2Vlc4o?si=E48CK_JTbuxZrg-Q',
         1
     ),
     (
@@ -343,7 +343,7 @@ VALUES (
         '2001-01-18',
         16,
         'https://m.media-amazon.com/images/M/MV5BYWMwMzQxZjQtODM1YS00YmFiLTk1YjQtNzNiYWY1MDE4NTdiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_.jpg',
-        'https://www.youtube.com/embed/8gY3jE6N0r8',
+        'https://www.youtube.com/embed/2GfBkC3qs78?si=Btnj6OdKQrn9du9r',
         1
     ),
     (
@@ -353,7 +353,7 @@ VALUES (
         '2015-09-25',
         10,
         'https://m.media-amazon.com/images/S/pv-target-images/6c8e7e1890f497f2d3064afb768d35f721c09ecc6d0c4ad2cc29538dc346a7df.jpg',
-        'https://www.youtube.com/embed/5dK4N04i7e4',
+        'https://www.youtube.com/embed/ZU3Xban0Y6A?si=56NGdnhW1EaRMk6t',
         1
     ),
     (
@@ -363,7 +363,7 @@ VALUES (
         '2011-07-29',
         12,
         'https://m.media-amazon.com/images/M/MV5BMTg2MjkwMTM0NF5BMl5BanBnXkFtZTcwMzc4NDg2NQ@@._V1_.jpg',
-        'https://www.youtube.com/embed/0R3i9fsB2pE',
+        'https://www.youtube.com/embed/hCPYgel05dE?si=2n70ffHfubsRui3o',
         1
     ),
     (
@@ -373,7 +373,7 @@ VALUES (
         '1999-03-31',
         12,
         'https://m.media-amazon.com/images/I/613ypTLZHsL._AC_UF1000,1000_QL80_.jpg',
-        'https://www.youtube.com/embed/vKQi0gPejIk',
+        'https://www.youtube.com/embed/vKQi3bBA1y8?si=dvlk4hYVFgoeoC6N',
         1
     ),
     (
@@ -403,7 +403,7 @@ VALUES (
         '2017-02-24',
         16,
         'https://fr.web.img4.acsta.net/pictures/17/03/16/13/25/487327.jpg',
-        'https://www.youtube.com/embed/sRfnevzM2oQ',
+        'https://www.youtube.com/embed/XzmeT5rEPDg?si=L_AukSRc61p8ZuTG',
         1
     ),
     (
@@ -413,7 +413,27 @@ VALUES (
         '2016-11-11',
         12,
         'https://m.media-amazon.com/images/M/MV5BMTExMzU0ODcxNDheQTJeQWpwZ15BbWU4MDE1OTI4MzAy._V1_.jpg',
-        'https://www.youtube.com/embed/1nXs57c7T3Y',
+        'https://www.youtube.com/embed/tFMo3UJ4B4g?si=2Qypi9B8gqaKA_Rq',
+        1
+    ),
+    (
+        'Inside Out',
+        95,
+        'Growing up is not easy, and little Riley is no exception. Because of her father, she has just left her home and the life she has always known to move with her family to San Francisco.',
+        '2015-05-17',
+        10,
+        'https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_.jpg',
+        'https://www.youtube.com/embed/yRUAzGQ3nSY?si=BZmadeeW8e8Fq3NS',
+        1
+    ),
+    (
+        'Moana',
+        107,
+        'Moana, a strong-willed teenager, sets sail on a daring mission to save her people and fulfill an ancient quest. She teams up with the once-mighty demigod Maui to restore balance to the world.',
+        '2016-11-30',
+        10,
+        'https://upload.wikimedia.org/wikipedia/en/2/26/Moana_Teaser_Poster.jpg',
+        'https://www.youtube.com/embed/LKFuXETZUsI?si=UTaVcYEMIeHg2Xfu',
         1
     );
 
@@ -442,6 +462,8 @@ create table movie_category (
     FOREIGN KEY (movie_id) REFERENCES movie (id),
     FOREIGN KEY (category_id) REFERENCES category (id)
 );
+
+ALTER TABLE movie ADD COLUMN isFree BOOLEAN DEFAULT false;
 
 INSERT INTO
     movie_category (movie_id, category_id)
@@ -492,6 +514,23 @@ VALUES (1, 1),
     (24, 10),
     (24, 3),
     (25, 4),
-    (25, 2);
-
-ALTER TABLE movie ADD COLUMN isFree BOOLEAN DEFAULT false;
+    (25, 2),
+    (26, 1),
+    (26, 4),
+    (27, 1),
+    (27, 2),
+    (28, 1),
+    (28, 9),
+    (29, 7),
+    (30, 7),
+    (31, 1),
+    (31, 4),
+    (32, 1),
+    (32, 3),
+    (33, 2),
+    (34, 3),
+    (34, 6),
+    (35, 4),
+    (36, 2),
+    (36, 10),
+    (37, 10);
