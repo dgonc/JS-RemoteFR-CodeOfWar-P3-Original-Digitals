@@ -1,20 +1,14 @@
-import { useLoaderData,  } from "react-router-dom";
-import MovieCard from "../components/MovieCard";
+import { useLoaderData } from "react-router-dom";
+import Carousel from "../components/Carousel";
 
 function Home() {
   const { categories, movies } = useLoaderData();
- 
+
   return (
     <>
-      <h1 className="home-title">Welcome to Youflim</h1>
       {categories.map((category) => (
-        <section key={category.id}>
-          <h2>{category.type}</h2>
-          {movies
-            .filter((movie) => category.id === movie.category_id)
-            .map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))}
+        <section key={category.id} className="carrousel-container">
+          <Carousel movies={movies} category={category} />
         </section>
       ))}
     </>
