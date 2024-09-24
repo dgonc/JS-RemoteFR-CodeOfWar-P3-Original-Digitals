@@ -33,6 +33,7 @@ router.get("/checkauth", auth.verifyToken, auth.isConnected);
 router.get("/users", userActions.browse);
 router.get("/user/:id", userActions.read);
 router.put("/user/:id", userActions.edit);
+router.delete("/user/:id", userActions.destroy);
 router.post(
   "/sign",
   middleware.verifyFields,
