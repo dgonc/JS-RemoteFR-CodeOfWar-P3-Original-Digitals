@@ -64,11 +64,16 @@ export default function ContentManagement() {
           />
         </div>
 
-        <button className="button-upload" type="submit">
+        <button
+          className="button-upload"
+          type="submit"
+          name="intent"
+          value="post"
+        >
           Envoyer
         </button>
 
-        {actionData?.success && (
+        {actionData?.success === true && (
           <p style={{ color: "green" }}>{actionData.message}</p>
         )}
         {actionData?.success === false && (
