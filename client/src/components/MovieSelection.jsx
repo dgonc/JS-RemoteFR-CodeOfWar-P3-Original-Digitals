@@ -38,12 +38,22 @@ export default function MovieSelection({
               alt={movie.title}
             />
             <h3 className="movie-title">{movie.title}</h3>
-            <button type="button" onClick={() => handleSelectMovie(movie)}>
-              Edit{" "}
-            </button>
-            <button type="button" onClick={handleDeleteClick}>
-              Delete
-            </button>
+            <div className="button-movie-card-admin">
+              <button
+                className="button-edit"
+                type="button"
+                onClick={() => handleSelectMovie(movie)}
+              >
+                Edit{" "}
+              </button>
+              <button
+                className="button-delete"
+                type="button"
+                onClick={handleDeleteClick}
+              >
+                Delete
+              </button>
+            </div>
             <CustomModal
               show={showModal}
               onClose={handleCloseModal}

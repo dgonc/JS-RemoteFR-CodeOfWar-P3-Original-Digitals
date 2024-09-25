@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { getMoviesByTitle } from "../services/request";
 import MovieFormEdit from "./MovieFormEdit";
 import MovieSelection from "./MovieSelection";
@@ -8,7 +8,6 @@ export default function MovieEdit() {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
   const [selectMovie, setSelectMovie] = useState(null);
-  const modalRef = useRef(null);
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
@@ -26,7 +25,9 @@ export default function MovieEdit() {
 
   const handleSelectMovie = (movie) => {
     setSelectMovie(movie);
-    modalRef.current.showModal();
+  };
+  const handleSelectMovieClose = () => {
+    setSelectMovie(null);
   };
 
   const handleFormUpdate = (updateMovie) => {
@@ -34,7 +35,7 @@ export default function MovieEdit() {
   };
 
   return (
-    <div>
+    <>
       <section className="movie-edit-container">
         <input
           className="search-input"
@@ -50,21 +51,25 @@ export default function MovieEdit() {
           Search
         </button>
       </section>
-      <div className="container-result">
-        <MovieSelection
-          movies={movies}
-          handleSelectMovie={handleSelectMovie}
-          setMovies={setMovies}
-        />
-      </div>
-      {selectMovie && (
-        <section className="form-section-edit">
-          <MovieFormEdit
-            movies={selectMovie}
-            handleFormUpdate={handleFormUpdate}
+
+      <div>
+        <div className="container-result">
+          <MovieSelection
+            movies={movies}
+            handleSelectMovie={handleSelectMovie}
+            setMovies={setMovies}
           />
-        </section>
-      )}
-    </div>
+        </div>
+        {selectMovie && (
+          <section className="form-section-edit">
+            <MovieFormEdit
+              movies={selectMovie}
+              handleFormUpdate={handleFormUpdate}
+              handleSelectMovieClose={handleSelectMovieClose}
+            />
+          </section>
+        )}
+      </div>
+    </>
   );
 }
