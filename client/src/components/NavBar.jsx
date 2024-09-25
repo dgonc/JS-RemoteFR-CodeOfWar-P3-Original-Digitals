@@ -7,8 +7,7 @@ import AuthContext from "../contexts/AuthContext";
 import LogoutButton from "./LogoutButton";
 
 function NavBar() {
-  const { isAuthenticated, user } =
-    useContext(AuthContext);
+  const { isAuthenticated, user } = useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -86,7 +85,15 @@ function NavBar() {
                     Movie List
                   </Link>
                   <div className="separation-line" />
-                  <LogoutButton variant="navbar"/>
+                  {user.role === "admin" ? (
+                    <>
+                      <Link to="/admin" onClick={toggleMenu}>
+                        Admin Panel
+                      </Link>
+                      <div className="separation-line" />
+                    </>
+                  ) : null}
+                  <LogoutButton variant="navbar" />
                 </>
               ) : (
                 <>
