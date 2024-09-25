@@ -2,7 +2,7 @@ const tables = require("../../database/tables");
 
 const read = async (req, res, next) => {
   try {
-    const movies = await tables.watchlist.read(req.params.userId);
+    const movies = await tables.watchlist.read(req.user.id);
     res.json(movies);
   } catch (err) {
     next(err);
@@ -10,9 +10,9 @@ const read = async (req, res, next) => {
 };
 
 const add = async (req, res, next) => {
-  const { userId, movieId } = req.body;
+  const { movieId } = req.body;
   try {
-    const affectedRows = await tables.watchlist.create(userId, movieId);
+    const affectedRows = await tables.watchlist.create(req.user.id, movieId);
     res.status(201).json({ affectedRows });
   } catch (err) {
     next(err);
@@ -20,9 +20,9 @@ const add = async (req, res, next) => {
 };
 
 const destroy = async (req, res, next) => {
-  const { userId, movieId } = req.body;
+  const { movieId } = req.body;
   try {
-    await tables.watchlist.delete(userId, movieId);
+    await tables.watchlist.delete(req.user.id, movieId);
     res.sendStatus(204);
   } catch (err) {
     next(err);

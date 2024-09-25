@@ -9,6 +9,7 @@ import {
   getMoviesByTitle,
   getMoviesWithCategories,
   getUserById,
+  getWatchlist,
 } from "./services/request";
 import { signUpUserAction, editUserAction } from "./services/userService";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -81,6 +82,7 @@ const router = createBrowserRouter([
       {
         path: "/watchlist",
         element: <Watchlist />,
+        loader: getWatchlist,
       }
     ],
   },
