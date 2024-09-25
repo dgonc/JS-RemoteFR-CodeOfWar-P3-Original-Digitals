@@ -35,7 +35,7 @@ function NavBar() {
       searchOpen ? setSearchOpen(false) : ""
     );
   }, [searchOpen]);
-
+  console.info("mon user ", user);
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
       {searchOpen ? (
@@ -85,6 +85,7 @@ function NavBar() {
                     Movie List
                   </Link>
                   <div className="separation-line" />
+
                   {user.role === "admin" ? (
                     <>
                       <Link to="/admin" onClick={toggleMenu}>
