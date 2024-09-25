@@ -20,7 +20,7 @@ tables.movie = new MovieRepository();
 tables.user = new UserRepository();
 tables.admin = new AdminRepository();
 tables.category = new CategoryRepository();
-tables.movie_category = new MovieCategoryRepository();
+tables.movieCategory = new MovieCategoryRepository();
 tables.watchlist = new WatchlistRepository();
 
 /* ************************************************************************* */

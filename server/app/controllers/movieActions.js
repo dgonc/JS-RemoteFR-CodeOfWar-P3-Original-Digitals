@@ -73,7 +73,7 @@ const destroy = async (req, res, next) => {
   try {
     const movieId = req.params.id;
 
-    await tables.movie_category.deleteById(movieId);
+    await tables.movieCategory.deleteById(movieId);
     await tables.movie.delete(movieId);
     res.sendStatus(204);
   } catch (err) {
