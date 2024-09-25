@@ -83,8 +83,18 @@ FROM
   }
 
   async readFreeMovies() {
-    const [rows] = await this.database.query(`select * from ${this.table} where isFree = true`);
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where isFree = true`
+    );
     return rows;
+  }
+
+  async delete(id) {
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+    return result.affectedRows;
   }
 }
 

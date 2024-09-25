@@ -51,7 +51,11 @@ export default function MovieEdit() {
         </button>
       </section>
       <div className="container-result">
-        <MovieSelection movies={movies} selectMovie={handleSelectMovie} />
+        <MovieSelection
+          movies={movies}
+          handleSelectMovie={handleSelectMovie}
+          setMovies={setMovies}
+        />
       </div>
       {selectMovie && (
         <section className="form-section-edit">
