@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   getAuth,
   getMovies,
+  getFreeMovies,
   getMoviesByTitle,
   getMoviesWithCategories,
   getUserById,
@@ -20,6 +21,7 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
 import MoviesList from "./pages/MoviesList";
+import MoviesFreeList from "./pages/MoviesFreeList";
 import Login from "./pages/Login";
 
 const router = createBrowserRouter([
@@ -59,6 +61,11 @@ const router = createBrowserRouter([
         path: `/movies/search/:title`,
         element: <MoviesList />,
         loader: getMoviesByTitle,
+      },
+      {
+        path: "/movies/free",
+        element: <MoviesFreeList />,
+        loader: getFreeMovies,
       },
       {
         path: "/landing",

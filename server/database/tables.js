@@ -5,6 +5,7 @@ const MovieRepository = require("./models/MovieRepository");
 const UserRepository = require("./models/UserRepository");
 const AdminRepository = require("./models/AdminRepository");
 const MovieCategoryRepository = require("./models/MovieCategoryRepository");
+const WatchlistRepository = require("./models/WatchlistRepository");
 
 // Create an empty object to hold data repositories for different tables
 const tables = {};
@@ -20,6 +21,7 @@ tables.user = new UserRepository();
 tables.admin = new AdminRepository();
 tables.category = new CategoryRepository();
 tables.movie_category = new MovieCategoryRepository();
+tables.watchlist = new WatchlistRepository();
 
 /* ************************************************************************* */
 

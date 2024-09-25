@@ -7,8 +7,7 @@ import AuthContext from "../contexts/AuthContext";
 import LogoutButton from "./LogoutButton";
 
 function NavBar() {
-  const { isAuthenticated, user } =
-    useContext(AuthContext);
+  const { isAuthenticated, user } = useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,7 +35,7 @@ function NavBar() {
       searchOpen ? setSearchOpen(false) : ""
     );
   }, [searchOpen]);
-
+  console.info("mon user ", user);
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
       {searchOpen ? (
@@ -86,7 +85,7 @@ function NavBar() {
                     Movie List
                   </Link>
                   <div className="separation-line" />
-                  <LogoutButton variant="navbar"/>
+                  <LogoutButton variant="navbar" />
                 </>
               ) : (
                 <>

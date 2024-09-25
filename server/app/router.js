@@ -15,9 +15,11 @@ const categoryActions = require("./controllers/categoryActions");
 const auth = require("./services/auth");
 const middleware = require("./services/middleware");
 const authAdminActions = require("./controllers/authAdminActions");
+const watchlistActions = require("./controllers/watchlistActions");
 
 // route to get a list of movies
 router.get("/movies", movieActions.browse);
+router.get("/movies/free", movieActions.browseFree);
 router.get("/movies/categories", movieActions.readByCategories);
 router.get("/movies/:id", movieActions.read);
 router.get("/movies/search/:title", movieActions.readByTitle);
@@ -58,6 +60,11 @@ router.post(
   auth.hashPassword,
   authAdminActions.add
 );
+
+// Watchlist related routes
+router.get("/watchlist/:userId", watchlistActions.read);
+router.post("/watchlist", watchlistActions.add);
+router.delete("/watchlist", watchlistActions.destroy);
 
 /* ************************************************************************* */
 

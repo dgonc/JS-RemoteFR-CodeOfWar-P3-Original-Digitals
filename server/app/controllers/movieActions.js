@@ -81,6 +81,15 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const browseFree = async (req, res, next) => {
+  try {
+    const freeMovies = await tables.movie.readFreeMovies();
+    res.json(freeMovies);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   browse,
   read,
@@ -88,5 +97,6 @@ module.exports = {
   readByCategories,
   add,
   edit,
+  browseFree,
   destroy,
 };

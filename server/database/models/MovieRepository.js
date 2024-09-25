@@ -82,6 +82,13 @@ FROM
     return result.affectedRows;
   }
 
+  async readFreeMovies() {
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where isFree = true`
+    );
+    return rows;
+  }
+
   async delete(id) {
     const [result] = await this.database.query(
       `delete from ${this.table} where id = ?`,
@@ -90,4 +97,5 @@ FROM
     return result.affectedRows;
   }
 }
+
 module.exports = MovieRepository;
