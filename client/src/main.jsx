@@ -23,6 +23,7 @@ import AdminPanel from "./pages/AdminPanel";
 import MoviesList from "./pages/MoviesList";
 import MoviesFreeList from "./pages/MoviesFreeList";
 import Login from "./pages/Login";
+import Watchlist from "./pages/Watchlist";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
         action: multiFormAction,
         loader: getMovies,
       },
+      {
+        path: "/watchlist",
+        element: <Watchlist />,
+      }
     ],
   },
 ]);
