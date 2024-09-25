@@ -536,7 +536,7 @@ VALUES (1, 1),
     (37, 10);
 
 CREATE TABLE watchlist (
-user_id INT NOT NULL,
+user_id INT UNSIGNED NOT NULL,
 movie_id INT NOT NULL,
 added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (user_id, movie_id),
