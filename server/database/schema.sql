@@ -551,3 +551,14 @@ WHERE
         24,
         30
     );
+
+CREATE TABLE watchlist (
+    user_id INT UNSIGNED NOT NULL,
+    movie_id INT NOT NULL,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, movie_id),
+    FOREIGN KEY (user_id) REFERENCES user (id),
+    FOREIGN KEY (movie_id) REFERENCES movie (id)
+);
+
+INSERT INTO watchlist (user_id, movie_id) VALUES (1, 1);
