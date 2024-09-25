@@ -18,6 +18,7 @@ const authAdminActions = require("./controllers/authAdminActions");
 
 // route to get a list of movies
 router.get("/movies", movieActions.browse);
+router.get("/movies/free", movieActions.browseFree);
 router.get("/movies/categories", movieActions.readByCategories);
 router.get("/movies/:id", movieActions.read);
 router.get("/movies/search/:title", movieActions.readByTitle);

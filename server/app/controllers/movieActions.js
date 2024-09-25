@@ -69,4 +69,14 @@ const edit = async (req, res, next) => {
   }
 };
 
-module.exports = { browse, read, readByTitle, readByCategories, add, edit };
+const browseFree = async (req, res, next) => {
+
+  try {
+    const freeMovies = await tables.movie.readFreeMovies();
+    res.json(freeMovies);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { browse, read, readByTitle, readByCategories, add, edit, browseFree };

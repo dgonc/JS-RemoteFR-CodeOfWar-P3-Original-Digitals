@@ -81,6 +81,11 @@ FROM
     );
     return result.affectedRows;
   }
+
+  async readFreeMovies() {
+    const [rows] = await this.database.query(`select * from ${this.table} where isFree = true`);
+    return rows;
+  }
 }
 
 module.exports = MovieRepository;
