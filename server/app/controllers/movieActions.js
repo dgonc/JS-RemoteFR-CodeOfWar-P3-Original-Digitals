@@ -72,7 +72,6 @@ const edit = async (req, res, next) => {
 const destroy = async (req, res, next) => {
   try {
     const movieId = req.params.id;
-
     await tables.movieCategory.deleteById(movieId);
     await tables.movie.delete(movieId);
     res.sendStatus(204);

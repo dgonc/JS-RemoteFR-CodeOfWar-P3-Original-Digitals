@@ -9,17 +9,22 @@ export default function MovieSelection({
   setMovies,
 }) {
   const [showModal, setShowModal] = useState(false);
+  const [deleteMovie, setDeleteMovie] = useState(null);
 
-  const handleDeleteClick = () => {
+  const handleDeleteClick = (id) => {
     setShowModal(true);
+    setDeleteMovie(id);
   };
+
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
   const handleDeleteMovie = async (id) => {
     try {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/api/movies/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/movies/${id}`, {
+        withCredentials: true,
+      });
       setShowModal(false);
       setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== id));
     } catch (error) {
@@ -49,23 +54,23 @@ export default function MovieSelection({
               <button
                 className="button-delete"
                 type="button"
-                onClick={handleDeleteClick}
+                onClick={() => handleDeleteClick(movie.id)}
               >
                 Delete
               </button>
             </div>
-            <CustomModal
-              show={showModal}
-              onClose={handleCloseModal}
-              onConfirm={() => handleDeleteMovie(movie.id)}
-              modalTitle="Movie removal confirmation"
-              modalText="Are you sure you want to delete this movie ?"
-            />
           </div>
         ))
       ) : (
         <p>Aucun film trouvé.</p>
       )}
+      <CustomModal
+        show={showModal}
+        onClose={handleCloseModal}
+        onConfirm={() => handleDeleteMovie(deleteMovie)}
+        modalTitle="Movie removal confirmation"
+        modalText="Are you sure you want to delete this movie ?"
+      />
     </div>
   );
 }
