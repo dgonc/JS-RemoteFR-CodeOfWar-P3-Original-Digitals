@@ -2,7 +2,9 @@ import axios from "axios";
 
 export function getMovies() {
   return axios
-    .get(`${import.meta.env.VITE_API_URL}/api/movies`)
+    .get(`${import.meta.env.VITE_API_URL}/api/movies`, {
+      withCredentials: true,
+    })
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);
@@ -12,7 +14,9 @@ export function getMovies() {
 
 export function getFreeMovies() {
   return axios
-    .get(`${import.meta.env.VITE_API_URL}/api/movies/free`)
+    .get(`${import.meta.env.VITE_API_URL}/api/movies/free`, {
+      withCredentials: true,
+    })
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);
@@ -22,7 +26,9 @@ export function getFreeMovies() {
 
 export function getMoviesByTitle({ params }) {
   return axios
-    .get(`${import.meta.env.VITE_API_URL}/api/movies/search/${params.title}`)
+    .get(`${import.meta.env.VITE_API_URL}/api/movies/search/${params.title}`, {
+      withCredentials: true,
+    })
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);
@@ -32,7 +38,9 @@ export function getMoviesByTitle({ params }) {
 
 export function getUsers() {
   return axios
-    .get(`${import.meta.env.VITE_API_URL}/api/users`)
+    .get(`${import.meta.env.VITE_API_URL}/api/users`, {
+      withCredentials: true,
+    })
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);
@@ -42,7 +50,9 @@ export function getUsers() {
 
 export function getUserById({ params }) {
   return axios
-    .get(`${import.meta.env.VITE_API_URL}/api/user/${params.id}`)
+    .get(`${import.meta.env.VITE_API_URL}/api/user/${params.id}`, {
+      withCredentials: true,
+    })
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);
@@ -64,7 +74,9 @@ export function getAuth() {
 export async function getCategories() {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/categories`
+      `${import.meta.env.VITE_API_URL}/api/categories`, {
+        withCredentials: true,
+      }
     );
     return response.data;
   } catch (error) {
@@ -76,14 +88,18 @@ export async function getCategories() {
 export const getMoviesWithCategories = async () => {
   const [categories, movies] = await Promise.all([
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/categories`)
+      .get(`${import.meta.env.VITE_API_URL}/api/categories`, {
+        withCredentials: true,
+      })
       .then((categoriesRes) => categoriesRes.data)
       .catch((error) => {
         console.error(error);
         return [];
       }),
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/movies/categories`)
+      .get(`${import.meta.env.VITE_API_URL}/api/movies/categories`, {
+        withCredentials: true,
+      })
       .then((moviesRes) => moviesRes.data)
       .catch((error) => {
         console.error(error);
