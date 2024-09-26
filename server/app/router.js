@@ -44,7 +44,7 @@ router.get("/checkauth", auth.isConnected);
 router.get("/users", userActions.browse);
 router.get("/user", userActions.read);
 router.put("/user", userActions.edit);
-router.delete("/user/:id", userActions.destroy);
+router.delete("/user", userActions.destroy);
 router.get("/logout", auth.deleteToken);
 
 // routes for admin related actions

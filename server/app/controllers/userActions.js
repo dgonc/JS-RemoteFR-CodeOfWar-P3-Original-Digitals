@@ -47,7 +47,7 @@ const edit = async (req, res, next) => {
 
 const destroy = async (req, res, next) => {
   try {
-    await tables.user.delete(req.params.id);
+    await tables.user.delete(req.user.id);
     res.sendStatus(204);
   } catch (err) {
     next(err);
