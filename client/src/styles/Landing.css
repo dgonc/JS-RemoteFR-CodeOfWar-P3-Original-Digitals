@@ -47,3 +47,105 @@
   display: flex;
   align-items: center;
 }
+
+.buttons a:first-child {
+  background-color: #8b69f1;
+  color: rgb(255, 255, 255);
+}
+
+.desktop-content {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .landing-container {
+    display: none;
+  }
+
+  .youflim-landing img {
+    width: 20%;
+  }
+
+  .desktop-content {
+    display: block;
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+    color: rgb(255, 255, 255);
+  }
+
+  .desktop-content section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 2.5rem 0;
+  }
+
+  .desktop-content h2 {
+    margin: 1.5rem 0;
+  }
+
+  .desktop-content p {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+  }
+
+  .desktop-content img {
+    margin: 1.5rem 0;
+  }
+
+  .testing-landing img {
+    width: 40%;
+  }
+
+  #buttons-landing {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    margin-top: 1.5rem;
+    width: auto;
+    gap: 1rem;
+  }
+
+  #buttons-landing a {
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+    min-width: 14rem;
+    width: 10rem;
+    height: 4rem;
+    background-color: var(--third-purple);
+    color: var(--primary-grey);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  #buttons-landing a:first-child {
+    background-color: #8b69f1;
+    color: rgb(255, 255, 255);
+  }
+
+  #buttons-landing a:hover {
+    box-shadow:
+      0 0 15px rgba(255, 255, 255, 0.8),
+      0 0 30px rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+  }
+
+  .separator {
+    width: 90%;
+    height: 1px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+  }
+}

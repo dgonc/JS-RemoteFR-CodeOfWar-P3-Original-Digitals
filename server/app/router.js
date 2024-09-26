@@ -42,9 +42,9 @@ router.delete("/movies/:id", movieActions.destroy);
 // routes for user related actions
 router.get("/checkauth", auth.isConnected);
 router.get("/users", userActions.browse);
-router.get("/user/:id", userActions.read);
-router.put("/user/:id", userActions.edit);
-router.delete("/user/:id", userActions.destroy);
+router.get("/user", userActions.read);
+router.put("/user", userActions.edit);
+router.delete("/user", userActions.destroy);
 router.get("/logout", auth.deleteToken);
 
 // routes for admin related actions

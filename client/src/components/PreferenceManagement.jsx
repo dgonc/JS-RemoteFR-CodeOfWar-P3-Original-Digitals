@@ -6,7 +6,7 @@ import CustomModal from "./CustomModal";
 
 export default function PreferenceManagement() {
   const [showModal, setShowModal] = useState(false);
-  const { user, setUser, setIsAuthenticated } = useContext(AuthContext);
+  const { setUser, setIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleDeleteClick = () => {
@@ -17,7 +17,7 @@ export default function PreferenceManagement() {
   };
   const handleDelete = async () => {
     await axios
-      .delete(`${import.meta.env.VITE_API_URL}/api/user/${user.id}`, {
+      .delete(`${import.meta.env.VITE_API_URL}/api/user`, {
         withCredentials: true,
       })
       .then(() => {

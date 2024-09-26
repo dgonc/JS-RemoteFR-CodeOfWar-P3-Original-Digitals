@@ -48,9 +48,9 @@ export function getUsers() {
     });
 }
 
-export function getUserById({ params }) {
+export function getUserById() {
   return axios
-    .get(`${import.meta.env.VITE_API_URL}/api/user/${params.id}`, {
+    .get(`${import.meta.env.VITE_API_URL}/api/user`, {
       withCredentials: true,
     })
     .then((response) => response.data)
@@ -74,7 +74,8 @@ export function getAuth() {
 export async function getCategories() {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/categories`, {
+      `${import.meta.env.VITE_API_URL}/api/categories`,
+      {
         withCredentials: true,
       }
     );
@@ -113,7 +114,8 @@ export const getMoviesWithCategories = async () => {
 export async function getWatchlist() {
   try {
     const response = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/watchlist`, {
+      `${import.meta.env.VITE_API_URL}/api/watchlist`,
+      {
         withCredentials: true,
       }
     );

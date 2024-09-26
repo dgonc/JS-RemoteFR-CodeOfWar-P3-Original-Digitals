@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "../assets/images/YouFilm-01.png";
+import Logo from "../assets/images/YouFlim-01.png";
 import { loginUserAction } from "../services/userService";
 import AuthContext from "../contexts/AuthContext";
 
