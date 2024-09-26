@@ -35,7 +35,6 @@ function NavBar() {
       searchOpen ? setSearchOpen(false) : ""
     );
   }, [searchOpen]);
-  console.info("mon user ", user);
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
       {searchOpen ? (
@@ -77,7 +76,7 @@ function NavBar() {
               <div className="separation-line" />
               {isAuthenticated ? (
                 <>
-                  <Link to={`/user/${user.id}`} onClick={toggleMenu}>
+                  <Link to="/user" onClick={toggleMenu}>
                     My account
                   </Link>
                   <div className="separation-line" />

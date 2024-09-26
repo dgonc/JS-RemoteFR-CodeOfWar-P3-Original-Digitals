@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/user/:id",
+        path: "/user",
         element: <User />,
         action: editUserAction,
         loader: getUserById,

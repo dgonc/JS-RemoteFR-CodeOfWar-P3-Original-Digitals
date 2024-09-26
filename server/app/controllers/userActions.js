@@ -12,7 +12,7 @@ const browse = async (req, res, next) => {
 
 const read = async (req, res, next) => {
   try {
-    const user = await tables.user.read(req.params.id);
+    const user = await tables.user.read(req.user.id);
     if (user == null) {
       res.sendStatus(404);
     } else {
