@@ -12,11 +12,19 @@ export default function Carousel({ movies, category }) {
     centerMode: false,
     infinite: true,
     centerPadding: "0",
-    slidesToShow: 2,
+    slidesToShow: 8,
     slidesToScroll: 1,
     speed: 500,
     dots: true,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   };
   return (
     <div className="carrousel">
