@@ -93,3 +93,17 @@ export const getMoviesWithCategories = async () => {
 
   return { categories, movies };
 };
+
+export async function getWatchlist() {
+  try {
+    const response = await axios.get(
+      `${import.meta.env.VITE_API_URL}/api/watchlist`, {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}

@@ -61,3 +61,23 @@
   line-height: 1.5rem;
   margin: 1rem 0 0 1rem;
 }
+
+.watchlist-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.watchlist-button:hover {
+  transform: scale(1.1);
+}
+
+.watchlist-button img {
+  width: 32px;
+  height: 32px;
+}

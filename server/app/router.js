@@ -62,9 +62,9 @@ router.post(
 );
 
 // Watchlist related routes
-router.get("/watchlist/:userId", watchlistActions.read);
-router.post("/watchlist", watchlistActions.add);
-router.delete("/watchlist", watchlistActions.destroy);
+router.get("/watchlist", auth.verifyToken, watchlistActions.read);
+router.post("/watchlist", auth.verifyToken, watchlistActions.add);
+router.delete("/watchlist", auth.verifyToken, watchlistActions.destroy);
 
 /* ************************************************************************* */
 

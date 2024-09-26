@@ -9,6 +9,7 @@ import {
   getMoviesByTitle,
   getMoviesWithCategories,
   getUserById,
+  getWatchlist,
 } from "./services/request";
 import { signUpUserAction, editUserAction } from "./services/userService";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -23,6 +24,7 @@ import AdminPanel from "./pages/AdminPanel";
 import MoviesList from "./pages/MoviesList";
 import MoviesFreeList from "./pages/MoviesFreeList";
 import Login from "./pages/Login";
+import Watchlist from "./pages/Watchlist";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,11 @@ const router = createBrowserRouter([
         action: multiFormAction,
         loader: getMovies,
       },
+      {
+        path: "/watchlist",
+        element: <Watchlist />,
+        loader: getWatchlist,
+      }
     ],
   },
 ]);
