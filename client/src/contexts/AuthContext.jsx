@@ -8,12 +8,14 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState({
     id: localStorage.getItem("id"),
     email: localStorage.getItem("email"),
+    role: localStorage.getItem("role"),
   });
 
   useEffect(() => {
-    if (user.id && user.email) {
+    if (user.id && user.email && user.role) {
       localStorage.setItem("id", user.id);
       localStorage.setItem("email", user.email);
+      localStorage.setItem("role", user.role);
       setIsAuthenticated(true);
     }
   }, [user]);

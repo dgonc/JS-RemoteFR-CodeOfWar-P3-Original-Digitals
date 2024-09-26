@@ -24,6 +24,7 @@ function Login() {
         setUser({
           id: response.id,
           email: response.email,
+          role: response.role,
         });
         navigate("/");
       }

@@ -85,6 +85,15 @@ function NavBar() {
                     Watchlist
                   </Link>
                   <div className="separation-line" />
+
+                  {user.role === "admin" ? (
+                    <>
+                      <Link to="/admin" onClick={toggleMenu}>
+                        Admin Panel
+                      </Link>
+                      <div className="separation-line" />
+                    </>
+                  ) : null}
                   <LogoutButton variant="navbar" />
                 </>
               ) : (
