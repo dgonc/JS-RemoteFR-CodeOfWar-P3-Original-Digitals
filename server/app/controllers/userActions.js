@@ -35,7 +35,7 @@ const add = async (req, res, next) => {
 };
 
 const edit = async (req, res, next) => {
-  const user = { ...req.body, id: req.params.id };
+  const user = { ...req.body, id: req.user.id };
 
   try {
     await tables.user.update(user);

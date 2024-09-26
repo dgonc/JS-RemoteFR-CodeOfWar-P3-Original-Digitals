@@ -43,7 +43,7 @@ router.delete("/movies/:id", movieActions.destroy);
 router.get("/checkauth", auth.isConnected);
 router.get("/users", userActions.browse);
 router.get("/user", userActions.read);
-router.put("/user/:id", userActions.edit);
+router.put("/user", userActions.edit);
 router.delete("/user/:id", userActions.destroy);
 router.get("/logout", auth.deleteToken);
 
