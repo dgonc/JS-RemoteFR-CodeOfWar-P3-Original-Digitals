@@ -35,8 +35,14 @@ function UserForm() {
             placeholder="Enter your password"
             onChange={handlePasswordChange}
           />
-          {/* Indicateur de force du mot de passe */}
-          {password.length >= 8 ? "✅" : "❌"} minimum length at 8 characters
+          {password ? (
+            <div className="password-strength-sign">
+              {password.length >= 8 ? "✅" : "❌"} minimum length at 8
+              characters
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         {/* Champ pour la confirmation du mot de passe */}
         <div className="form-group">
@@ -48,8 +54,16 @@ function UserForm() {
             placeholder="Confirm your password"
             onChange={handleConfirmPasswordChange}
           />
-          {/* Indicateur de correspondance avec le mot de passe */}
-          {password === confirmPassword && password.length > 0 ? "✅" : "❌"}
+          {password ? (
+            <div className="password-confirm-sign">
+              {" "}
+              {password === confirmPassword && password.length > 0
+                ? "✅"
+                : "❌"}
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         {/* Champ pour le prénom */}
         <div className="form-group">

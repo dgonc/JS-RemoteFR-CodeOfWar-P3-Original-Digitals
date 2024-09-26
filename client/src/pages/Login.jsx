@@ -37,9 +37,9 @@ function Login() {
     <section className="signin-container">
       <img src={Logo} alt="Youflim" />
       <form onSubmit={handleSubmit}>
-        <section className="form-fields">
-          <h1>Login</h1>
-          <div className="form-group">
+        <section className="login-form-fields">
+          <h1 className="login-title">Login</h1>
+          <div className="login-form-group">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -51,7 +51,7 @@ function Login() {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="login-form-group">
             <label htmlFor="password">Password</label>
             <input
               type="password"
