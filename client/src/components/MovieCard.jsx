@@ -5,7 +5,7 @@ import MovieDetails from "./MovieDetails";
 
 import "../styles/Moviecard.css";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, revalidate }) {
   const modalRef = useRef(null);
 
   const openModal = () => {
@@ -24,7 +24,7 @@ export default function MovieCard({ movie }) {
         />
       </div>
       <h3 className="card-title">{movie.title}</h3>
-      <MovieDetails modalRef={modalRef} movie={movie} />
+      <MovieDetails modalRef={modalRef} movie={movie} revalidate={revalidate} />
     </div>
   );
 }
@@ -36,4 +36,5 @@ MovieCard.propTypes = {
     picture: PropTypes.string.isRequired,
     posterUrl: PropTypes.string,
   }).isRequired,
+  revalidate: PropTypes.func.isRequired,
 };

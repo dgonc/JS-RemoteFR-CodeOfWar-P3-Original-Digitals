@@ -10,6 +10,16 @@ export function getMovies() {
     });
 }
 
+export function getFreeMovies() {
+  return axios
+    .get(`${import.meta.env.VITE_API_URL}/api/movies/free`)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error(error);
+      return [];
+    });
+}
+
 export function getMoviesByTitle({ params }) {
   return axios
     .get(`${import.meta.env.VITE_API_URL}/api/movies/search/${params.title}`)
@@ -83,3 +93,17 @@ export const getMoviesWithCategories = async () => {
 
   return { categories, movies };
 };
+
+export async function getWatchlist() {
+  try {
+    const response = await axios.get(
+      `${import.meta.env.VITE_API_URL}/api/watchlist`, {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}

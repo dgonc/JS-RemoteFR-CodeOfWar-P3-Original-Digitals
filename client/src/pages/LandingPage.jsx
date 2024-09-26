@@ -13,7 +13,7 @@ function LandingPage() {
       </section>
       <section className="buttons">
         <Link to="/sign">Débuter l'expérience !</Link>
-        <button type="button">Pas sûr ? Testez notre partie gratuite.</button>
+        <Link to="/movies/free">Pas sûr ? Testez notre partie gratuite.</Link>
       </section>
     </div>
   );

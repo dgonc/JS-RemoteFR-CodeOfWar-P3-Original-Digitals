@@ -3,8 +3,9 @@ import ReactPlayer from "react-player";
 import PropTypes from "prop-types";
 
 import "../styles/Moviedetails.css";
+import WatchListButton from "./WatchListButton";
 
-export default function MovieDetails({ modalRef, movie }) {
+export default function MovieDetails({ modalRef, movie, revalidate }) {
   const releaseDate = new Date(`${movie.date}`).getFullYear();
 
   const hours = Math.floor(`${movie.duration}` / 60);
@@ -57,6 +58,7 @@ export default function MovieDetails({ modalRef, movie }) {
       <button type="button" onClick={closeModal} className="dialog-button">
         close
       </button>
+      <WatchListButton movieId={movie.id} revalidate={revalidate} />
     </dialog>
   );
 }
@@ -69,6 +71,7 @@ MovieDetails.propTypes = {
     }),
   }).isRequired,
   movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     URL: PropTypes.string.isRequired,
     duration: PropTypes.number.isRequired,
@@ -76,4 +79,5 @@ MovieDetails.propTypes = {
     classification: PropTypes.number.isRequired,
     synopsis: PropTypes.string.isRequired,
   }).isRequired,
+  revalidate: PropTypes.func.isRequired,
 };

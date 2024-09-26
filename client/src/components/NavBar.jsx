@@ -7,8 +7,7 @@ import AuthContext from "../contexts/AuthContext";
 import LogoutButton from "./LogoutButton";
 
 function NavBar() {
-  const { isAuthenticated, user } =
-    useContext(AuthContext);
+  const { isAuthenticated, user } = useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,7 +35,7 @@ function NavBar() {
       searchOpen ? setSearchOpen(false) : ""
     );
   }, [searchOpen]);
-
+  console.info("mon user ", user);
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
       {searchOpen ? (
@@ -82,11 +81,20 @@ function NavBar() {
                     My account
                   </Link>
                   <div className="separation-line" />
-                  <Link to="/movies" onClick={toggleMenu}>
-                    Movie List
+                  <Link to="/watchlist" onClick={toggleMenu}>
+                    Watchlist
                   </Link>
                   <div className="separation-line" />
-                  <LogoutButton variant="navbar"/>
+
+                  {user.role === "admin" ? (
+                    <>
+                      <Link to="/admin" onClick={toggleMenu}>
+                        Admin Panel
+                      </Link>
+                      <div className="separation-line" />
+                    </>
+                  ) : null}
+                  <LogoutButton variant="navbar" />
                 </>
               ) : (
                 <>

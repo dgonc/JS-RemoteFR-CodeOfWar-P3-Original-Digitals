@@ -5,9 +5,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   getAuth,
   getMovies,
+  getFreeMovies,
   getMoviesByTitle,
   getMoviesWithCategories,
   getUserById,
+  getWatchlist,
 } from "./services/request";
 import { signUpUserAction, editUserAction } from "./services/userService";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -20,7 +22,9 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
 import MoviesList from "./pages/MoviesList";
+import MoviesFreeList from "./pages/MoviesFreeList";
 import Login from "./pages/Login";
+import Watchlist from "./pages/Watchlist";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +65,11 @@ const router = createBrowserRouter([
         loader: getMoviesByTitle,
       },
       {
+        path: "/movies/free",
+        element: <MoviesFreeList />,
+        loader: getFreeMovies,
+      },
+      {
         path: "/landing",
         element: <LandingPage />,
       },
@@ -70,6 +79,11 @@ const router = createBrowserRouter([
         action: multiFormAction,
         loader: getMovies,
       },
+      {
+        path: "/watchlist",
+        element: <Watchlist />,
+        loader: getWatchlist,
+      }
     ],
   },
 ]);
