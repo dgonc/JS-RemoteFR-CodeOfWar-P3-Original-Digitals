@@ -38,7 +38,7 @@ function Login() {
       <img src={Logo} alt="Youflim" />
       <form onSubmit={handleSubmit}>
         <section className="form-fields">
-          <h1>Login</h1>
+          <h1 className="login-title">Login</h1>
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
