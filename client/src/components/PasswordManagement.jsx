@@ -1,4 +1,3 @@
 export default function PasswordManagement() {
-    return <p>bienvenue Password management</p>;
-  }
-  
+  return <p>bienvenue Password management</p>;
+}

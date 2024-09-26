@@ -3,19 +3,59 @@ import Banner from "../assets/images/films-banner.png";
 
 function LandingPage() {
   return (
-    <div className="landing-container">
-      <section className="attract-section">
-        <section className="pictures-movies">
-          <img src={Banner} alt="Affiches de films et séries" />
+    <>
+      <div className="desktop-content">
+        <section>
+          <h2>Films et séries en illimités</h2>
+          <p>Où que vous soyez. Annulez à tout moment</p>
+          <section className="buttons">
+            <Link to="/sign">Débuter l'expérience !</Link>
+            <Link to="/movies/free">
+              Pas sûr ? Testez notre partie gratuite.
+            </Link>
+          </section>
+          <div className="separator"> </div>
+          <section>
+            <h2>Où que vous soyez</h2>
+            <p>
+              Regardez des films et séries en illimités sur votre ordinateur,
+              smartphone et tablette.
+            </p>
+            <img
+              src=""
+              alt="Version desktop, smartphone et tablette de Youflim"
+            />
+          </section>
+          <div className="separator"> </div>
+          <section>
+            <h2>Abonnez vous dès aujourd'hui</h2>
+            <p>Annulez à tout moment.</p>
+            <img src="" alt="dessin d'un bonhomme qui sort" />
+          </section>
+          <div className="separator"> </div>
+          <section>
+            <h2>Pas encore sûr ?</h2>
+            <p>Testez notre liste de films sans abonnement.</p>
+            <section className="pictures-movies">
+              <img src={Banner} alt="Affiches de films et séries" />
+            </section>
+          </section>
         </section>
-        <p>Films et séries en ilimité.</p>
-        <p>Retrouvez vos shows et franchises favorites.</p>
-      </section>
-      <section className="buttons">
-        <Link to="/sign">Débuter l'expérience !</Link>
-        <Link to="/movies/free">Pas sûr ? Testez notre partie gratuite.</Link>
-      </section>
-    </div>
+      </div>
+      <div className="landing-container">
+        <section className="attract-section">
+          <section className="pictures-movies">
+            <img src={Banner} alt="Affiches de films et séries" />
+          </section>
+          <p>Films et séries en ilimité.</p>
+          <p>Retrouvez vos shows et franchises favorites.</p>
+        </section>
+        <section className="buttons">
+          <Link to="/sign">Débuter l'expérience !</Link>
+          <Link to="/movies/free">Pas sûr ? Testez notre partie gratuite.</Link>
+        </section>
+      </div>
+    </>
   );
 }
 
