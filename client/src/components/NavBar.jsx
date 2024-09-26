@@ -35,7 +35,7 @@ function NavBar() {
       searchOpen ? setSearchOpen(false) : ""
     );
   }, [searchOpen]);
-  console.info("mon user ", user);
+
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
       {searchOpen ? (

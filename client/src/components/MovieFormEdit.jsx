@@ -25,7 +25,7 @@ export default function MovieFormEdit({
   };
 
   return (
-    <Form method="post">
+    <Form method="post" className="sticky">
       <section className="form-upload-edit">
         <button
           type="button"
@@ -114,6 +114,7 @@ export default function MovieFormEdit({
             onChange={handleChange}
           />
         </div>
+
         <button
           className="button-upload"
           type="submit"
@@ -122,6 +123,7 @@ export default function MovieFormEdit({
         >
           Envoyer
         </button>
+
         {validateAction?.success === true && (
           <p style={{ color: "green" }}>{validateAction.message}</p>
         )}

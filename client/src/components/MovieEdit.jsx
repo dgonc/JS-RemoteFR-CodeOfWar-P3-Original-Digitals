@@ -59,16 +59,17 @@ export default function MovieEdit() {
             handleSelectMovie={handleSelectMovie}
             setMovies={setMovies}
           />
+
+          {selectMovie && (
+            <section className="form-section-edit">
+              <MovieFormEdit
+                movies={selectMovie}
+                handleFormUpdate={handleFormUpdate}
+                handleSelectMovieClose={handleSelectMovieClose}
+              />
+            </section>
+          )}
         </div>
-        {selectMovie && (
-          <section className="form-section-edit">
-            <MovieFormEdit
-              movies={selectMovie}
-              handleFormUpdate={handleFormUpdate}
-              handleSelectMovieClose={handleSelectMovieClose}
-            />
-          </section>
-        )}
       </div>
     </>
   );
