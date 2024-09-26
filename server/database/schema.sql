@@ -37,7 +37,7 @@ INSERT INTO
     )
 VALUES (
         "amine.ladmine@youflim.com",
-        "jaimelesfilms",
+        "$argon2id$v=19$m=19456,t=2,p=1$SkHM/t19uSNr7Gh69SLEdw$ZEPjVV3Uq6XFj+z+2DE5w0ejIwNpZqhwlci9HRAIccY",
         "Amine",
         "Ladmine"
     );
@@ -561,4 +561,3 @@ CREATE TABLE watchlist (
     FOREIGN KEY (movie_id) REFERENCES movie (id)
 );
 
-INSERT INTO watchlist (user_id, movie_id) VALUES (1, 1);

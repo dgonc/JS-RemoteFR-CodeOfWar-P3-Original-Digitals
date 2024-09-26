@@ -2,7 +2,11 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { Form, useActionData } from "react-router-dom";
 
-export default function MovieFormEdit({ movies, handleFormUpdate }) {
+export default function MovieFormEdit({
+  movies,
+  handleFormUpdate,
+  handleSelectMovieClose,
+}) {
   const validateAction = useActionData();
   const [formValues, setFormValues] = useState(movies);
 
@@ -21,8 +25,16 @@ export default function MovieFormEdit({ movies, handleFormUpdate }) {
   };
 
   return (
-    <Form method="post">
+    <Form method="post" className="sticky">
       <section className="form-upload-edit">
+        <button
+          type="button"
+          onClick={handleSelectMovieClose}
+          className="close-button-edit"
+        >
+          {" "}
+          Close
+        </button>
         <div className="form-group-upload">
           <label htmlFor="id">ID</label>
           <input
@@ -102,6 +114,7 @@ export default function MovieFormEdit({ movies, handleFormUpdate }) {
             onChange={handleChange}
           />
         </div>
+
         <button
           className="button-upload"
           type="submit"
@@ -110,6 +123,7 @@ export default function MovieFormEdit({ movies, handleFormUpdate }) {
         >
           Envoyer
         </button>
+
         {validateAction?.success === true && (
           <p style={{ color: "green" }}>{validateAction.message}</p>
         )}
@@ -132,4 +146,5 @@ MovieFormEdit.propTypes = {
     URL: PropTypes.string.isRequired,
   }).isRequired,
   handleFormUpdate: PropTypes.func.isRequired,
+  handleSelectMovieClose: PropTypes.func.isRequired,
 };
