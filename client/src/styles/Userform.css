@@ -4,9 +4,11 @@
   justify-content: center;
   align-items: center;
   background-color: var(--background-white);
+  margin-top: 1rem;
   padding: 4rem;
   border-radius: 4rem 0 4rem 0;
   width: 100%;
+  max-width: 1024px;
 }
 
 .form-fields > button {
@@ -40,6 +42,12 @@
 
 .form-group > label {
   background-color: inherit;
+}
+
+@media screen and (min-width: 1024px) {
+  .form-fields {
+    margin: 1rem auto;
+  }
 }
 
 .sign-in-text {

@@ -9,13 +9,3 @@
 .sign-up-text {
   color: var(--third-purple);
 }
-
-.go-back-button {
-  position: fixed;
-  left: 0;
-  margin-left: 1rem;
-  padding: 1rem 1rem;
-  border: white 1px solid;
-  border-radius: 4px;
-  background-color: var(--third-purple);
-}

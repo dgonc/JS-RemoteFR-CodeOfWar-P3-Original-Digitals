@@ -52,7 +52,7 @@
   height: 1.5rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .signin-container {
     display: flex;
     flex-direction: row;
