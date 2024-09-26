@@ -48,9 +48,9 @@ export function getUsers() {
     });
 }
 
-export function getUserById({ params }) {
+export function getUserById() {
   return axios
-    .get(`${import.meta.env.VITE_API_URL}/api/user/${params.id}`, {
+    .get(`${import.meta.env.VITE_API_URL}/api/user`, {
       withCredentials: true,
     })
     .then((response) => response.data)
