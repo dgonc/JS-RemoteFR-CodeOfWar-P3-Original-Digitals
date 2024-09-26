@@ -14,8 +14,8 @@ function LandingPage() {
 
         <section className="intro-landing">
           <h2>Films et séries en illimités</h2>
-          <p>Où que vous soyez. Annulez à tout moment</p>
-          <section className="buttons">
+          <p>Où que vous soyez. Annulez à tout moment.</p>
+          <section id="buttons-landing">
             <Link to="/sign">Débuter l'expérience !</Link>
             <Link to="/movies/free">
               Pas sûr ? Testez notre partie gratuite.
