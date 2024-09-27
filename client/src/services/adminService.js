@@ -11,6 +11,7 @@ export async function adminUploadAction({ formData }) {
     classification: formData.get("classification"),
     picture: formData.get("picture"),
     URL: formData.get("movie"),
+    file: formData.get("movie-file"),
   };
   try {
     await myAxios.post("/api/movies/add", movie);
@@ -58,4 +59,16 @@ export async function multiFormAction({ request }) {
     return adminEdit({ formData });
   }
   throw json({ message: "Invalid intent" }, { status: 400 });
+}
+
+export async function movieUpload(movie) {
+  try {
+    await myAxios.post("/api/movies/add", movie);
+    return { success: true, message: "Le film a été ajouté avec succès." };
+  } catch (error) {
+    return {
+      success: false,
+      message: "Une erreur est survenue lors de l'ajout du film.",
+    };
+  }
 }

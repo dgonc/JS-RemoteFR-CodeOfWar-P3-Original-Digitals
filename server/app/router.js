@@ -16,8 +16,19 @@ const authAdminActions = require("./controllers/authAdminActions");
 const watchlistActions = require("./controllers/watchlistActions");
 
 // Public actions (no token necessary)
-router.post("/sign", middleware.verifyFields, auth.hashPassword, userActions.add);
-router.post("/login", authActions.verifyEmail, authActions.verifyPassword, auth.createToken, authActions.login);
+router.post(
+  "/sign",
+  middleware.verifyFields,
+  auth.hashPassword,
+  userActions.add
+);
+router.post(
+  "/login",
+  authActions.verifyEmail,
+  authActions.verifyPassword,
+  auth.createToken,
+  authActions.login
+);
 router.get("/movies/free", movieActions.browseFree);
 
 // all routes below require a token
@@ -36,6 +47,7 @@ router.delete("/watchlist", watchlistActions.destroy);
 
 // Movies routes for admins
 router.post("/movies/add", movieActions.add);
+router.post("/movies/upload", middleware.uploadMovie);
 router.put("/movies/:id", movieActions.edit);
 router.delete("/movies/:id", movieActions.destroy);
 
@@ -50,7 +62,12 @@ router.get("/logout", auth.deleteToken);
 // routes for admin related actions
 router.get("/admins/checkauth", auth.isConnected);
 router.get("/admins", authAdminActions.browseAdmin);
-router.post("/admins/sign", middleware.verifyFields, auth.hashPassword, authAdminActions.add);
+router.post(
+  "/admins/sign",
+  middleware.verifyFields,
+  auth.hashPassword,
+  authAdminActions.add
+);
 
 /* ************************************************************************* */
 
