@@ -24,15 +24,16 @@ export default function MovieDetails({ modalRef, movie, revalidate }) {
         width="100%"
         className="ReactPlayer"
       />
+      <WatchListButton movieId={movie.id} revalidate={revalidate} />
       <h2>{movie.title}</h2>
       <section className="section-infos">
         <p>
-          Durée : {hours} H {mins} mins
+          Duration : {hours} h {mins} minutes
         </p>
-        <p> Sortie : {releaseDate}</p>
-        <p> Classification : - {movie.classification}</p>
+        <p> Release date : {releaseDate}</p>
+        <p> Classification (PG) : - {movie.classification}</p>
       </section>
-      <h3 className="detail-title"> Acteurs</h3>
+      <h3 className="detail-title"> Actors</h3>
       <section className="actor-list">
         <img
           src="https://images.pexels.com/photos/2227958/pexels-photo-2227958.jpeg?auto=compress&cs=tinysrgb&w=400"
@@ -56,9 +57,8 @@ export default function MovieDetails({ modalRef, movie, revalidate }) {
         <p className="synopsis-movie">{movie.synopsis}</p>
       </section>
       <button type="button" onClick={closeModal} className="dialog-button">
-        close
+        Close
       </button>
-      <WatchListButton movieId={movie.id} revalidate={revalidate} />
     </dialog>
   );
 }

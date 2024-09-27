@@ -46,17 +46,26 @@ export default function WatchListButton({ movieId, revalidate }) {
   };
 
   return (
-    <button
-      type="button"
-      onClick={inWatchlist ? removeWatchlist : addWatchlist}
-      className="watchlist-button"
-    >
+    <div className="watchlist-button-group">
+      <button
+        type="button"
+        onClick={inWatchlist ? removeWatchlist : addWatchlist}
+        className="watchlist-button"
+      >
+        {inWatchlist ? (
+          <img src={WatchlistAdded} alt="Remove from watchlist" />
+        ) : (
+          <div className="watchlist-button-group">
+            <img src={WatchlistAdd} alt="Add to watchlist" />
+          </div>
+        )}
+      </button>
       {inWatchlist ? (
-        <img src={WatchlistAdded} alt="Remove from watchlist" />
+        <p className="watchlist-button-text">Already in watchlist</p>
       ) : (
-        <img src={WatchlistAdd} alt="Add to watchlist" />
+        <p className="watchlist-button-text">Add to watchlist</p>
       )}
-    </button>
+    </div>
   );
 }
 
