@@ -12,6 +12,7 @@ function NavBar() {
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };

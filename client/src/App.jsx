@@ -1,4 +1,6 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import NavBar from "./components/NavBar";
 
 import "./App.css";
@@ -12,9 +14,21 @@ import "./styles/Custommodal.css";
 import "./styles/Carousel.css";
 
 function App() {
+  const [hide, setHide] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (pathname === "/admin") {
+      setHide(true);
+    } else {
+      setHide(false);
+    }
+  }, [pathname]);
+
   return (
     <>
-      <NavBar />
+      {!hide && <NavBar />}
+
       <main>
         <Outlet />
       </main>

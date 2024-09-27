@@ -25,7 +25,7 @@ export default function MovieFormEdit({
   };
 
   return (
-    <Form method="post" className="sticky">
+    <Form method="put" className="sticky">
       <section className="form-upload-edit">
         <button
           type="button"
@@ -121,7 +121,7 @@ export default function MovieFormEdit({
           name="intent"
           value="put"
         >
-          Envoyer
+          Modifier
         </button>
 
         {validateAction?.success === true && (
