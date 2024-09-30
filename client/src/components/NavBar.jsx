@@ -5,11 +5,11 @@ import searchImg from "../assets/images/search.png";
 import burger from "../assets/images/burger.png";
 import AuthContext from "../contexts/AuthContext";
 import LogoutButton from "./LogoutButton";
+import Search from "./Search";
 
 function NavBar() {
   const { isAuthenticated, user } = useContext(AuthContext);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const toggleMenu = () => {
@@ -18,10 +18,6 @@ function NavBar() {
 
   const toggleSearch = () => {
     setSearchOpen(!searchOpen);
-  };
-
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
   };
 
   const handlePosition = () => {
@@ -38,20 +34,7 @@ function NavBar() {
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
       {searchOpen ? (
-        <div className="search-container">
-          <select name="select" id="select">
-            <option value="title">Title</option>
-            <option value="category">Category</option>
-          </select>
-          <input className="search-input" type="text" onChange={handleSearch} />
-          <Link
-            className="search-action"
-            to={search.length === 0 ? "/movies" : `/movies/search/${search}`}
-            onClick={() => setSearch("")}
-          >
-            Search
-          </Link>
-        </div>
+        <Search toggleSearch={toggleSearch}/>
       ) : (
         <>
           <img
