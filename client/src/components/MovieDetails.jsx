@@ -1,11 +1,15 @@
+import { useContext } from "react";
+
 import ReactPlayer from "react-player";
 
 import PropTypes from "prop-types";
 
 import "../styles/Moviedetails.css";
 import WatchListButton from "./WatchListButton";
+import AuthContext from "../contexts/AuthContext";
 
 export default function MovieDetails({ modalRef, movie, revalidate }) {
+  const { isAuthenticated } = useContext(AuthContext);
   const releaseDate = new Date(`${movie.date}`).getFullYear();
 
   const hours = Math.floor(`${movie.duration}` / 60);
@@ -24,7 +28,10 @@ export default function MovieDetails({ modalRef, movie, revalidate }) {
         width="100%"
         className="ReactPlayer"
       />
-      <WatchListButton movieId={movie.id} revalidate={revalidate} />
+      {isAuthenticated ? (
+        <WatchListButton movieId={movie.id} revalidate={revalidate} />
+      ) : null}
+
       <h2>{movie.title}</h2>
       <section className="section-infos">
         <p>
