@@ -10,9 +10,9 @@ export default function Carousel({ movies, category }) {
   const settings = {
     className: "center",
     centerMode: false,
-    infinite: true,
+    infinite: false,
     centerPadding: "0",
-    slidesToShow: 8,
+    slidesToShow: 6,
     slidesToScroll: 1,
     speed: 500,
     dots: true,

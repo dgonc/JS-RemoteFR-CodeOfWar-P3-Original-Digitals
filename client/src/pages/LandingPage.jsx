@@ -38,12 +38,15 @@ function LandingPage() {
         <section className="subscribe-landing">
           <h2>Abonnez vous dès aujourd'hui</h2>
           <p>Annulez à tout moment.</p>
+          <div id="buttons-landing">
+          <Link to="/sign">Débuter l'expérience !</Link>
+          </div>
           <img src={ExitLogo} alt="dessin d'un bonhomme qui sort" />
         </section>
         <div className="separator"> </div>
         <section className="testing-landing">
           <h2>Pas encore sûr ?</h2>
-          <p>Testez notre liste de films sans abonnement.</p>
+            <Link className="free-button" to="/movies/free">Testez notre partie gratuite.</Link>{" "}
           <img src={Banner} alt="Affiches de films et séries" />
         </section>
       </div>
