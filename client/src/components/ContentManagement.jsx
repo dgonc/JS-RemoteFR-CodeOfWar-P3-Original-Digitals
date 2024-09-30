@@ -51,7 +51,7 @@ export default function ContentManagement() {
     try {
       const response = await movieUpload(formData);
       if (response) {
-        console.info("response", response);
+        console.info(response);
       }
     } catch (err) {
       console.error(err);
