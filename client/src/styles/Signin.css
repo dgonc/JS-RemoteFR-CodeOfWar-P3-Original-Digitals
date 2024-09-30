@@ -86,6 +86,24 @@
     cursor: pointer;
   }
 
+  .login-form-fields button {
+    width: 40%;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .login-form-fields button:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    transition: 0.3s ease;
+    background-color: var(--button-light);
+    color: var(--primary-grey);
+    cursor: pointer;
+  }
+
   .login-form-group {
     padding: 1rem;
   }
