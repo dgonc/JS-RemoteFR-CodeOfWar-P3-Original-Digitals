@@ -63,12 +63,16 @@ export async function multiFormAction({ request }) {
 
 export async function movieUpload(movie) {
   try {
-    await myAxios.post("/api/movies/add", movie);
-    return { success: true, message: "Le film a été ajouté avec succès." };
+    await myAxios.post("/api/movies/add", movie, {
+      "Content-Type": "multipart/form-data",
+    });
+
+    return { success: true, message: "Film added successfully." };
   } catch (error) {
+    console.error(error);
     return {
       success: false,
-      message: "Une erreur est survenue lors de l'ajout du film.",
+      message: "An issue occured during movie upload.",
     };
   }
 }

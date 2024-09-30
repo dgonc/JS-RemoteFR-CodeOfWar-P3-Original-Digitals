@@ -9,7 +9,7 @@ export default function ContentManagement() {
   const [classification, setClassification] = useState("");
   const [picture, setPicture] = useState("");
   const [URL, setURL] = useState("");
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState(null);
 
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
@@ -36,25 +36,22 @@ export default function ContentManagement() {
     setFile(event.target.files[0]);
   };
 
-  const sendMovie = async (event) => {
-    event.preventDefault();
-    
-    const movie = {
-      title,
-      duration,
-      synopsis,
-      date,
-      classification,
-      picture,
-      URL,
-      file
-    };
+  const sendMovie = async () => {
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("duration", duration);
+    formData.append("synopsis", synopsis);
+    formData.append("date", date);
+    formData.append("classification", classification);
+    formData.append("picture", picture);
+    formData.append("URL", URL);
+    formData.append("file", file);
 
     try {
-      console.info(movie)
-      const response = await movieUpload(movie);
+      const response = await movieUpload(formData);
       if (response) {
-        console.info("done", movie);
+        console.info("response", response);
       }
     } catch (err) {
       console.error(err);
@@ -63,101 +60,93 @@ export default function ContentManagement() {
 
   return (
     <section className="form-upload">
-      <form onSubmit={sendMovie}>
-        <div className="form-group-upload">
-          <label htmlFor="title">Title</label>{" "}
-          <input
-            type="text"
-            id="title"
-            name="title"
-            placeholder="Enter your title"
-            value={title}
-            onChange={handleChangeTitle}
-          />
-        </div>
-        <div className="form-group-upload">
-          <label htmlFor="duration">Duration</label>{" "}
-          <input
-            type="number"
-            id="duration"
-            name="duration"
-            placeholder="Enter your duration"
-            value={duration}
-            onChange={handleChangeDuration}
-          />
-        </div>
-        <div className="form-group-upload">
-          <label htmlFor="synopsis">Synopsis</label>{" "}
-          <input
-            type="text"
-            id="synopsis"
-            name="synopsis"
-            placeholder="Enter your synopsis"
-            value={synopsis}
-            onChange={handleChangeSynopsis}
-          />
-        </div>
-        <div className="form-group-upload">
-          <label htmlFor="date">Release date</label>{" "}
-          <input
-            type="date"
-            id="date"
-            name="date"
-            placeholder="Release date"
-            value={date}
-            onChange={handleChangeDate}
-          />
-        </div>
-        <div className="form-group-upload">
-          <label htmlFor="classification">Classification</label>{" "}
-          <input
-            type="number"
-            id="classifaction"
-            name="classification"
-            placeholder="classifaction"
-            value={classification}
-            onChange={handleChangeClassification}
-          />
-        </div>
-        <div className="form-group-upload">
-          <label htmlFor="picture">Picture</label>{" "}
+      <div className="form-group-upload">
+        <label htmlFor="title">Title</label>{" "}
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Enter your title"
+          onChange={handleChangeTitle}
+        />
+      </div>
+      <div className="form-group-upload">
+        <label htmlFor="duration">Duration</label>{" "}
+        <input
+          type="number"
+          id="duration"
+          name="duration"
+          placeholder="Enter your duration"
+          onChange={handleChangeDuration}
+        />
+      </div>
+      <div className="form-group-upload">
+        <label htmlFor="synopsis">Synopsis</label>{" "}
+        <input
+          type="text"
+          id="synopsis"
+          name="synopsis"
+          placeholder="Enter your synopsis"
+          onChange={handleChangeSynopsis}
+        />
+      </div>
+      <div className="form-group-upload">
+        <label htmlFor="date">Release date</label>{" "}
+        <input
+          type="date"
+          id="date"
+          name="date"
+          placeholder="Release date"
+          onChange={handleChangeDate}
+        />
+      </div>
+      <div className="form-group-upload">
+        <label htmlFor="classification">Classification</label>{" "}
+        <input
+          type="number"
+          id="classifaction"
+          name="classification"
+          placeholder="classifaction"
+          onChange={handleChangeClassification}
+        />
+      </div>
+      <div className="form-group-upload">
+        <label htmlFor="picture">Picture</label>{" "}
+        <input
+          type="url"
+          id="picture"
+          name="picture"
+          placeholder="upload a picture"
+          onChange={handleChangePicture}
+        />
+      </div>
+      <div className="form-group-upload-file">
+        <label htmlFor="URL">Movie</label>{" "}
+        <div className="form-group-upload-file-button">
           <input
             type="url"
-            id="picture"
-            name="picture"
-            placeholder="upload a picture"
-            value={picture}
-            onChange={handleChangePicture}
+            id="movie-url"
+            name="movie-url"
+            placeholder="Enter your movie URL"
+            onChange={handleChangeMovieUrl}
+          />
+          <input
+            type="file"
+            id="file"
+            name="file"
+            onChange={handleChangeFile}
           />
         </div>
-        <div className="form-group-upload-file">
-          <label htmlFor="URL">Movie</label>{" "}
-          <div className="form-group-upload-file-button">
-            <input
-              type="url"
-              id="movie-url"
-              name="movie-url"
-              placeholder="Enter your movie URL"
-              value={URL}
-              onChange={handleChangeMovieUrl}
-            />
-            <input
-              type="file"
-              id="movie-file"
-              name="movie-file"
-              onChange={handleChangeFile}
-            />
-          </div>
-        </div>
-        <button
-          className="button-upload"
-          type="submit"
-          name="intent"
-          value="post"
-        >
-          Create
-        </button>
-      </form>
+      </div>
+      <button
+        className="button-upload"
+        type="submit"
+        name="intent"
+        value="post"
+        onClick={sendMovie}
+      >
+        Create
+      </button>
     </section>
   );
 }

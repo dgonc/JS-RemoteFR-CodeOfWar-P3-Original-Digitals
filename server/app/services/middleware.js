@@ -27,14 +27,18 @@ const storage = multer.diskStorage({
   filename(req, file, cb) {
     const id = uuidv4();
     const movieName = `${id}${path.extname(file.originalname)}`;
-    req.body.movie.title = movieName;
+    req.body.URL = movieName;
     cb(null, movieName);
   },
 });
 
 const uploadMovie = (req, res, next) => {
+  console.info("from upload middleware", req.body);
+  if (!req.body.file) {
+    next();
+  }
   const upload = multer({ storage });
-  return upload.single("movie")(req, res, next);
+  return upload.single("file")(req, res, next);
 };
 
 module.exports = { verifyFields, uploadMovie };

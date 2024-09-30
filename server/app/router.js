@@ -46,8 +46,7 @@ router.post("/watchlist", watchlistActions.add);
 router.delete("/watchlist", watchlistActions.destroy);
 
 // Movies routes for admins
-router.post("/movies/add", movieActions.add);
-router.post("/movies/upload", middleware.uploadMovie);
+router.post("/movies/add", middleware.uploadMovie, movieActions.add);
 router.put("/movies/:id", movieActions.edit);
 router.delete("/movies/:id", movieActions.destroy);
 

@@ -49,6 +49,7 @@ const readByCategories = async (req, res, next) => {
 const add = async (req, res, next) => {
   const movie = req.body;
   try {
+    console.info("from add", req.body)
     const result = await tables.movie.uploadMovie(movie);
 
     res.status(201).json(result);
