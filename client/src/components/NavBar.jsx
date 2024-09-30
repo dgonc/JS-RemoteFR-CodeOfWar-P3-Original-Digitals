@@ -35,16 +35,18 @@ function NavBar() {
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
       {searchOpen ? (
-        <Search toggleSearch={toggleSearch}/>
+        <Search toggleSearch={toggleSearch} />
       ) : (
         <>
-          <img
-            aria-hidden="true"
-            onClick={toggleSearch}
-            className="search-img"
-            src={searchImg}
-            alt="magnifying glass"
-          />
+          {isAuthenticated ? (
+            <img
+              aria-hidden="true"
+              onClick={toggleSearch}
+              className="search-img"
+              src={searchImg}
+              alt="magnifying glass"
+            />
+          ) : null}
           <div className={`menu-dropdown ${menuOpen ? "open" : ""}`}>
             <img
               aria-hidden="true"
