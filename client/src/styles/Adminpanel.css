@@ -25,6 +25,34 @@
   border-radius: 8px;
 }
 
+.form-group-upload-file {
+  background-color: var(--secondary-grey);
+  color: var(--primary-grey);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  margin: 1rem 0;
+  width: 80%;
+  border-radius: 8px;
+}
+
+.form-group-upload-file-button {
+  background-color: var(--secondary-grey);
+  color: var(--primary-grey);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.form-group-upload-file-button > input,
+button {
+  width: 45%;
+}
+
 .button-upload {
   margin-bottom: 1rem;
 }

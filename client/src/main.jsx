@@ -13,7 +13,7 @@ import {
 } from "./services/request";
 import { signUpUserAction, editUserAction } from "./services/userService";
 import { AuthProvider } from "./contexts/AuthContext";
-import { multiFormAction } from "./services/adminService";
+import { adminEdit } from "./services/adminService";
 
 import App from "./App";
 import LandingPage from "./pages/LandingPage";
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <AdminPanel />,
-        action: multiFormAction,
+        action: adminEdit,
         loader: getMovies,
       },
       {

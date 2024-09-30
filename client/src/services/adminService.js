@@ -1,27 +1,5 @@
-import { json } from "react-router-dom";
 import myAxios from "./myAxios";
 import formatDate from "./utils";
-
-export async function adminUploadAction({ formData }) {
-  const movie = {
-    title: formData.get("title"),
-    duration: formData.get("duration"),
-    synopsis: formData.get("synopsis"),
-    date: formData.get("date"),
-    classification: formData.get("classification"),
-    picture: formData.get("picture"),
-    URL: formData.get("movie"),
-  };
-  try {
-    await myAxios.post("/api/movies/add", movie);
-    return { success: true, message: "Le film a été ajouté avec succès." };
-  } catch (error) {
-    return {
-      success: false,
-      message: "Une erreur est survenue lors de l'ajout du film.",
-    };
-  }
-}
 
 export async function adminEdit({ formData }) {
   const movie = {
@@ -38,24 +16,29 @@ export async function adminEdit({ formData }) {
     await myAxios.put(`/api/movies/${movie.id}`, movie);
     return {
       success: true,
-      message: "Les informations ont été modifié avec succès",
+      message: "Les informations ont été modifié avec succès.",
     };
   } catch (error) {
     return {
       success: false,
-      message: "Une erreur est survenue lors de la modification du film",
+      message: "Une erreur est survenue lors de la modification du film.",
     };
   }
 }
 
-export async function multiFormAction({ request }) {
-  const formData = await request.formData();
-  const intent = formData.get("intent");
-  if (intent === "post") {
-    return adminUploadAction({ formData });
+
+export async function movieUpload(movie) {
+  try {
+    await myAxios.post("/api/movies/add", movie, {
+      "Content-Type": "multipart/form-data",
+    });
+
+    return { success: true, message: "Le film a été ajouté avec succès." };
+  } catch (error) {
+    console.error(error);
+    return {
+      success: false,
+      message: "Une erreur est survenue lors de l'ajout du film.",
+    };
   }
-  if (intent === "put") {
-    return adminEdit({ formData });
-  }
-  throw json({ message: "Invalid intent" }, { status: 400 });
 }
