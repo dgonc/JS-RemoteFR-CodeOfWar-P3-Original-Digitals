@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 
 function UserForm() {
   const [password, setPassword] = useState("");
@@ -87,7 +87,9 @@ function UserForm() {
         </div>
         {/* Bouton pour la soumission du formulaire */}
         <button type="submit">Sign Up</button>
-        <p className="sign-in-text">Already have an account ? Sign in</p>
+        <p className="sign-in-text">
+          Already have an account ? <Link to="/login">Sign in</Link>
+        </p>
       </section>
     </Form>
   );
