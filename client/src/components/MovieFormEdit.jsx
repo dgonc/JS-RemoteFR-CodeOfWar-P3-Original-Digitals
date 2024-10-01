@@ -48,7 +48,7 @@ export default function MovieFormEdit({
         />
       </div>
       <div className="form-group-upload">
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title">Titre</label>
         <input
           type="text"
           id="title"
@@ -58,7 +58,7 @@ export default function MovieFormEdit({
         />
       </div>
       <div className="form-group-upload">
-        <label htmlFor="duration">Duration</label>
+        <label htmlFor="duration">Durée</label>
         <input
           type="number"
           id="duration"
@@ -78,7 +78,7 @@ export default function MovieFormEdit({
         />
       </div>
       <div className="form-group-upload">
-        <label htmlFor="date">Release date</label>
+        <label htmlFor="date">Date de sortie</label>
         <input
           type="date"
           id="date"
@@ -98,7 +98,7 @@ export default function MovieFormEdit({
         />
       </div>
       <div className="form-group-upload">
-        <label htmlFor="picture">Picture</label>
+        <label htmlFor="picture">Image ou poster</label>
         <input
           type="url"
           id="picture"
@@ -108,7 +108,7 @@ export default function MovieFormEdit({
         />
       </div>
       <div className="form-group-upload">
-        <label htmlFor="URL">Movie URL</label>
+        <label htmlFor="URL">URL ou lien du film</label>
         <input
           type="URL"
           id="URL"

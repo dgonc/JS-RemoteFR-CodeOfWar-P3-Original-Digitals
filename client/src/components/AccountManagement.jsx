@@ -5,25 +5,25 @@ export default function AccountManagement({ user }) {
   return (
     <section className="user-account-management">
       <div className="user-information">
-        <h3>User Information</h3>
+        <h3>Informations utilisateur</h3>
         <div className="form-group">
           <p>Email : </p>
           <p className="user-information-field">{user.email}</p>
         </div>
         <div className="form-group">
-          <p>Firstname : </p>
+          <p>Prénom : </p>
           <p className="user-information-field">{user.firstname}</p>
         </div>
         <div className="form-group">
-          <p>Lastname : </p>
+          <p>Nom : </p>
           <p className="user-information-field">{user.lastname}</p>
         </div>
       </div>
       <Form method="put">
         <div className="edit-user-information">
-          <h3>Edit User Information</h3>
+          <h3>Changer les informations utilisateur</h3>
           <div className="form-group">
-            <label htmlFor="firstname">Enter new firstname</label>
+            <label htmlFor="firstname">Saisissez le nouveau prénom</label>
             <input
               type="text"
               id="firstname"
@@ -32,7 +32,7 @@ export default function AccountManagement({ user }) {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="lastname">Enter new lastname</label>
+            <label htmlFor="lastname">Saisissez le nouveau nom</label>
             <input
               type="text"
               id="lastname"
@@ -42,7 +42,7 @@ export default function AccountManagement({ user }) {
           </div>
         </div>
         <button className="edit-user-button" type="submit">
-          Modify
+          Modifier
         </button>
       </Form>
     </section>

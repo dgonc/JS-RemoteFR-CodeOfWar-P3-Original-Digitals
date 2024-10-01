@@ -49,14 +49,14 @@ export default function MovieSelection({
                 type="button"
                 onClick={() => handleSelectMovie(movie)}
               >
-                Edit{" "}
+                Editer{" "}
               </button>
               <button
                 className="button-delete"
                 type="button"
                 onClick={() => handleDeleteClick(movie.id)}
               >
-                Delete
+                Supprimer
               </button>
             </div>
           </div>
@@ -68,8 +68,8 @@ export default function MovieSelection({
         show={showModal}
         onClose={handleCloseModal}
         onConfirm={() => handleDeleteMovie(deleteMovie)}
-        modalTitle="Movie removal confirmation"
-        modalText="Are you sure you want to delete this movie ?"
+        modalTitle="Confirmation de suppression"
+        modalText="Voulez-vous vraiment supprimer le film ?"
       />
     </div>
   );

@@ -1,3 +1,10 @@
 export default function PasswordManagement() {
-  return <p>bienvenue Password management</p>;
+  return (
+    <div>
+      <h2>Password management</h2>
+      <button type="button" className="modal-btn-confirm">
+        Changer le mot de passe
+      </button>
+    </div>
+  );
 }

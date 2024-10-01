@@ -17,7 +17,7 @@ export async function signUpUserAction({ request }) {
       return redirect("/login");
     }
   } catch (error) {
-    console.error("Error during sign up:", error);
+    console.error("Erreur durant l'enregistrement:", error);
   }
   return null;
 }
@@ -29,7 +29,7 @@ export async function loginUserAction(user) {
       return response.data;
     }
   } catch (error) {
-    console.error("Error during login:", error);
+    console.error("Erreur durant la connexion:", error);
     throw error;
   }
 
@@ -49,7 +49,7 @@ export async function editUserAction({ request }) {
       return redirect("/user");
     }
   } catch (error) {
-    console.error("Error during update", error);
+    console.error("Erreur durant la mise à jour", error);
   }
   return null;
 }
