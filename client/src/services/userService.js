@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 import myAxios from "./myAxios";
-import { notifyError, notifySuccess } from "./utils";
+import { notifySuccess, notifyError } from "./utils";
 
 export async function signUpUserAction({ request }) {
   try {
@@ -16,11 +16,12 @@ export async function signUpUserAction({ request }) {
 
     if (response.status === 201) {
       notifySuccess();
-      return redirect("/login");
+    } else {
+      notifyError();
     }
+    return response;
   } catch (error) {
     console.error("Error during sign up:", error);
-    notifyError();
   }
   return null;
 }

@@ -8,48 +8,30 @@ export default function formatDate(date) {
   return `${year}-${month}-${day}`;
 }
 
-export function notifyInfo() {
-  const notify = () =>
-    toast.info("Demande envoyée", {
-      position: "bottom-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Slide,
-    });
-  return notify;
-}
 export function notifySuccess() {
-  const notify = () =>
-    toast.success("Succès", {
-      position: "bottom-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Slide,
-    });
-  return notify;
+  toast.success("Succès", {
+    position: "bottom-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Slide,
+  });
 }
+
 export function notifyError() {
-  const notify = () =>
-    toast.error("Echec", {
-      position: "bottom-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Slide,
-    });
-  return notify;
+  toast.error("Echec", {
+    position: "bottom-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Slide,
+  });
 }
