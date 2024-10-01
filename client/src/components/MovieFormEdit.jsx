@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { useActionData } from "react-router-dom";
 import { adminEdit } from "../services/adminService";
+import formatDate from "../services/utils"
 
 export default function MovieFormEdit({
   movies,
@@ -83,7 +84,7 @@ export default function MovieFormEdit({
           type="date"
           id="date"
           name="date"
-          value={formValues.date}
+          value={formatDate(formValues.date)}
           onChange={handleChange}
         />
       </div>
