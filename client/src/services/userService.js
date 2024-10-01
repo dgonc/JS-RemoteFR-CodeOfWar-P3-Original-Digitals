@@ -1,5 +1,6 @@
 import { redirect } from "react-router-dom";
 import myAxios from "./myAxios";
+import { notifyError, notifySuccess } from "./utils";
 
 export async function signUpUserAction({ request }) {
   try {
@@ -14,10 +15,12 @@ export async function signUpUserAction({ request }) {
     const response = await myAxios.post("api/sign", user);
 
     if (response.status === 201) {
+      notifySuccess();
       return redirect("/login");
     }
   } catch (error) {
     console.error("Error during sign up:", error);
+    notifyError();
   }
   return null;
 }

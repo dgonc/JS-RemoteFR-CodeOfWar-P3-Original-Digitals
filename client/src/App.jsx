@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import NavBar from "./components/NavBar";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import "./styles/Navbar.css";

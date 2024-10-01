@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 function UserForm() {
   const [password, setPassword] = useState("");
@@ -87,6 +88,7 @@ function UserForm() {
         </div>
         {/* Bouton pour la soumission du formulaire */}
         <button type="submit">Sign Up</button>
+        <ToastContainer />
         <p className="sign-in-text">Already have an account ? Sign in</p>
       </section>
     </Form>
