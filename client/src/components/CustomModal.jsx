@@ -18,14 +18,14 @@ export default function CustomModal({
         <p>{modalText}</p>
         <div className="modal-buttons">
           <button type="button" className="modal-btn-cancel" onClick={onClose}>
-            Cancel
+            Retour
           </button>
           <button
             type="button"
             className="modal-btn-confirm"
             onClick={onConfirm}
           >
-            Confirm
+            Confirmer
           </button>
         </div>
       </div>

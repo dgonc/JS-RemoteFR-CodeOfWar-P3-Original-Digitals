@@ -1,29 +1,29 @@
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import LogoutButton from "./LogoutButton";
 
 export default function AdminNavBar({ setActiveSection }) {
   return (
-    <aside className="admin-nav">
-      <ul>
-        <li>
-          <button
-            className="admin-nav-button"
-            type="button"
-            onClick={() => setActiveSection("ContentManagement")}
-          >
-            ContentManagement
-          </button>
-        </li>
-        <li>
-          <button
-            className="admin-nav-button"
-            type="button"
-            onClick={() => setActiveSection("MovieEdit")}
-          >
-            Movie Edit
-          </button>
-        </li>
-      </ul>
-    </aside>
+    <section className="admin-nav-container">
+      <Link to="/"> Aller à l'accueil</Link>
+      <aside className="admin-nav">
+        <button
+          className="admin-nav-button"
+          type="button"
+          onClick={() => setActiveSection("ContentManagement")}
+        >
+          Ajouter un film
+        </button>
+        <button
+          className="admin-nav-button"
+          type="button"
+          onClick={() => setActiveSection("MovieEdit")}
+        >
+          Editer ou supprimer un film
+        </button>
+      </aside>
+      <LogoutButton variant="panel" />
+    </section>
   );
 }
 

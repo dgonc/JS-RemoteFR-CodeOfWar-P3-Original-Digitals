@@ -32,21 +32,21 @@ export default function PreferenceManagement() {
   return (
     <div className="preferences-window">
       <p className="delete-text">
-        You can delete your account by clicking below.
+        Vous pouvez supprimer votre compte ici.
       </p>
       <button
         type="button"
         className="delete-button"
         onClick={handleDeleteClick}
       >
-        Delete your account
+        Supprimer mon compte
       </button>
       <CustomModal
         show={showModal}
         onClose={handleCloseModal}
         onConfirm={handleDelete}
-        modalTitle="Account removal confirmation"
-        modalText="Are you sure you want to delete your account ?"
+        modalTitle="Confirmation de suppression"
+        modalText="Voulez-vous vraiment supprimer votre compte ?"
       />
     </div>
   );

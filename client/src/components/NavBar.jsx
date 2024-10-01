@@ -35,16 +35,18 @@ function NavBar() {
   return (
     <nav className={`navbar ${scrollPosition !== 0 ? "scrolled" : ""}`}>
       {searchOpen ? (
-        <Search toggleSearch={toggleSearch}/>
+        <Search toggleSearch={toggleSearch} />
       ) : (
         <>
-          <img
-            aria-hidden="true"
-            onClick={toggleSearch}
-            className="search-img"
-            src={searchImg}
-            alt="magnifying glass"
-          />
+          {isAuthenticated ? (
+            <img
+              aria-hidden="true"
+              onClick={toggleSearch}
+              className="search-img"
+              src={searchImg}
+              alt="magnifying glass"
+            />
+          ) : null}
           <div className={`menu-dropdown ${menuOpen ? "open" : ""}`}>
             <img
               aria-hidden="true"
@@ -55,13 +57,13 @@ function NavBar() {
             />
             <div className="links-list">
               <Link to="/" onClick={toggleMenu}>
-                Home
+                Accueil
               </Link>
               <div className="separation-line" />
               {isAuthenticated ? (
                 <>
                   <Link to="/user" onClick={toggleMenu}>
-                    My account
+                    Mon compte
                   </Link>
                   <div className="separation-line" />
                   <Link to="/watchlist" onClick={toggleMenu}>
@@ -72,7 +74,7 @@ function NavBar() {
                   {user.role === "admin" ? (
                     <>
                       <Link to="/admin" onClick={toggleMenu}>
-                        Admin Panel
+                        Panel administrateur
                       </Link>
                       <div className="separation-line" />
                     </>
@@ -82,11 +84,11 @@ function NavBar() {
               ) : (
                 <>
                   <Link to="/login" onClick={toggleMenu}>
-                    Login
+                    Se connecter
                   </Link>
                   <div className="separation-line" />
                   <Link to="/sign" onClick={toggleMenu}>
-                    Sign in
+                    S'inscrire
                   </Link>
                 </>
               )}

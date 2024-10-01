@@ -9,17 +9,21 @@
 
 :root {
   --background-white: #ffffff;
+  --background-white-light: #f2f2f4;
   --background-black: #000000;
   --primary-grey: #212735;
   --secondary-grey: #cdcdcd;
   --secondary-grey-light: #eeeeee;
+  --secondary-grey-dark: #efefef;
   --third-grey: #2e457ced;
   --button-light: #a8b2ff;
   --button-dark: #3e435f;
+  --first-purple: #8b69f1;
   --third-purple: #c8b6ff;
   --panel-blue: #011627;
   --secondary-blue: #596285;
   --secondary-blue-light: #414862;
+  --alert-red: #e74c3c;
 }
 
 * {

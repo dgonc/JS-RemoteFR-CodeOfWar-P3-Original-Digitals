@@ -17,10 +17,10 @@ export default function Search({ toggleSearch }) {
         to={search.length === 0 ? "/movies" : `/movies/search/${search}`}
         onClick={() => setSearch("")}
       >
-        Search
+        Recherche
       </Link>
       <button type="button" onClick={toggleSearch} className="search-close">
-        Close
+        Fermer
       </button>
     </div>
   );

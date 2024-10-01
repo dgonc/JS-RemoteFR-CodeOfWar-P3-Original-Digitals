@@ -53,7 +53,7 @@ export default function MovieDetails({ modalRef, movie }) {
         <p className="synopsis-movie">{movie.synopsis}</p>
       </section>
       <button type="button" onClick={closeModal} className="dialog-button">
-        close
+        Fermer
       </button>
     </dialog>
   );

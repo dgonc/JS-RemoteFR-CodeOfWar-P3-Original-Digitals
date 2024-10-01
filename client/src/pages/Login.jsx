@@ -37,32 +37,32 @@ function Login() {
       <img src={Logo} alt="Youflim" />
       <form onSubmit={handleSubmit}>
         <section className="login-form-fields">
-          <h1 className="login-title">Login</h1>
+          <h1 className="login-title">Accéder à son compte</h1>
           <div className="login-form-group">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Saisissez votre adresse email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               required
             />
           </div>
           <div className="login-form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Mot de passe</label>
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Saisissez votre mot de passe"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               required
             />
           </div>
-          <button type="submit">Sign In</button>
+          <button type="submit">Se connecter</button>
         </section>
       </form>
     </section>

@@ -61,9 +61,9 @@ export default function WatchListButton({ movieId, revalidate }) {
         )}
       </button>
       {inWatchlist ? (
-        <p className="watchlist-button-text">Already in watchlist</p>
+        <p className="watchlist-button-text">Déjà dans la watchlist</p>
       ) : (
-        <p className="watchlist-button-text">Add to watchlist</p>
+        <p className="watchlist-button-text">Ajouter à la watchlist</p>
       )}
     </div>
   );

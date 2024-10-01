@@ -20,7 +20,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  gap: 10px;
+  gap: 0.5rem;
 }
 
 .movies-list-edit {
@@ -31,24 +31,26 @@
 }
 
 .search-input {
-  padding: 10px;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 200px;
+  width: 20%;
+  margin-right: 1rem;
 }
 
 .search-button {
-  padding: 10px 15px;
-  background-color: white;
-  color: black;
+  padding: 0.5 1rem;
+  background-color: var(--primary-grey);
+  color: var(--background-white);
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  width: 10%;
 }
 
 .search-button:hover {
-  background-color: var(--primary-grey);
-  color: white;
+  background-color: var(--secondary-blue);
+  color: var(--background-white);
 }
 
 .movies-list {
@@ -57,11 +59,11 @@
 
 .movie-card {
   width: 250px;
-  background-color: white;
+  background-color: var(--background-white);
   border: none;
   border-radius: 16px;
   text-align: center;
-  padding: 16px;
+  padding: 1rem;
   margin: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition:
@@ -90,28 +92,34 @@
   min-height: 250px;
   object-fit: cover;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 
 .button-movie-card-admin {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   transition: background-color 0.3s ease;
 }
 .button-movie-card-admin > button {
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   transition: background-color 0.3s ease;
+  border-radius: 8px;
 }
 
 .button-edit:hover {
-  color: white;
+  color: var(--background-white);
   background: var(--primary-grey);
 }
 
+.button-delete {
+  background-color: var(--alert-red);
+  color: var(--background-white);
+}
+
 .button-delete:hover {
-  color: white;
+  color: var(--background-white);
   background: var(--primary-grey);
 }
 
@@ -121,20 +129,41 @@
   justify-content: center;
   align-items: center;
   background-color: var(--background-white);
-  height: 75vh;
+  border-radius: 8px;
   width: 40rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .sticky {
   position: sticky;
-  top: 20px;
+  top: 1rem;
 }
 
 .button-upload {
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  border-radius: 8px;
+  background-color: var(--primary-grey);
+  color: var(--background-white);
+}
+
+.button-upload:hover {
+  background-color: var(--third-grey);
+  color: var(--background-white);
+  cursor: pointer;
 }
 
 .close-button-edit {
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.close-button-edit:hover {
+  background-color: var(--primary-grey);
+  color: var(--background-white);
+  cursor: pointer;
+}
+
+.hidden-form {
+  display: none;
 }

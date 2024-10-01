@@ -34,7 +34,7 @@ export default function LogoutButton({ variant }) {
         variant === "navbar" ? "navbar-logout-button" : "logout-button"
       }
     >
-      Logout
+      Se déconnecter
     </button>
   );
 }

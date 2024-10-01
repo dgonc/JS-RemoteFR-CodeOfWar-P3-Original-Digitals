@@ -13,6 +13,8 @@ import "./styles/Signin.css";
 import "./styles/Userpanel.css";
 import "./styles/Custommodal.css";
 import "./styles/Carousel.css";
+import "./styles/Movielist.css";
+
 
 function App() {
   const [hide, setHide] = useState(false);

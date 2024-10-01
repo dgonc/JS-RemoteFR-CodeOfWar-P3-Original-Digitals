@@ -8,7 +8,7 @@ export default function Watchlist() {
   const { revalidate } = useRevalidator();
   const settings = {
     className: "center",
-    centerMode: true,
+    centerMode: false,
     infinite: false,
     centerPadding: "0",
     slidesToShow: 6,
