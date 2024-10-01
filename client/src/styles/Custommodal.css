@@ -34,7 +34,7 @@
 }
 
 .modal-btn-confirm {
-  background-color: #e74c3c;
+  background-color: var(--alert-red);
   color: var(--background-white);
   padding: 1rem;
   border: none;
