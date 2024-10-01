@@ -35,9 +35,9 @@ export default function MovieDetails({ modalRef, movie, revalidate }) {
       <h2>{movie.title}</h2>
       <section className="section-infos">
         <p>
-          Duration : {hours} h {mins} minutes
+          Durée : {hours} h {mins} minutes
         </p>
-        <p> Release date : {releaseDate}</p>
+        <p> Date de sortie : {releaseDate}</p>
         <p> Classification (PG) : - {movie.classification}</p>
       </section>
       <h3 className="detail-title"> Actors</h3>
@@ -64,7 +64,7 @@ export default function MovieDetails({ modalRef, movie, revalidate }) {
         <p className="synopsis-movie">{movie.synopsis}</p>
       </section>
       <button type="button" onClick={closeModal} className="dialog-button">
-        Close
+        Fermer
       </button>
     </dialog>
   );

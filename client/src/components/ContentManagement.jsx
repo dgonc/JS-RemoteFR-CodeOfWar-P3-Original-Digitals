@@ -61,22 +61,22 @@ export default function ContentManagement() {
   return (
     <section className="form-upload">
       <div className="form-group-upload">
-        <label htmlFor="title">Title</label>{" "}
+        <label htmlFor="title">Titre</label>{" "}
         <input
           type="text"
           id="title"
           name="title"
-          placeholder="Enter your title"
+          placeholder="Saisir le titre"
           onChange={handleChangeTitle}
         />
       </div>
       <div className="form-group-upload">
-        <label htmlFor="duration">Duration</label>{" "}
+        <label htmlFor="duration">Durée (en minutes)</label>{" "}
         <input
           type="number"
           id="duration"
           name="duration"
-          placeholder="Enter your duration"
+          placeholder="Entrer la durée"
           onChange={handleChangeDuration}
         />
       </div>
@@ -86,22 +86,22 @@ export default function ContentManagement() {
           type="text"
           id="synopsis"
           name="synopsis"
-          placeholder="Enter your synopsis"
+          placeholder="Saisir le synopsis"
           onChange={handleChangeSynopsis}
         />
       </div>
       <div className="form-group-upload">
-        <label htmlFor="date">Release date</label>{" "}
+        <label htmlFor="date">Date de sortie</label>{" "}
         <input
           type="date"
           id="date"
           name="date"
-          placeholder="Release date"
+          placeholder="Date de sortie"
           onChange={handleChangeDate}
         />
       </div>
       <div className="form-group-upload">
-        <label htmlFor="classification">Classification</label>{" "}
+        <label htmlFor="classification">Classification (age minimum)</label>{" "}
         <input
           type="number"
           id="classifaction"
@@ -111,23 +111,23 @@ export default function ContentManagement() {
         />
       </div>
       <div className="form-group-upload">
-        <label htmlFor="picture">Picture</label>{" "}
+        <label htmlFor="picture">Image ou poster</label>{" "}
         <input
           type="url"
           id="picture"
           name="picture"
-          placeholder="upload a picture"
+          placeholder="Lien de l'image ou du poster"
           onChange={handleChangePicture}
         />
       </div>
       <div className="form-group-upload-file">
-        <label htmlFor="URL">Movie</label>{" "}
+        <label htmlFor="URL">Film</label>{" "}
         <div className="form-group-upload-file-button">
           <input
             type="url"
             id="movie-url"
             name="movie-url"
-            placeholder="Enter your movie URL"
+            placeholder="Lien ou URL du film"
             onChange={handleChangeMovieUrl}
           />
           <input
@@ -145,7 +145,7 @@ export default function ContentManagement() {
         value="post"
         onClick={sendMovie}
       >
-        Create
+        Créer
       </button>
     </section>
   );

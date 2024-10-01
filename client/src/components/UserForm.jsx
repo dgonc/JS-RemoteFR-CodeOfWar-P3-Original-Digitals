@@ -22,23 +22,22 @@ function UserForm() {
             type="email"
             id="email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Saisissez votre email"
           />
         </div>
         {/* Champ pour le mot de passe */}
         <div className="form-group">
-          <label htmlFor="password">Password</label>{" "}
+          <label htmlFor="password">Mot de passe</label>{" "}
           <input
             type="password"
             id="password"
             name="password"
-            placeholder="Enter your password"
+            placeholder="Créez votre mot de passe"
             onChange={handlePasswordChange}
           />
           {password ? (
             <div className="password-strength-sign">
-              {password.length >= 8 ? "✅" : "❌"} minimum length at 8
-              characters
+              {password.length >= 8 ? "✅" : "❌"} minimum 8 caractères
             </div>
           ) : (
             ""
@@ -46,12 +45,12 @@ function UserForm() {
         </div>
         {/* Champ pour la confirmation du mot de passe */}
         <div className="form-group">
-          <label htmlFor="password-confirm">Confirm your password</label>{" "}
+          <label htmlFor="password-confirm">Confirmez votre mot de passe</label>{" "}
           <input
             type="password"
             id="password-confirm"
             name="password-confirm"
-            placeholder="Confirm your password"
+            placeholder="Saisissez à nouveau votre mot de passe"
             onChange={handleConfirmPasswordChange}
           />
           {password ? (
@@ -67,28 +66,28 @@ function UserForm() {
         </div>
         {/* Champ pour le prénom */}
         <div className="form-group">
-          <label htmlFor="firstname">Firstname</label>{" "}
+          <label htmlFor="firstname">Prénom</label>{" "}
           <input
             type="text"
             id="firstname"
             name="firstname"
-            placeholder="Enter your firstname"
+            placeholder="Saisissez votre prénom"
           />
         </div>
         {/* Champ pour le nom */}
         <div className="form-group">
-          <label htmlFor="lastname">Lastname</label>{" "}
+          <label htmlFor="lastname">Nom</label>{" "}
           <input
             type="text"
             id="lastname"
             name="lastname"
-            placeholder="Enter your lastname"
+            placeholder="Saisissez votre nom"
           />
         </div>
         {/* Bouton pour la soumission du formulaire */}
-        <button type="submit">Sign Up</button>
+        <button type="submit">S'inscrire</button>
         <p className="sign-in-text">
-          Already have an account ? <Link to="/login">Sign in</Link>
+          Déjà inscrit ? <Link to="/login">Se connecter</Link>
         </p>
       </section>
     </Form>

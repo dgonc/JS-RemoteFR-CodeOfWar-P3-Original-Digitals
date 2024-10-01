@@ -40,7 +40,7 @@ export default function MovieEdit() {
         <input
           className="search-input"
           type="text"
-          placeholder="Search for a movie..."
+          placeholder="Entrez le nom du film"
           onChange={handleSearch}
         />
         <button
@@ -48,7 +48,7 @@ export default function MovieEdit() {
           onClick={handleSearchButton}
           type="button"
         >
-          Search
+          Rechercher
         </button>
       </section>
 

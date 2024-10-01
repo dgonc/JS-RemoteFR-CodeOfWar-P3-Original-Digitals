@@ -10,7 +10,7 @@ export default function UserNavBar({ activeSection, setActiveSection }) {
             type="button"
             onClick={() => setActiveSection("AccountManagement")}
           >
-            Profile
+            Profil
           </button>
         </li>
         <li>
@@ -19,7 +19,7 @@ export default function UserNavBar({ activeSection, setActiveSection }) {
             type="button"
             onClick={() => setActiveSection("PasswordManagement")}
           >
-            Password
+            Mot de passe
           </button>
         </li>
         <li>
@@ -28,7 +28,7 @@ export default function UserNavBar({ activeSection, setActiveSection }) {
             type="button"
             onClick={() => setActiveSection("PreferenceManagement")}
           >
-            Preferences
+            Préférences
           </button>
         </li>
       </ul>
