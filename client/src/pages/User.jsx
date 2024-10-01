@@ -26,7 +26,7 @@ function User() {
 
   return (
     <div className="user-account">
-      <h2>Welcome, {user.firstname}</h2>
+      <h2>Bienvenue, {user.firstname}</h2>
       <div className="user-account-panel">
         <UserNavBar
           activeSection={activeSection}

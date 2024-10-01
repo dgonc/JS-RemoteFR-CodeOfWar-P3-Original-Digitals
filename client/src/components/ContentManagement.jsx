@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { movieUpload } from "../services/adminService";
+import { notifyError, notifySuccess } from "../services/utils";
 
 export default function ContentManagement() {
   const [title, setTitle] = useState("");
@@ -50,8 +51,10 @@ export default function ContentManagement() {
 
     try {
       const response = await movieUpload(formData);
-      if (response) {
-        console.info(response);
+      if (response.success) {
+        notifySuccess();
+      } else if (!response.success) {
+        notifyError();
       }
     } catch (err) {
       console.error(err);
