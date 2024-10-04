@@ -1,15 +1,13 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { useActionData } from "react-router-dom";
 import { adminEdit } from "../services/adminService";
-import formatDate from "../services/utils"
+import { notifySuccess, notifyError, formatDate } from "../services/utils";
 
 export default function MovieFormEdit({
   movies,
   handleFormUpdate,
   handleSelectMovieClose,
 }) {
-  const validateAction = useActionData();
   const [formValues, setFormValues] = useState(movies);
 
   useEffect(() => {
@@ -29,8 +27,10 @@ export default function MovieFormEdit({
   const editMovie = async () => {
     try {
       const response = await adminEdit(formValues);
-      if (response) {
-        console.info(response);
+      if (response.success) {
+        notifySuccess();
+      } else if (!response.success) {
+        notifyError();
       }
     } catch (err) {
       console.error(err);
@@ -41,12 +41,7 @@ export default function MovieFormEdit({
     <section className="form-upload-edit">
       <div className="form-group-upload, hidden-form">
         <label htmlFor="id">ID</label>
-        <input
-          type="number"
-          id="id"
-          name="id"
-          value={parseInt(formValues.id, 10)}
-        />
+        <input type="number" id="id" name="id" defaultValue={formValues.id} />
       </div>
       <div className="form-group-upload">
         <label htmlFor="title">Titre</label>
@@ -136,12 +131,6 @@ export default function MovieFormEdit({
           Fermer
         </button>
       </div>
-      {validateAction?.success === true && (
-        <p style={{ color: "green" }}>{validateAction.message}</p>
-      )}
-      {validateAction?.success === false && (
-        <p style={{ color: "red" }}>{validateAction.message}</p>
-      )}
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import { redirect } from "react-router-dom";
 import myAxios from "./myAxios";
+import { notifySuccess, notifyError } from "./utils";
 
 export async function signUpUserAction({ request }) {
   try {
@@ -14,8 +15,11 @@ export async function signUpUserAction({ request }) {
     const response = await myAxios.post("api/sign", user);
 
     if (response.status === 201) {
-      return redirect("/login");
+      notifySuccess();
+    } else {
+      notifyError();
     }
+    return response;
   } catch (error) {
     console.error("Erreur durant l'enregistrement:", error);
   }

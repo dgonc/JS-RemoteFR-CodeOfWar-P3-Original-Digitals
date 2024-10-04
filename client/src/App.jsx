@@ -1,7 +1,8 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import { ToastContainer } from "react-toastify";
 import NavBar from "./components/NavBar";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import "./styles/Navbar.css";
@@ -33,6 +34,20 @@ function App() {
 
       <main>
         <Outlet />
+        <ToastContainer
+          position="bottom-center"
+          autoClose={2000}
+          limite={1}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition:Slide
+        />
       </main>
     </>
   );
