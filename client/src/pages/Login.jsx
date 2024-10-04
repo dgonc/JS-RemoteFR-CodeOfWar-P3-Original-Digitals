@@ -2,24 +2,23 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/YouFlim-01.png";
 import { loginUserAction } from "../services/userService";
+import { notifySuccess, notifyError } from "../services/utils";
 import AuthContext from "../contexts/AuthContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
   const { setIsAuthenticated, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(null);
-
     const user = { email, password };
 
     try {
       const response = await loginUserAction(user);
       if (response) {
+        notifySuccess();
         setIsAuthenticated(true);
         setUser({
           id: response.id,
@@ -29,7 +28,7 @@ function Login() {
         navigate("/");
       }
     } catch (err) {
-      setError("Erreur durant la connexion.");
+      notifyError();
     }
   };
 
@@ -63,7 +62,6 @@ function Login() {
               required
             />
           </div>
-          {error && <p className="error-message">{error}</p>}
           <button type="submit">Se connecter</button>
         </section>
       </form>

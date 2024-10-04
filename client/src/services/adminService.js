@@ -8,7 +8,6 @@ export async function adminEdit(movie) {
       message: "Les informations ont été modifié avec succès.",
     };
   } catch (error) {
-    console.error(error);
     return {
       success: false,
       message: "Une erreur est survenue lors de la modification du film.",
@@ -22,7 +21,7 @@ export async function movieUpload(movie) {
       "Content-Type": "multipart/form-data",
     });
 
-    return { success: true, message: "Le film a été ajouté avec succès." };
+    return { success: true };
   } catch (error) {
     console.error(error);
     return {

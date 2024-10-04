@@ -28,7 +28,11 @@ const add = async (req, res, next) => {
 
   try {
     const affectedRows = await tables.user.create(user);
-    res.status(201).json({ affectedRows });
+    if (affectedRows) {
+      res.status(201).json({ affectedRows });
+    } else {
+      res.status(401);
+    }
   } catch (err) {
     next(err);
   }
