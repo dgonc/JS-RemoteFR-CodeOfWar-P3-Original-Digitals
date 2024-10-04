@@ -1,4 +1,4 @@
-import { Slide, toast } from "react-toastify";
+import { toast, Slide } from "react-toastify";
 
 export function formatDate(dateString) {
   const date = new Date(dateString);
