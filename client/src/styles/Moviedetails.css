@@ -1,0 +1,101 @@
+.dialog-details {
+  background-color: rgba(0, 0, 0, 0.795);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  color: var(--background-white);
+  border: none;
+  margin: auto;
+}
+.dialog-details > .section-infos {
+  font-size: 1rem;
+  color: var(--background-white);
+  margin-bottom: 2rem;
+}
+.detail-title {
+  color: var(--third-purple);
+  font-size: 1.3rem;
+}
+
+.dialog-details h2 {
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: var(--third-purple);
+  margin-bottom: 1rem;
+}
+
+.dialog-details > .section-infos > p {
+  margin: 1rem 0;
+}
+
+.dialog-button {
+  background-color: var(--button-light);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  color: var(--background-white);
+  font-size: 1.125rem;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.dialog-button:hover {
+  background-color: var(--third-purple);
+  color: var(--background-white);
+  transform: scale(1.05);
+}
+
+.actor-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.actor-list img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.synopsis-movie {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 1rem 0 0 0;
+}
+
+.watchlist-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  padding: 0.5rem 0.5rem 0 0;
+  border-radius: 50%;
+}
+
+.watchlist-button-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.watchlist-button-text {
+  padding-top: 0.5rem;
+  color: var(--background-white);
+}
+
+.watchlist-button:hover {
+  transform: scale(1.1);
+}
+
+.watchlist-button img {
+  width: 32px;
+  height: 32px;
+}

@@ -1,0 +1,11 @@
+.sign-up-header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.sign-up-text {
+  color: var(--third-purple);
+}
