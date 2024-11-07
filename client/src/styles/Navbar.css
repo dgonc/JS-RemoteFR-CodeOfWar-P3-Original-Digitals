@@ -20,6 +20,16 @@
   margin: auto 1rem;
 }
 
+.button-search {
+  border: none;
+  background: none;
+}
+
+.button-burger {
+  border: none;
+  background: none;
+}
+
 .search-img {
   margin: 0.5rem;
 }
@@ -84,7 +94,7 @@
   color: var(--primary-grey);
 }
 
-.menu-burger-button {
+.menu-burger {
   width: 30px;
   height: 30px;
 }

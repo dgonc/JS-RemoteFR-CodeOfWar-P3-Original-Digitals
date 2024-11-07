@@ -2,4 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  background-color: var(--secondary-blue);
+  margin: 1rem;
+  border-radius: 8px;
+  color: var(--secondary-grey-light);
 }

@@ -39,22 +39,26 @@ function NavBar() {
       ) : (
         <>
           {isAuthenticated ? (
-            <img
-              aria-hidden="true"
+            <button
+              type="button"
+              className="button-search"
               onClick={toggleSearch}
-              className="search-img"
-              src={searchImg}
-              alt="magnifying glass"
-            />
+            >
+              <img
+                className="search-img"
+                src={searchImg}
+                alt="magnifying glass"
+              />
+            </button>
           ) : null}
           <div className={`menu-dropdown ${menuOpen ? "open" : ""}`}>
-            <img
-              aria-hidden="true"
-              className="menu-burger-button"
+            <button
+              type="button"
+              className="button-burger"
               onClick={toggleMenu}
-              src={burger}
-              alt=""
-            />
+            >
+              <img className="menu-burger" src={burger} alt="menu-burger" />
+            </button>
             <div className="links-list">
               <Link to="/" onClick={toggleMenu}>
                 Accueil

@@ -15,7 +15,6 @@ export default function Search({ toggleSearch }) {
       <Link
         className="search-action"
         to={search.length === 0 ? "/movies" : `/movies/search/${search}`}
-        onClick={() => setSearch("")}
       >
         Recherche
       </Link>
