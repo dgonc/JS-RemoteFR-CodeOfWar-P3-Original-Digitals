@@ -21,7 +21,6 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
 import MoviesList from "./pages/MoviesList";
-import MoviesListWithoutCategories from "./pages/MovieListWithoutCategories";
 import MoviesFreeList from "./pages/MoviesFreeList";
 import Login from "./pages/Login";
 import Watchlist from "./pages/Watchlist";
@@ -56,7 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/movies",
-        element: <MoviesListWithoutCategories />,
+        element: <MoviesList />,
         loader: getMovies,
       },
       {
