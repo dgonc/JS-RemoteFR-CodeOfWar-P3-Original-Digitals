@@ -36,10 +36,10 @@ INSERT INTO
         lastname
     )
 VALUES (
-        "amine.ladmine@youflim.com",
+        "admin@youflim.com",
         "$argon2id$v=19$m=19456,t=2,p=1$SkHM/t19uSNr7Gh69SLEdw$ZEPjVV3Uq6XFj+z+2DE5w0ejIwNpZqhwlci9HRAIccY",
-        "Amine",
-        "Ladmine"
+        "Admin",
+        "Admin"
     );
 
 create table movie (

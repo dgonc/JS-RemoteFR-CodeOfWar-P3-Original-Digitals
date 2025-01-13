@@ -79,7 +79,7 @@ FROM
         movie.id,
       ]
     );
-    return result.affectedRows;
+    return result;
   }
 
   async readFreeMovies() {
