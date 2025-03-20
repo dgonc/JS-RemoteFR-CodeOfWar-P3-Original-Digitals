@@ -1,3 +1,19 @@
+// Mock token for tests
+jest.mock("../../app/services/auth", () => ({
+  createToken: jest.fn((req, res, next) => next()),
+  verifyToken: jest.fn((req, res, next) => next()),
+  hashPassword: jest.fn((req, res, next) => next()),
+  isConnected: jest.fn((req, res, next) => next()),
+  deleteToken: jest.fn((req, res, next) => next()),
+}));
+
+// Mock login, verifyEmail and verifyPassword
+jest.mock("../../app/controllers/authActions", () => ({
+  login: jest.fn((req, res, next) => next()),
+  verifyEmail: jest.fn((req, res, next) => next()),
+  verifyPassword: jest.fn((req, res, next) => next()),
+}));
+
 // Import required dependencies
 const { app, request, database } = require("../config");
 
@@ -6,10 +22,6 @@ describe("GET /api/movies", () => {
   it("should fetch movies successfully", async () => {
     // Mock empty rows returned from the database
     const rows = [];
-
-    jest.mock("../../app/services/auth", () => ({
-      verifyToken: jest.fn((req, res, next) => next()),
-    }));
 
     // Mock the implementation of the database query method
     jest.spyOn(database, "query").mockImplementation(() => [rows]);

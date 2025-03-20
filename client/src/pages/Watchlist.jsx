@@ -29,9 +29,9 @@ export default function Watchlist() {
     <div className="carrousel">
       <h2 className="carrousel-category-title">Watchlist</h2>
       <Slider {...settings} className="movie-carrousel">
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} revalidate={revalidate} />
-      ))}
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} revalidate={revalidate} />
+        ))}
       </Slider>
     </div>
   );
